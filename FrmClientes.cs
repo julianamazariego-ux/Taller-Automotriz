@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Taller_Automotriz
+{
+    public partial class FrmClientes : Form
+    {
+        public FrmClientes()
+        {
+            InitializeComponent();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            using (FrmNuevoCliente formulario = new FrmNuevoCliente())
+            {
+                formulario.ShowDialog(this);
+            }
+        }
+    }
+}
+   
