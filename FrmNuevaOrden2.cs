@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Taller_Automotriz
 {
-    public partial class frmNuevaOrden : Form
+    public partial class FrmNuevaOrden2 : Form
     {
-        public frmNuevaOrden()
+        public FrmNuevaOrden2()
         {
             InitializeComponent();
         }
@@ -20,13 +20,9 @@ namespace Taller_Automotriz
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmNuevaOrden2 modalNuevaOrden2 = new FrmNuevaOrden2();
-
-            modalNuevaOrden2.ShowDialog();  
-            
         }
     }
 }
