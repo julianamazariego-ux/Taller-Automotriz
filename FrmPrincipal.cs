@@ -69,6 +69,15 @@ namespace Taller_Automotriz
             }
             // Si hace clic en "No", el "if" se ignora y el programa sigue funcionando normalmente
         }
+
+        private void nuevaOrdenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            frmNuevaOrden modalNuevaOrden = new frmNuevaOrden();
+
+            
+            modalNuevaOrden.ShowDialog();
+        }
     }
 }
 
