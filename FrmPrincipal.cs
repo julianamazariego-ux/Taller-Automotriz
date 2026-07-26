@@ -72,11 +72,16 @@ namespace Taller_Automotriz
 
         private void nuevaOrdenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             frmNuevaOrden modalNuevaOrden = new frmNuevaOrden();
 
-            
+
             modalNuevaOrden.ShowDialog();
+        }
+
+        private void mecanicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmMecanicos());
         }
     }
 }
