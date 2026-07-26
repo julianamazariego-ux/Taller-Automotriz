@@ -27,7 +27,8 @@ namespace Taller_Automotriz
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmNuevaOrden modalOrden = new frmNuevaOrden();
+            modalOrden.ShowDialog();
         }
 
         private void btnAccesoNuevoRegistro_Click(object sender, EventArgs e)
