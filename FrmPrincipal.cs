@@ -46,6 +46,11 @@ namespace Taller_Automotriz
             formularioHijo.Dock = DockStyle.Fill; // Llena todo el espacio perfectamente
             formularioHijo.Show();
         }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmInicio());
+        }
     }
 }
 
