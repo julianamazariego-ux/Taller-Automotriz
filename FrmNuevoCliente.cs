@@ -19,5 +19,24 @@ namespace Taller_Automotriz
         {
 
         }
+
+        private void txtDUI_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // Mostramos un mensaje de éxito al usuario
+            MessageBox.Show("El cliente ha sido registrado correctamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Cerramos la ventana
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

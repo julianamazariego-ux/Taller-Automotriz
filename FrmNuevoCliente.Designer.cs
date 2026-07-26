@@ -41,121 +41,164 @@
             txtDireccion = new TextBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(211, 24);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(290, 59);
+            lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(294, 30);
+            lblTitulo.Size = new Size(445, 45);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "REGISTRAR NUEVO CLIENTE";
             // 
             // lblNombreC
             // 
             lblNombreC.AutoSize = true;
-            lblNombreC.Location = new Point(36, 87);
+            lblNombreC.ForeColor = Color.White;
+            lblNombreC.Location = new Point(148, 187);
+            lblNombreC.Margin = new Padding(4, 0, 4, 0);
             lblNombreC.Name = "lblNombreC";
-            lblNombreC.Size = new Size(108, 15);
+            lblNombreC.Size = new Size(163, 25);
             lblNombreC.TabIndex = 1;
             lblNombreC.Text = "Nombre completo:";
             // 
             // lblDui
             // 
             lblDui.AutoSize = true;
-            lblDui.Location = new Point(36, 142);
+            lblDui.ForeColor = Color.White;
+            lblDui.Location = new Point(148, 247);
+            lblDui.Margin = new Padding(4, 0, 4, 0);
             lblDui.Name = "lblDui";
-            lblDui.Size = new Size(26, 15);
+            lblDui.Size = new Size(42, 25);
             lblDui.TabIndex = 2;
             lblDui.Text = "DUI";
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(36, 187);
+            lblTelefono.ForeColor = Color.White;
+            lblTelefono.Location = new Point(148, 312);
+            lblTelefono.Margin = new Padding(4, 0, 4, 0);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(53, 15);
+            lblTelefono.Size = new Size(79, 25);
             lblTelefono.TabIndex = 3;
             lblTelefono.Text = "Telefono";
             // 
             // lblCorreoE
             // 
             lblCorreoE.AutoSize = true;
-            lblCorreoE.Location = new Point(36, 228);
+            lblCorreoE.ForeColor = Color.White;
+            lblCorreoE.Location = new Point(148, 376);
+            lblCorreoE.Margin = new Padding(4, 0, 4, 0);
             lblCorreoE.Name = "lblCorreoE";
-            lblCorreoE.Size = new Size(105, 15);
+            lblCorreoE.Size = new Size(157, 25);
             lblCorreoE.TabIndex = 4;
             lblCorreoE.Text = "Correo electronico";
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(36, 288);
+            lblDireccion.ForeColor = Color.White;
+            lblDireccion.Location = new Point(148, 444);
+            lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(57, 15);
+            lblDireccion.Size = new Size(85, 25);
             lblDireccion.TabIndex = 5;
             lblDireccion.Text = "Direccion";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(258, 98);
+            txtNombre.Location = new Point(336, 187);
+            txtNombre.Margin = new Padding(4, 5, 4, 5);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(247, 23);
+            txtNombre.Size = new Size(501, 31);
             txtNombre.TabIndex = 6;
             // 
             // txtDUI
             // 
-            txtDUI.Location = new Point(258, 142);
+            txtDUI.Location = new Point(336, 241);
+            txtDUI.Margin = new Padding(4, 5, 4, 5);
             txtDUI.Name = "txtDUI";
-            txtDUI.Size = new Size(247, 23);
+            txtDUI.Size = new Size(208, 31);
             txtDUI.TabIndex = 7;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(258, 187);
+            txtTelefono.Location = new Point(336, 306);
+            txtTelefono.Margin = new Padding(4, 5, 4, 5);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(247, 23);
+            txtTelefono.Size = new Size(208, 31);
             txtTelefono.TabIndex = 8;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(258, 228);
+            txtCorreo.Location = new Point(336, 370);
+            txtCorreo.Margin = new Padding(4, 5, 4, 5);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(247, 23);
+            txtCorreo.Size = new Size(501, 31);
             txtCorreo.TabIndex = 9;
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(258, 288);
+            txtDireccion.Location = new Point(336, 438);
+            txtDireccion.Margin = new Padding(4, 5, 4, 5);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(247, 23);
+            txtDireccion.Size = new Size(501, 31);
             txtDireccion.TabIndex = 10;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(211, 375);
+            btnGuardar.BackColor = Color.FromArgb(0, 122, 204);
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.Location = new Point(157, 538);
+            btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(107, 38);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(511, 375);
+            btnCancelar.BackColor = Color.FromArgb(62, 62, 66);
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(290, 538);
+            btnCancelar.Margin = new Padding(4, 5, 4, 5);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(107, 38);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
+            pictureBox1.Location = new Point(45, -7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(940, 685);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
             // 
             // FrmNuevoCliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(45, 45, 48);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(997, 668);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(txtDireccion);
@@ -169,11 +212,15 @@
             Controls.Add(lblDui);
             Controls.Add(lblNombreC);
             Controls.Add(lblTitulo);
+            Controls.Add(pictureBox1);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmNuevoCliente";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Registrar Nuevo Cliente";
             Load += FrmNuevoCliente_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,5 +240,6 @@
         private TextBox txtDireccion;
         private Button btnGuardar;
         private Button btnCancelar;
+        private PictureBox pictureBox1;
     }
 }

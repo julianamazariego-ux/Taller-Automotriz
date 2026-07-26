@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace Taller_Automotriz
 {
     public partial class FrmPrincipal : Form
@@ -9,30 +12,41 @@ namespace Taller_Automotriz
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-
+            AbrirFormularioHijo(new FrmInicio());
         }
 
         private void administrarClientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FrmClientes formulario = new FrmClientes();
-
-            formulario.MdiParent = this;
-
-            formulario.Show();
+            AbrirFormularioHijo(new FrmClientes());
         }
 
         private void administrarVehiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmVehiculos formulario = new FrmVehiculos();
+            AbrirFormularioHijo(new FrmVehiculos());
+        }
 
-            formulario.MdiParent = this;
+        // =====================================================================
+        // MÉTODO MÁGICO: Cierra la ventana anterior antes de abrir la nueva.
+        // Esto evita que las ventanas se vayan acumulando y desplazando hacia abajo.
+        // =====================================================================
+        private void AbrirFormularioHijo(Form formularioHijo)
+        {
+            // Cierra cualquier formulario que ya esté abierto adentro del contenedor
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
 
-            formulario.Show();
+            // Configura el nuevo formulario
+            formularioHijo.MdiParent = this;
+            formularioHijo.Dock = DockStyle.Fill; // Llena todo el espacio perfectamente
+            formularioHijo.Show();
         }
     }
 }
+
+

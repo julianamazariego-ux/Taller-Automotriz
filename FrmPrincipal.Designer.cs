@@ -32,10 +32,8 @@
             inicioToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             administrarClientesToolStripMenuItem = new ToolStripMenuItem();
-            buscarClienteToolStripMenuItem = new ToolStripMenuItem();
             vehiculosToolStripMenuItem = new ToolStripMenuItem();
             administrarVehiculosToolStripMenuItem = new ToolStripMenuItem();
-            buscarVehiculoToolStripMenuItem = new ToolStripMenuItem();
             mecanicosToolStripMenuItem = new ToolStripMenuItem();
             ordenesDeTrabajoToolStripMenuItem = new ToolStripMenuItem();
             nuevaOrdenToolStripMenuItem = new ToolStripMenuItem();
@@ -50,11 +48,13 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, clientesToolStripMenuItem, vehiculosToolStripMenuItem, mecanicosToolStripMenuItem, ordenesDeTrabajoToolStripMenuItem, serviciosToolStripMenuItem, toolStripMenuItem1, repuestosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(9, 3, 0, 3);
             menuStrip1.RenderMode = ToolStripRenderMode.System;
-            menuStrip1.Size = new Size(595, 24);
+            menuStrip1.Size = new Size(1276, 35);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -62,111 +62,100 @@
             // inicioToolStripMenuItem
             // 
             inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            inicioToolStripMenuItem.Size = new Size(48, 20);
+            inicioToolStripMenuItem.Size = new Size(70, 29);
             inicioToolStripMenuItem.Text = "Inicio";
             // 
             // clientesToolStripMenuItem
             // 
-            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarClientesToolStripMenuItem, buscarClienteToolStripMenuItem });
+            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarClientesToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(61, 20);
+            clientesToolStripMenuItem.Size = new Size(89, 29);
             clientesToolStripMenuItem.Text = "Clientes";
             // 
             // administrarClientesToolStripMenuItem
             // 
             administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
-            administrarClientesToolStripMenuItem.Size = new Size(181, 22);
+            administrarClientesToolStripMenuItem.Size = new Size(272, 34);
             administrarClientesToolStripMenuItem.Text = "Administrar Clientes";
             administrarClientesToolStripMenuItem.Click += administrarClientesToolStripMenuItem_Click_1;
             // 
-            // buscarClienteToolStripMenuItem
-            // 
-            buscarClienteToolStripMenuItem.Name = "buscarClienteToolStripMenuItem";
-            buscarClienteToolStripMenuItem.Size = new Size(181, 22);
-            buscarClienteToolStripMenuItem.Text = "Buscar cliente";
-            // 
             // vehiculosToolStripMenuItem
             // 
-            vehiculosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarVehiculosToolStripMenuItem, buscarVehiculoToolStripMenuItem });
+            vehiculosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarVehiculosToolStripMenuItem });
             vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
-            vehiculosToolStripMenuItem.Size = new Size(69, 20);
+            vehiculosToolStripMenuItem.Size = new Size(102, 29);
             vehiculosToolStripMenuItem.Text = "Vehiculos";
             // 
             // administrarVehiculosToolStripMenuItem
             // 
             administrarVehiculosToolStripMenuItem.Name = "administrarVehiculosToolStripMenuItem";
-            administrarVehiculosToolStripMenuItem.Size = new Size(189, 22);
+            administrarVehiculosToolStripMenuItem.Size = new Size(284, 34);
             administrarVehiculosToolStripMenuItem.Text = "Administrar vehiculos";
             administrarVehiculosToolStripMenuItem.Click += administrarVehiculosToolStripMenuItem_Click;
-            // 
-            // buscarVehiculoToolStripMenuItem
-            // 
-            buscarVehiculoToolStripMenuItem.Name = "buscarVehiculoToolStripMenuItem";
-            buscarVehiculoToolStripMenuItem.Size = new Size(189, 22);
-            buscarVehiculoToolStripMenuItem.Text = "Buscar vehiculo";
             // 
             // mecanicosToolStripMenuItem
             // 
             mecanicosToolStripMenuItem.Name = "mecanicosToolStripMenuItem";
-            mecanicosToolStripMenuItem.Size = new Size(76, 20);
+            mecanicosToolStripMenuItem.Size = new Size(111, 29);
             mecanicosToolStripMenuItem.Text = "Mecanicos";
             // 
             // ordenesDeTrabajoToolStripMenuItem
             // 
             ordenesDeTrabajoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaOrdenToolStripMenuItem, ordenesAbiertasToolStripMenuItem, historialDeOrdenesToolStripMenuItem });
             ordenesDeTrabajoToolStripMenuItem.Name = "ordenesDeTrabajoToolStripMenuItem";
-            ordenesDeTrabajoToolStripMenuItem.Size = new Size(119, 20);
+            ordenesDeTrabajoToolStripMenuItem.Size = new Size(181, 29);
             ordenesDeTrabajoToolStripMenuItem.Text = "Ordenes de trabajo";
             // 
             // nuevaOrdenToolStripMenuItem
             // 
             nuevaOrdenToolStripMenuItem.Name = "nuevaOrdenToolStripMenuItem";
-            nuevaOrdenToolStripMenuItem.Size = new Size(179, 22);
+            nuevaOrdenToolStripMenuItem.Size = new Size(273, 34);
             nuevaOrdenToolStripMenuItem.Text = "Nueva orden";
             // 
             // ordenesAbiertasToolStripMenuItem
             // 
             ordenesAbiertasToolStripMenuItem.Name = "ordenesAbiertasToolStripMenuItem";
-            ordenesAbiertasToolStripMenuItem.Size = new Size(179, 22);
+            ordenesAbiertasToolStripMenuItem.Size = new Size(273, 34);
             ordenesAbiertasToolStripMenuItem.Text = "Ordenes abiertas";
             // 
             // historialDeOrdenesToolStripMenuItem
             // 
             historialDeOrdenesToolStripMenuItem.Name = "historialDeOrdenesToolStripMenuItem";
-            historialDeOrdenesToolStripMenuItem.Size = new Size(179, 22);
+            historialDeOrdenesToolStripMenuItem.Size = new Size(273, 34);
             historialDeOrdenesToolStripMenuItem.Text = "Historial de ordenes";
             // 
             // serviciosToolStripMenuItem
             // 
             serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            serviciosToolStripMenuItem.Size = new Size(65, 20);
+            serviciosToolStripMenuItem.Size = new Size(97, 29);
             serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(12, 20);
+            toolStripMenuItem1.Size = new Size(16, 29);
             // 
             // repuestosToolStripMenuItem
             // 
             repuestosToolStripMenuItem.Name = "repuestosToolStripMenuItem";
-            repuestosToolStripMenuItem.Size = new Size(73, 20);
+            repuestosToolStripMenuItem.Size = new Size(110, 29);
             repuestosToolStripMenuItem.Text = "Repuestos";
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(41, 20);
+            salirToolStripMenuItem.Size = new Size(61, 29);
             salirToolStripMenuItem.Text = "Salir";
             // 
             // FrmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(595, 309);
+            ClientSize = new Size(1276, 687);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmPrincipal";
             Text = "Sistema de Órdenes de Trabajo - Taller Automotriz";
             Load += FrmPrincipal_Load;
@@ -188,9 +177,7 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem repuestosToolStripMenuItem;
         private ToolStripMenuItem administrarClientesToolStripMenuItem;
-        private ToolStripMenuItem buscarClienteToolStripMenuItem;
         private ToolStripMenuItem administrarVehiculosToolStripMenuItem;
-        private ToolStripMenuItem buscarVehiculoToolStripMenuItem;
         private ToolStripMenuItem nuevaOrdenToolStripMenuItem;
         private ToolStripMenuItem ordenesAbiertasToolStripMenuItem;
         private ToolStripMenuItem historialDeOrdenesToolStripMenuItem;
