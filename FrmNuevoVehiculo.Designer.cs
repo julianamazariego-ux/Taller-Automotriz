@@ -67,6 +67,7 @@
             lblPlaca.Size = new Size(56, 25);
             lblPlaca.TabIndex = 1;
             lblPlaca.Text = "Placa:";
+            lblPlaca.Click += lblPlaca_Click;
             // 
             // lblMarca
             // 

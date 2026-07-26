@@ -33,5 +33,10 @@ namespace Taller_Automotriz
             // Esto cierra la ventana después de mostrar el mensaje
             this.Close();
         }
+
+        private void lblPlaca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

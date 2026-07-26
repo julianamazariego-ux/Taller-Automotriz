@@ -14,5 +14,10 @@ namespace Taller_Automotriz
         {
             InitializeComponent();
         }
+
+        private void FrmRepuestos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

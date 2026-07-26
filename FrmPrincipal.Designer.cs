@@ -147,6 +147,7 @@
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(61, 29);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 

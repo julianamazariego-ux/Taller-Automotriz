@@ -51,6 +51,24 @@ namespace Taller_Automotriz
         {
             AbrirFormularioHijo(new FrmInicio());
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Muestra un cuadro de diálogo con botones "Sí" y "No"
+            DialogResult respuesta = MessageBox.Show(
+                "¿Está seguro que desea salir del sistema?", // El mensaje principal
+                "Confirmar Salida",                          // El título de la ventanita
+                MessageBoxButtons.YesNo,                     // Qué botones mostrar
+                MessageBoxIcon.Question                      // El ícono de interrogación
+            );
+
+            // Si el usuario hace clic en "Sí"
+            if (respuesta == DialogResult.Yes)
+            {
+                Application.Exit(); // Cierra todo el programa por completo
+            }
+            // Si hace clic en "No", el "if" se ignora y el programa sigue funcionando normalmente
+        }
     }
 }
 
