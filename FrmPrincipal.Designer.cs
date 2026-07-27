@@ -43,6 +43,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             repuestosToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            verRepuestosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -140,6 +141,7 @@
             // 
             // repuestosToolStripMenuItem
             // 
+            repuestosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verRepuestosToolStripMenuItem });
             repuestosToolStripMenuItem.Name = "repuestosToolStripMenuItem";
             repuestosToolStripMenuItem.Size = new Size(110, 29);
             repuestosToolStripMenuItem.Text = "Repuestos";
@@ -150,6 +152,12 @@
             salirToolStripMenuItem.Size = new Size(61, 29);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
+            // verRepuestosToolStripMenuItem
+            // 
+            verRepuestosToolStripMenuItem.Name = "verRepuestosToolStripMenuItem";
+            verRepuestosToolStripMenuItem.Size = new Size(302, 34);
+            verRepuestosToolStripMenuItem.Text = "Ver repuestos y precios.";
             // 
             // FrmPrincipal
             // 
@@ -186,5 +194,6 @@
         private ToolStripMenuItem ordenesAbiertasToolStripMenuItem;
         private ToolStripMenuItem historialDeOrdenesToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem verRepuestosToolStripMenuItem;
     }
 }
