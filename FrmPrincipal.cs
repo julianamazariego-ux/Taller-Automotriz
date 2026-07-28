@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Forms;
-
+using Taller_Automotriz;
 namespace Taller_Automotriz
 {
     public partial class FrmPrincipal : Form
@@ -8,6 +8,7 @@ namespace Taller_Automotriz
         public FrmPrincipal()
         {
             InitializeComponent();
+            this.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -91,8 +92,10 @@ namespace Taller_Automotriz
 
         private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmServicios());
-
+            FrmServicios formulario = new FrmServicios();
+            formulario.MdiParent = this; // Lo vinculas al padre
+            formulario.WindowState = FormWindowState.Maximized; // ¡Esto lo obligará a estirarse!
+            formulario.Show();
         }
     }
 }

@@ -35,109 +35,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewRepuestos = new System.Windows.Forms.ListView();
-            this.columnHeaderNombre = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderPrecio = new System.Windows.Forms.ColumnHeader();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.labelTitle = new System.Windows.Forms.Label();
+            listViewRepuestos = new ListView();
+            columnHeaderNombre = new ColumnHeader();
+            columnHeaderPrecio = new ColumnHeader();
+            btnAgregar = new Button();
+            btnEditar = new Button();
+            btnEliminar = new Button();
+            labelTitle = new Label();
             SuspendLayout();
             // 
             // listViewRepuestos
             // 
-            this.listViewRepuestos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewRepuestos.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.listViewRepuestos.ForeColor = System.Drawing.Color.White;
-            this.listViewRepuestos.FullRowSelect = true;
-            this.listViewRepuestos.GridLines = false;
-            this.listViewRepuestos.HideSelection = false;
-            this.listViewRepuestos.Location = new System.Drawing.Point(20, 60);
-            this.listViewRepuestos.Name = "listViewRepuestos";
-            this.listViewRepuestos.Size = new System.Drawing.Size(760, 320);
-            this.listViewRepuestos.TabIndex = 0;
-            this.listViewRepuestos.UseCompatibleStateImageBehavior = false;
-            this.listViewRepuestos.View = System.Windows.Forms.View.Details;
-            this.listViewRepuestos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderNombre,
-            this.columnHeaderPrecio});
+            listViewRepuestos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listViewRepuestos.BackColor = Color.FromArgb(30, 30, 30);
+            listViewRepuestos.Columns.AddRange(new ColumnHeader[] { columnHeaderNombre, columnHeaderPrecio });
+            listViewRepuestos.ForeColor = Color.White;
+            listViewRepuestos.FullRowSelect = true;
+            listViewRepuestos.Location = new Point(20, 60);
+            listViewRepuestos.Name = "listViewRepuestos";
+            listViewRepuestos.Size = new Size(760, 320);
+            listViewRepuestos.TabIndex = 0;
+            listViewRepuestos.UseCompatibleStateImageBehavior = false;
+            listViewRepuestos.View = View.Details;
+            listViewRepuestos.SelectedIndexChanged += listViewRepuestos_SelectedIndexChanged;
             // 
             // columnHeaderNombre
             // 
-            this.columnHeaderNombre.Text = "Nombre";
-            this.columnHeaderNombre.Width = 520;
+            columnHeaderNombre.Text = "Nombre";
+            columnHeaderNombre.Width = 520;
             // 
             // columnHeaderPrecio
             // 
-            this.columnHeaderPrecio.Text = "Precio";
-            this.columnHeaderPrecio.Width = 200;
+            columnHeaderPrecio.Text = "Precio";
+            columnHeaderPrecio.Width = 200;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(0, 122, 204);
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Location = new System.Drawing.Point(120, 390);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(150, 35);
-            this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "+ Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Anchor = AnchorStyles.Bottom;
+            btnAgregar.BackColor = Color.FromArgb(0, 122, 204);
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(120, 390);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(150, 35);
+            btnAgregar.TabIndex = 1;
+            btnAgregar.Text = "+ Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(325, 390);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(150, 35);
-            this.btnEditar.TabIndex = 2;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Anchor = AnchorStyles.Bottom;
+            btnEditar.BackColor = Color.FromArgb(60, 60, 60);
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.ForeColor = Color.White;
+            btnEditar.Location = new Point(325, 390);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(150, 35);
+            btnEditar.TabIndex = 2;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(200, 50, 50);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(530, 390);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 35);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Anchor = AnchorStyles.Bottom;
+            btnEliminar.BackColor = Color.FromArgb(200, 50, 50);
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(530, 390);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(150, 35);
+            btnEliminar.TabIndex = 3;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // labelTitle
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(20, 22);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(140, 25);
-            this.labelTitle.TabIndex = 4;
-            this.labelTitle.Text = "Lista de repuestos";
+            labelTitle.AutoSize = true;
+            labelTitle.ForeColor = Color.White;
+            labelTitle.Location = new Point(20, 22);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(155, 25);
+            labelTitle.TabIndex = 4;
+            labelTitle.Text = "Lista de repuestos";
             // 
             // FrmRepuestos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.listViewRepuestos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmRepuestos";
-            this.Text = "Repuestos";
-            this.Load += new System.EventHandler(this.FrmRepuestos_Load);
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(30, 30, 30);
+            ClientSize = new Size(800, 450);
+            Controls.Add(labelTitle);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnEditar);
+            Controls.Add(btnAgregar);
+            Controls.Add(listViewRepuestos);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FrmRepuestos";
+            Text = "Repuestos";
+            Load += FrmRepuestos_Load;
             ResumeLayout(false);
             PerformLayout();
         }

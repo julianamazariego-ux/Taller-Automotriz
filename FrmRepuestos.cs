@@ -73,10 +73,10 @@ namespace Taller_Automotriz
 
         private void FrmRepuestos_Load(object sender, EventArgs e)
         {
-            
+
             CargarRepuestos();
 
-            
+
             if (repuestos.Count == 0 || repuestos.Count == 3)
             {
                 repuestos.Clear();
@@ -188,6 +188,11 @@ namespace Taller_Automotriz
         private void FrmRepuestos_FormClosing(object? sender, FormClosingEventArgs e)
         {
             GuardarRepuestos();
+        }
+
+        private void listViewRepuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

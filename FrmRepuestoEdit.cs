@@ -28,53 +28,66 @@ namespace Taller_Automotriz
 
         private void InitializeComponent()
         {
-            this.txtNombre = new TextBox();
-            this.numPrecio = new NumericUpDown();
-            this.btnOk = new Button();
-            this.btnCancel = new Button();
-            this.SuspendLayout();
+            txtNombre = new TextBox();
+            numPrecio = new NumericUpDown();
+            btnOk = new Button();
+            btnCancel = new Button();
+            ((System.ComponentModel.ISupportInitialize)numPrecio).BeginInit();
+            SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new Point(20, 20);
-            this.txtNombre.Size = new Size(300, 30);
-            this.txtNombre.PlaceholderText = "Nombre del repuesto";
+            txtNombre.Location = new Point(20, 20);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Nombre del repuesto";
+            txtNombre.Size = new Size(300, 31);
+            txtNombre.TabIndex = 0;
             // 
             // numPrecio
             // 
-            this.numPrecio.Location = new Point(20, 65);
-            this.numPrecio.DecimalPlaces = 2;
-            this.numPrecio.Maximum = 1000000;
-            this.numPrecio.Size = new Size(150, 30);
+            numPrecio.DecimalPlaces = 2;
+            numPrecio.Location = new Point(20, 65);
+            numPrecio.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numPrecio.Name = "numPrecio";
+            numPrecio.Size = new Size(150, 31);
+            numPrecio.TabIndex = 1;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new Point(40, 110);
-            this.btnOk.Size = new Size(100, 30);
-            this.btnOk.Text = "Aceptar";
-            this.btnOk.DialogResult = DialogResult.OK;
-            this.btnOk.Click += BtnOk_Click;
+            btnOk.DialogResult = DialogResult.OK;
+            btnOk.Location = new Point(40, 110);
+            btnOk.Name = "btnOk";
+            btnOk.Size = new Size(100, 30);
+            btnOk.TabIndex = 2;
+            btnOk.Text = "Aceptar";
+            btnOk.Click += BtnOk_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new Point(170, 110);
-            this.btnCancel.Size = new Size(100, 30);
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.Location = new Point(170, 110);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(100, 30);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "Cancelar";
             // 
             // FrmRepuestoEdit
             // 
-            this.ClientSize = new Size(350, 160);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.numPrecio);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnCancel);
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.Text = "Agregar / Editar Repuesto";
-            this.AcceptButton = this.btnOk;
-            this.CancelButton = this.btnCancel;
-            this.ResumeLayout(false);
+            AcceptButton = btnOk;
+            CancelButton = btnCancel;
+            ClientSize = new Size(350, 160);
+            Controls.Add(txtNombre);
+            Controls.Add(numPrecio);
+            Controls.Add(btnOk);
+            Controls.Add(btnCancel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Name = "FrmRepuestoEdit";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Agregar / Editar Repuesto";
+            Load += FrmRepuestoEdit_Load;
+            ((System.ComponentModel.ISupportInitialize)numPrecio).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private void BtnOk_Click(object? sender, EventArgs e)
@@ -89,6 +102,11 @@ namespace Taller_Automotriz
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void FrmRepuestoEdit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

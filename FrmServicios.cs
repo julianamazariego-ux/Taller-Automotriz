@@ -10,6 +10,10 @@ namespace Taller_Automotriz
 {
     public partial class FrmServicios : Form
     {
+        public FrmServicios()
+        {
+            InitializeComponent();
+        }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
@@ -109,7 +113,12 @@ namespace Taller_Automotriz
             // Simular el proceso de envío a la impresora
             MessageBox.Show("Enviando documento a la impresora predeterminada...",
                             "Imprimiendo Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        
-    }
+
+        }
+
+        private void txtTotalP_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

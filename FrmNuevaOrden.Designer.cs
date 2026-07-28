@@ -47,32 +47,32 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(484, 205);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Location = new Point(364, 205);
+            textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(376, 31);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(484, 300);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
+            textBox2.Location = new Point(364, 300);
+            textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(376, 31);
             textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(484, 396);
-            textBox3.Margin = new Padding(4, 4, 4, 4);
+            textBox3.Location = new Point(364, 393);
+            textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(376, 31);
             textBox3.TabIndex = 2;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(484, 502);
-            textBox4.Margin = new Padding(4, 4, 4, 4);
+            textBox4.Location = new Point(364, 502);
+            textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(376, 31);
             textBox4.TabIndex = 3;
@@ -82,7 +82,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(158, 210);
+            label1.Location = new Point(79, 208);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(178, 28);
@@ -95,7 +95,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(158, 305);
+            label2.Location = new Point(79, 303);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(194, 28);
@@ -107,7 +107,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(158, 401);
+            label3.Location = new Point(79, 396);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(178, 28);
@@ -119,7 +119,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10F);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(158, 502);
+            label4.Location = new Point(79, 502);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(235, 28);
@@ -137,7 +137,7 @@
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(340, 81);
+            lblTitulo.Location = new Point(243, 73);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(407, 45);
@@ -152,7 +152,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(412, 614);
+            btnGuardar.Location = new Point(79, 614);
             btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(158, 38);
@@ -169,10 +169,10 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(695, 614);
+            btnCancelar.Location = new Point(264, 614);
             btnCancelar.Margin = new Padding(4, 5, 4, 5);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(108, 38);
+            btnCancelar.Size = new Size(156, 38);
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -181,8 +181,8 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(181, 24);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Location = new Point(61, 24);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(780, 702);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -194,7 +194,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
-            ClientSize = new Size(1142, 750);
+            ClientSize = new Size(902, 722);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblTitulo);
@@ -207,7 +207,7 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(pictureBox1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "frmNuevaOrden";
             StartPosition = FormStartPosition.CenterParent;
