@@ -83,6 +83,11 @@ namespace Taller_Automotriz
         {
             AbrirFormularioHijo(new FrmMecanicos());
         }
+
+        private void verRepuestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmRepuestos());
+        }
     }
 }
 

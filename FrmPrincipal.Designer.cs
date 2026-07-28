@@ -158,6 +158,7 @@
             verRepuestosToolStripMenuItem.Name = "verRepuestosToolStripMenuItem";
             verRepuestosToolStripMenuItem.Size = new Size(302, 34);
             verRepuestosToolStripMenuItem.Text = "Ver repuestos y precios.";
+            verRepuestosToolStripMenuItem.Click += verRepuestosToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
