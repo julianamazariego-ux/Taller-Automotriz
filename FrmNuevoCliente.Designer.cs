@@ -154,7 +154,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(0, 122, 204);
+            btnGuardar.BackColor = Color.FromArgb(0, 124, 204);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
@@ -169,7 +169,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.FromArgb(62, 62, 66);
+            btnCancelar.BackColor = Color.FromArgb(192, 57, 43);
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.ForeColor = Color.White;

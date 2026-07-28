@@ -65,6 +65,7 @@ namespace Taller_Automotriz
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
             // Evento vacío (lo dejamos tal cual lo tenías)
+            dataGridView1.Rows.Add(15);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

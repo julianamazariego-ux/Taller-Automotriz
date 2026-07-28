@@ -53,9 +53,10 @@
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(265, 46);
+            lblTitulo.Location = new Point(223, 51);
+            lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(402, 37);
+            lblTitulo.Size = new Size(476, 45);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "REGISTRAR NUEVO VEHÍCULO";
             // 
@@ -63,9 +64,10 @@
             // 
             lblPlaca.AutoSize = true;
             lblPlaca.ForeColor = Color.White;
-            lblPlaca.Location = new Point(146, 119);
+            lblPlaca.Location = new Point(182, 149);
+            lblPlaca.Margin = new Padding(4, 0, 4, 0);
             lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(47, 20);
+            lblPlaca.Size = new Size(56, 25);
             lblPlaca.TabIndex = 1;
             lblPlaca.Text = "Placa:";
             lblPlaca.Click += lblPlaca_Click;
@@ -74,9 +76,10 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.ForeColor = Color.White;
-            lblMarca.Location = new Point(138, 172);
+            lblMarca.Location = new Point(172, 215);
+            lblMarca.Margin = new Padding(4, 0, 4, 0);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(57, 20);
+            lblMarca.Size = new Size(69, 25);
             lblMarca.TabIndex = 2;
             lblMarca.Text = " Marca:";
             // 
@@ -84,9 +87,10 @@
             // 
             lblModelo.AutoSize = true;
             lblModelo.ForeColor = Color.White;
-            lblModelo.Location = new Point(146, 229);
+            lblModelo.Location = new Point(182, 286);
+            lblModelo.Margin = new Padding(4, 0, 4, 0);
             lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(61, 20);
+            lblModelo.Size = new Size(74, 25);
             lblModelo.TabIndex = 3;
             lblModelo.Text = "Modelo";
             // 
@@ -94,9 +98,10 @@
             // 
             lblAño.AutoSize = true;
             lblAño.ForeColor = Color.White;
-            lblAño.Location = new Point(146, 287);
+            lblAño.Location = new Point(182, 359);
+            lblAño.Margin = new Padding(4, 0, 4, 0);
             lblAño.Name = "lblAño";
-            lblAño.Size = new Size(36, 20);
+            lblAño.Size = new Size(45, 25);
             lblAño.TabIndex = 4;
             lblAño.Text = "Año";
             // 
@@ -104,9 +109,10 @@
             // 
             lblColor.AutoSize = true;
             lblColor.ForeColor = Color.White;
-            lblColor.Location = new Point(146, 344);
+            lblColor.Location = new Point(182, 430);
+            lblColor.Margin = new Padding(4, 0, 4, 0);
             lblColor.Name = "lblColor";
-            lblColor.Size = new Size(45, 20);
+            lblColor.Size = new Size(55, 25);
             lblColor.TabIndex = 5;
             lblColor.Text = "Color";
             // 
@@ -115,10 +121,10 @@
             txtPlaca.BackColor = Color.White;
             txtPlaca.BorderStyle = BorderStyle.FixedSingle;
             txtPlaca.ForeColor = Color.Black;
-            txtPlaca.Location = new Point(312, 112);
-            txtPlaca.Margin = new Padding(3, 4, 3, 4);
+            txtPlaca.Location = new Point(390, 140);
+            txtPlaca.Margin = new Padding(4, 5, 4, 5);
             txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(272, 27);
+            txtPlaca.Size = new Size(340, 31);
             txtPlaca.TabIndex = 6;
             // 
             // txtMarca
@@ -126,10 +132,10 @@
             txtMarca.BackColor = Color.White;
             txtMarca.BorderStyle = BorderStyle.FixedSingle;
             txtMarca.ForeColor = Color.Black;
-            txtMarca.Location = new Point(312, 166);
-            txtMarca.Margin = new Padding(3, 4, 3, 4);
+            txtMarca.Location = new Point(390, 208);
+            txtMarca.Margin = new Padding(4, 5, 4, 5);
             txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(272, 27);
+            txtMarca.Size = new Size(340, 31);
             txtMarca.TabIndex = 7;
             // 
             // txtModelo
@@ -137,10 +143,10 @@
             txtModelo.BackColor = Color.White;
             txtModelo.BorderStyle = BorderStyle.FixedSingle;
             txtModelo.ForeColor = Color.Black;
-            txtModelo.Location = new Point(312, 222);
-            txtModelo.Margin = new Padding(3, 4, 3, 4);
+            txtModelo.Location = new Point(390, 278);
+            txtModelo.Margin = new Padding(4, 5, 4, 5);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(272, 27);
+            txtModelo.Size = new Size(340, 31);
             txtModelo.TabIndex = 8;
             // 
             // txtAño
@@ -148,10 +154,10 @@
             txtAño.BackColor = Color.White;
             txtAño.BorderStyle = BorderStyle.FixedSingle;
             txtAño.ForeColor = Color.Black;
-            txtAño.Location = new Point(312, 280);
-            txtAño.Margin = new Padding(3, 4, 3, 4);
+            txtAño.Location = new Point(390, 350);
+            txtAño.Margin = new Padding(4, 5, 4, 5);
             txtAño.Name = "txtAño";
-            txtAño.Size = new Size(272, 27);
+            txtAño.Size = new Size(340, 31);
             txtAño.TabIndex = 9;
             // 
             // txtColor
@@ -159,10 +165,10 @@
             txtColor.BackColor = Color.White;
             txtColor.BorderStyle = BorderStyle.FixedSingle;
             txtColor.ForeColor = Color.Black;
-            txtColor.Location = new Point(312, 337);
-            txtColor.Margin = new Padding(3, 4, 3, 4);
+            txtColor.Location = new Point(390, 421);
+            txtColor.Margin = new Padding(4, 5, 4, 5);
             txtColor.Name = "txtColor";
-            txtColor.Size = new Size(272, 27);
+            txtColor.Size = new Size(340, 31);
             txtColor.TabIndex = 10;
             // 
             // cmbCliente
@@ -170,19 +176,20 @@
             cmbCliente.BackColor = Color.White;
             cmbCliente.ForeColor = Color.Black;
             cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(312, 394);
-            cmbCliente.Margin = new Padding(3, 4, 3, 4);
+            cmbCliente.Location = new Point(390, 492);
+            cmbCliente.Margin = new Padding(4, 5, 4, 5);
             cmbCliente.Name = "cmbCliente";
-            cmbCliente.Size = new Size(272, 28);
+            cmbCliente.Size = new Size(339, 33);
             cmbCliente.TabIndex = 11;
             // 
             // lblClienteP
             // 
             lblClienteP.AutoSize = true;
             lblClienteP.ForeColor = Color.White;
-            lblClienteP.Location = new Point(138, 403);
+            lblClienteP.Location = new Point(172, 504);
+            lblClienteP.Margin = new Padding(4, 0, 4, 0);
             lblClienteP.Name = "lblClienteP";
-            lblClienteP.Size = new Size(141, 20);
+            lblClienteP.Size = new Size(167, 25);
             lblClienteP.TabIndex = 12;
             lblClienteP.Text = " Cliente propietario:";
             // 
@@ -194,10 +201,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(344, 457);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
+            btnGuardar.Location = new Point(182, 588);
+            btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(86, 30);
+            btnGuardar.Size = new Size(108, 38);
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -205,16 +212,16 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.FromArgb(62, 62, 66);
+            btnCancelar.BackColor = Color.FromArgb(192, 57, 43);
             btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(659, 457);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Location = new Point(331, 588);
+            btnCancelar.Margin = new Padding(4, 5, 4, 5);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(86, 30);
+            btnCancelar.Size = new Size(108, 38);
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -224,19 +231,20 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(166, -11);
+            pictureBox1.Location = new Point(80, -14);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(624, 562);
+            pictureBox1.Size = new Size(780, 702);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
             // FrmNuevoVehiculo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(887, 731);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblClienteP);
@@ -254,7 +262,7 @@
             Controls.Add(lblTitulo);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmNuevoVehiculo";

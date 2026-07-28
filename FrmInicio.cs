@@ -44,9 +44,17 @@ namespace Taller_Automotriz
         private void button2_Click(object sender, EventArgs e)
         
   
+        
+            
         {
-           
+            // 1. Preparamos el formulario de facturación
+            FrmFacturacion modalFactura = new FrmFacturacion();
+
+            // 2. Lo abrimos como ventana flotante (Modal) usando ShowDialog()
+            modalFactura.ShowDialog();
         }
+        
+        
         
 
         private void button3_Click(object sender, EventArgs e)

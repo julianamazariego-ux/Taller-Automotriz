@@ -25,7 +25,7 @@ namespace Taller_Automotriz
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -163,7 +163,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.FromArgb(62, 62, 66);
+            btnCancelar.BackColor = Color.FromArgb(192, 57, 43);
             btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
@@ -176,6 +176,7 @@
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // pictureBox1
             // 

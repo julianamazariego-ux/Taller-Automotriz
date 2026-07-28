@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             textBox1 = new TextBox();
@@ -37,6 +37,11 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -73,30 +78,32 @@
             // 
             dataGridView1.BackgroundColor = Color.FromArgb(45, 45, 48);
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(115, 229);
+            dataGridView1.Location = new Point(95, 226);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(889, 267);
+            dataGridView1.Size = new Size(980, 267);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
-            button1.BackColor = Color.Gray;
+            button1.BackColor = Color.FromArgb(192, 57, 43);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(880, 560);
+            button1.Location = new Point(792, 546);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 4;
@@ -105,11 +112,11 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.Gray;
+            button2.BackColor = Color.FromArgb(62, 62, 66);
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = Color.White;
-            button2.Location = new Point(712, 560);
+            button2.Location = new Point(647, 546);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 5;
@@ -118,11 +125,11 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Blue;
+            button3.BackColor = Color.FromArgb(0, 124, 204);
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(115, 560);
+            button3.Location = new Point(124, 546);
             button3.Name = "button3";
             button3.Size = new Size(178, 34);
             button3.TabIndex = 6;
@@ -138,6 +145,40 @@
             button4.Text = "Buscar";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Nombre completo";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.Width = 250;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Especialidad";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.Width = 225;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Telefono";
+            Column4.MinimumWidth = 8;
+            Column4.Name = "Column4";
+            Column4.Width = 200;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Estado";
+            Column5.MinimumWidth = 8;
+            Column5.Name = "Column5";
+            Column5.Width = 200;
             // 
             // FrmMecanicos
             // 
@@ -156,6 +197,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMecanicos";
             Text = "FrmMecanicos";
+            Load += FrmMecanicos_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -171,5 +213,10 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
     }
 }
