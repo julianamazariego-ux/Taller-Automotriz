@@ -42,8 +42,8 @@
             serviciosToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             repuestosToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem = new ToolStripMenuItem();
             verRepuestosToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,9 +53,9 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, clientesToolStripMenuItem, vehiculosToolStripMenuItem, mecanicosToolStripMenuItem, ordenesDeTrabajoToolStripMenuItem, serviciosToolStripMenuItem, toolStripMenuItem1, repuestosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(9, 2, 0, 2);
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
             menuStrip1.RenderMode = ToolStripRenderMode.System;
-            menuStrip1.Size = new Size(1276, 33);
+            menuStrip1.Size = new Size(1021, 28);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -63,7 +63,7 @@
             // inicioToolStripMenuItem
             // 
             inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            inicioToolStripMenuItem.Size = new Size(70, 29);
+            inicioToolStripMenuItem.Size = new Size(59, 24);
             inicioToolStripMenuItem.Text = "Inicio";
             inicioToolStripMenuItem.Click += inicioToolStripMenuItem_Click;
             // 
@@ -71,13 +71,13 @@
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarClientesToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(89, 29);
+            clientesToolStripMenuItem.Size = new Size(75, 24);
             clientesToolStripMenuItem.Text = "Clientes";
             // 
             // administrarClientesToolStripMenuItem
             // 
             administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
-            administrarClientesToolStripMenuItem.Size = new Size(272, 34);
+            administrarClientesToolStripMenuItem.Size = new Size(225, 26);
             administrarClientesToolStripMenuItem.Text = "Administrar Clientes";
             administrarClientesToolStripMenuItem.Click += administrarClientesToolStripMenuItem_Click_1;
             // 
@@ -85,20 +85,20 @@
             // 
             vehiculosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarVehiculosToolStripMenuItem });
             vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
-            vehiculosToolStripMenuItem.Size = new Size(102, 29);
+            vehiculosToolStripMenuItem.Size = new Size(85, 24);
             vehiculosToolStripMenuItem.Text = "Vehiculos";
             // 
             // administrarVehiculosToolStripMenuItem
             // 
             administrarVehiculosToolStripMenuItem.Name = "administrarVehiculosToolStripMenuItem";
-            administrarVehiculosToolStripMenuItem.Size = new Size(284, 34);
+            administrarVehiculosToolStripMenuItem.Size = new Size(234, 26);
             administrarVehiculosToolStripMenuItem.Text = "Administrar vehiculos";
             administrarVehiculosToolStripMenuItem.Click += administrarVehiculosToolStripMenuItem_Click;
             // 
             // mecanicosToolStripMenuItem
             // 
             mecanicosToolStripMenuItem.Name = "mecanicosToolStripMenuItem";
-            mecanicosToolStripMenuItem.Size = new Size(111, 29);
+            mecanicosToolStripMenuItem.Size = new Size(93, 24);
             mecanicosToolStripMenuItem.Text = "Mecanicos";
             mecanicosToolStripMenuItem.Click += mecanicosToolStripMenuItem_Click;
             // 
@@ -106,50 +106,57 @@
             // 
             ordenesDeTrabajoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaOrdenToolStripMenuItem, ordenesAbiertasToolStripMenuItem, historialDeOrdenesToolStripMenuItem });
             ordenesDeTrabajoToolStripMenuItem.Name = "ordenesDeTrabajoToolStripMenuItem";
-            ordenesDeTrabajoToolStripMenuItem.Size = new Size(181, 29);
+            ordenesDeTrabajoToolStripMenuItem.Size = new Size(151, 24);
             ordenesDeTrabajoToolStripMenuItem.Text = "Ordenes de trabajo";
             // 
             // nuevaOrdenToolStripMenuItem
             // 
             nuevaOrdenToolStripMenuItem.Name = "nuevaOrdenToolStripMenuItem";
-            nuevaOrdenToolStripMenuItem.Size = new Size(273, 34);
+            nuevaOrdenToolStripMenuItem.Size = new Size(226, 26);
             nuevaOrdenToolStripMenuItem.Text = "Nueva orden";
             nuevaOrdenToolStripMenuItem.Click += nuevaOrdenToolStripMenuItem_Click;
             // 
             // ordenesAbiertasToolStripMenuItem
             // 
             ordenesAbiertasToolStripMenuItem.Name = "ordenesAbiertasToolStripMenuItem";
-            ordenesAbiertasToolStripMenuItem.Size = new Size(273, 34);
+            ordenesAbiertasToolStripMenuItem.Size = new Size(226, 26);
             ordenesAbiertasToolStripMenuItem.Text = "Ordenes abiertas";
             // 
             // historialDeOrdenesToolStripMenuItem
             // 
             historialDeOrdenesToolStripMenuItem.Name = "historialDeOrdenesToolStripMenuItem";
-            historialDeOrdenesToolStripMenuItem.Size = new Size(273, 34);
+            historialDeOrdenesToolStripMenuItem.Size = new Size(226, 26);
             historialDeOrdenesToolStripMenuItem.Text = "Historial de ordenes";
             // 
             // serviciosToolStripMenuItem
             // 
             serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            serviciosToolStripMenuItem.Size = new Size(97, 29);
+            serviciosToolStripMenuItem.Size = new Size(81, 24);
             serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(16, 29);
+            toolStripMenuItem1.Size = new Size(14, 24);
             // 
             // repuestosToolStripMenuItem
             // 
             repuestosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verRepuestosToolStripMenuItem });
             repuestosToolStripMenuItem.Name = "repuestosToolStripMenuItem";
-            repuestosToolStripMenuItem.Size = new Size(110, 29);
+            repuestosToolStripMenuItem.Size = new Size(91, 24);
             repuestosToolStripMenuItem.Text = "Repuestos";
+            // 
+            // verRepuestosToolStripMenuItem
+            // 
+            verRepuestosToolStripMenuItem.Name = "verRepuestosToolStripMenuItem";
+            verRepuestosToolStripMenuItem.Size = new Size(247, 26);
+            verRepuestosToolStripMenuItem.Text = "Ver repuestos y precios.";
+            verRepuestosToolStripMenuItem.Click += verRepuestosToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(61, 29);
+            salirToolStripMenuItem.Size = new Size(52, 24);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -162,13 +169,13 @@
             // 
             // FrmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1276, 688);
+            ClientSize = new Size(1021, 550);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmPrincipal";
             Text = "Sistema de Órdenes de Trabajo - Taller Automotriz";
             Load += FrmPrincipal_Load;

@@ -25,6 +25,52 @@ namespace Taller_Automotriz
             FormClosing += FrmRepuestos_FormClosing;
         }
 
+        private void EstilizarFormulario()
+        {
+            // --- Estilo del Formulario ---
+            // Usamos un fondo oscuro más suave (gris carbón)
+            this.BackColor = Color.FromArgb(40, 40, 40);
+            this.Font = new Font("Roboto Light", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = Color.Gainsboro; // Texto claro pero no blanco puro
+
+            // --- Estilo del Label ---
+            labelBuscar.ForeColor = Color.Silver;
+            labelBuscar.Font = new Font("Roboto Medium", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            // --- Estilo del TextBox de búsqueda ---
+            txtBuscar.BackColor = Color.FromArgb(30, 30, 30); // Fondo oscuro
+            txtBuscar.ForeColor = Color.Gainsboro; // Texto claro
+            txtBuscar.BorderStyle = BorderStyle.FixedSingle; // Un borde más sutil
+        }
+
+        private void EstilizarDataGridView()
+        {
+            // --- Configuración Fundamental del DataGridView ---
+            dgvRepuestos.AllowUserToAddRows = false; // Importante para evitar la fila vacía al final
+            dgvRepuestos.RowHeadersVisible = false;  // Oculta el marcador de selección de fila a la izquierda
+            dgvRepuestos.GridColor = Color.FromArgb(50, 50, 50); // Color de las líneas del grid
+            dgvRepuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Las columnas ocupan todo el ancho
+            dgvRepuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Se selecciona toda la fila
+
+            // --- Estilo del Encabezado (Headers) ---
+            DataGridViewCellStyle headerStyle = dgvRepuestos.ColumnHeadersDefaultCellStyle;
+            headerStyle.BackColor = Color.FromArgb(30, 30, 30); // Fondo oscuro
+            headerStyle.ForeColor = Color.Gainsboro; // Texto claro
+            headerStyle.Font = new Font("Roboto Medium", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            headerStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar el texto
+
+            // --- Estilo de las Filas ---
+            DataGridViewCellStyle rowStyle = dgvRepuestos.DefaultCellStyle;
+            rowStyle.BackColor = Color.FromArgb(35, 35, 35); // Fondo oscuro
+            rowStyle.ForeColor = Color.Gainsboro; // Texto claro
+            rowStyle.SelectionBackColor = Color.FromArgb(60, 60, 60); // Fondo al seleccionar
+            rowStyle.SelectionForeColor = Color.White; // Texto al seleccionar
+            dgvRepuestos.RowTemplate.Height = 30; // Filas más altas para menos hacinamiento
+
+            // --- Estilo de las Filas Alternas para legibilidad ---
+            dgvRepuestos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
         private void FrmRepuestos_Load(object sender, EventArgs e)
         {
             

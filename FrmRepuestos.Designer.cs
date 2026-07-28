@@ -143,5 +143,15 @@
         }
 
         #endregion
+
+        private Label labelBuscar;
+        private TextBox txtBuscar;
+        private DataGridView dgvRepuestos;
+        private DataGridViewTextBoxColumn colSeleccion;
+        private DataGridViewTextBoxColumn colArticulo;
+        private DataGridViewTextBoxColumn colCategoria;
+        private DataGridViewTextBoxColumn colPrecio;
+        private PictureBox pictureBox1;
+        private Label lblTitulo;
     }
 }
