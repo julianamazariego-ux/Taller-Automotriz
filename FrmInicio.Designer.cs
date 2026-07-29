@@ -36,7 +36,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(144, -111);
+            pictureBox1.Location = new Point(138, -110);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(842, 675);
@@ -49,7 +49,7 @@
             // 
             btnAccesoNuevoRegistro.Anchor = AnchorStyles.None;
             btnAccesoNuevoRegistro.BackColor = Color.FromArgb(0, 122, 204);
-            btnAccesoNuevoRegistro.Location = new Point(167, 414);
+            btnAccesoNuevoRegistro.Location = new Point(161, 415);
             btnAccesoNuevoRegistro.Margin = new Padding(4, 3, 4, 3);
             btnAccesoNuevoRegistro.Name = "btnAccesoNuevoRegistro";
             btnAccesoNuevoRegistro.Size = new Size(368, 41);
@@ -62,7 +62,7 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.FromArgb(45, 45, 48);
-            button1.Location = new Point(167, 494);
+            button1.Location = new Point(161, 495);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(368, 42);
@@ -75,7 +75,7 @@
             // 
             button2.Anchor = AnchorStyles.None;
             button2.BackColor = Color.FromArgb(45, 45, 48);
-            button2.Location = new Point(574, 494);
+            button2.Location = new Point(593, 494);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(368, 43);
@@ -88,7 +88,7 @@
             // 
             button3.Anchor = AnchorStyles.None;
             button3.BackColor = Color.FromArgb(0, 122, 204);
-            button3.Location = new Point(574, 414);
+            button3.Location = new Point(593, 415);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(368, 41);

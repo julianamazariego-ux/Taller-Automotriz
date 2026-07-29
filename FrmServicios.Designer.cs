@@ -80,7 +80,7 @@
             grpInformacion.Controls.Add(lblPlaca);
             grpInformacion.Controls.Add(lblCliente);
             grpInformacion.ForeColor = Color.White;
-            grpInformacion.Location = new Point(136, 123);
+            grpInformacion.Location = new Point(111, 112);
             grpInformacion.Name = "grpInformacion";
             grpInformacion.Size = new Size(330, 443);
             grpInformacion.TabIndex = 0;
@@ -160,7 +160,7 @@
             groupBox2.Controls.Add(chkFrenos);
             groupBox2.Controls.Add(chkAceite);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(472, 123);
+            groupBox2.Location = new Point(447, 112);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(730, 248);
             groupBox2.TabIndex = 1;
@@ -216,7 +216,7 @@
             groupBox3.Controls.Add(lblIVA);
             groupBox3.Controls.Add(lblSubtotal);
             groupBox3.ForeColor = Color.Transparent;
-            groupBox3.Location = new Point(923, 382);
+            groupBox3.Location = new Point(898, 371);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(279, 184);
             groupBox3.TabIndex = 8;
@@ -286,7 +286,7 @@
             groupBox1.Controls.Add(lblMano);
             groupBox1.Controls.Add(txtManoObra);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(472, 382);
+            groupBox1.Location = new Point(447, 371);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(433, 184);
             groupBox1.TabIndex = 6;
@@ -362,7 +362,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(854, 600);
+            btnLimpiar.Location = new Point(884, 586);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(103, 37);
             btnLimpiar.TabIndex = 3;
@@ -371,7 +371,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(679, 599);
+            btnImprimir.Location = new Point(709, 585);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(114, 37);
             btnImprimir.TabIndex = 4;
@@ -380,7 +380,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(498, 599);
+            btnGenerar.Location = new Point(528, 585);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(114, 38);
             btnGenerar.TabIndex = 5;
@@ -390,7 +390,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(330, 599);
+            btnCalcular.Location = new Point(360, 585);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(107, 38);
             btnCalcular.TabIndex = 6;
@@ -402,9 +402,9 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(434, 12);
+            pictureBox1.Location = new Point(441, 11);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(92, 84);
+            pictureBox1.Size = new Size(73, 74);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
@@ -414,7 +414,7 @@
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(557, 32);
+            lblTitulo.Location = new Point(543, 25);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(331, 45);
