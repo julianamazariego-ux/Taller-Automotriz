@@ -49,7 +49,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(240, 54);
+            lblTitulo.Location = new Point(276, 61);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(445, 45);
@@ -198,7 +198,7 @@
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox2.Location = new Point(107, 43);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(134, 75);
+            pictureBox2.Size = new Size(148, 84);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 14;
             pictureBox2.TabStop = false;

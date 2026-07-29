@@ -27,8 +27,13 @@ namespace Taller_Automotriz
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+
             this.Close();
+        }
+
+        private void FrmNuevaOrden2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -134,12 +134,12 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
-            lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(243, 73);
+            lblTitulo.Location = new Point(286, 81);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(407, 45);
+            lblTitulo.Size = new Size(454, 48);
             lblTitulo.TabIndex = 9;
             lblTitulo.Text = "AGREGAR NUEVA ORDEN";
             // 
@@ -151,7 +151,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(79, 614);
+            btnGuardar.Location = new Point(246, 614);
             btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(158, 38);
@@ -168,7 +168,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(264, 614);
+            btnCancelar.Location = new Point(469, 614);
             btnCancelar.Margin = new Padding(4, 5, 4, 5);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(156, 38);
@@ -193,9 +193,9 @@
             // 
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(159, 61);
+            pictureBox2.Location = new Point(159, 57);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(87, 75);
+            pictureBox2.Size = new Size(98, 86);
             pictureBox2.TabIndex = 17;
             pictureBox2.TabStop = false;
             // 

@@ -40,14 +40,14 @@ namespace Taller_Automotriz
 
                     if (lineas.Length > 0)
                     {
-                      
+
                         string[] encabezados = lineas[0].Split(',');
                         foreach (string encabezado in encabezados)
                         {
                             tabla.Columns.Add(encabezado.Trim());
                         }
 
-                   
+
                         for (int i = 1; i < lineas.Length; i++)
                         {
                             string[] celdas = lineas[i].Split(',');
@@ -55,10 +55,10 @@ namespace Taller_Automotriz
                         }
                     }
 
-                   
+
                     grid.DataSource = tabla;
 
-                 
+
                     ConfigurarGridOrdenes(grid);
                 }
                 else
@@ -103,6 +103,11 @@ namespace Taller_Automotriz
             grid.AllowUserToResizeRows = false;
             grid.ReadOnly = true;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
-    
+
 }

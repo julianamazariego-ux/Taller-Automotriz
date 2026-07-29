@@ -25,10 +25,15 @@ namespace Taller_Automotriz
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            
+            dgvClientes.Rows.Add(15);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

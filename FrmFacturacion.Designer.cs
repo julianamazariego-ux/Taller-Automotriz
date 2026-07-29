@@ -65,7 +65,7 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(-58, 471);
+            pictureBox1.Location = new Point(-61, 426);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(434, 739);
             pictureBox1.TabIndex = 0;
@@ -75,19 +75,19 @@
             // 
             pictureBox2.BackgroundImage = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(22, -128);
+            pictureBox2.Location = new Point(-12, -176);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(432, 572);
+            pictureBox2.Size = new Size(496, 626);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Bernard MT Condensed", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(484, 82);
+            label1.Font = new Font("Britannic Bold", 26F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(433, 72);
             label1.Name = "label1";
-            label1.Size = new Size(402, 63);
+            label1.Size = new Size(464, 58);
             label1.TabIndex = 2;
             label1.Text = "NOTA DE REMISIÓN";
             // 
@@ -131,10 +131,10 @@
             // textBox2
             // 
             textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Location = new Point(49, 280);
+            textBox2.Location = new Point(27, 280);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(381, 46);
+            textBox2.Size = new Size(403, 46);
             textBox2.TabIndex = 5;
             // 
             // textBox3
@@ -159,10 +159,10 @@
             // textBox5
             // 
             textBox5.BorderStyle = BorderStyle.FixedSingle;
-            textBox5.Location = new Point(49, 330);
+            textBox5.Location = new Point(27, 330);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(647, 46);
+            textBox5.Size = new Size(669, 46);
             textBox5.TabIndex = 8;
             // 
             // textBox6
@@ -196,9 +196,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(66, 295);
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label3.Location = new Point(42, 292);
             label3.Name = "label3";
-            label3.Size = new Size(65, 25);
+            label3.Size = new Size(78, 28);
             label3.TabIndex = 12;
             label3.Text = "Cliente";
             label3.Click += label3_Click;
@@ -206,18 +208,22 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(66, 342);
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label4.Location = new Point(42, 339);
             label4.Name = "label4";
-            label4.Size = new Size(74, 25);
+            label4.Size = new Size(84, 28);
             label4.TabIndex = 13;
             label4.Text = "Modelo";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(446, 295);
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label5.Location = new Point(446, 292);
             label5.Name = "label5";
-            label5.Size = new Size(77, 25);
+            label5.Size = new Size(89, 28);
             label5.TabIndex = 14;
             label5.Text = "Numero";
             // 
@@ -237,11 +243,12 @@
             // 
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(326, -128);
+            pictureBox3.Location = new Point(648, -9);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(623, 881);
+            pictureBox3.Size = new Size(360, 527);
             pictureBox3.TabIndex = 16;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click_1;
             // 
             // Column4
             // 
@@ -350,7 +357,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.Gainsboro;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(915, 992);
             Controls.Add(button3);

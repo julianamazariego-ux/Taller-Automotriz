@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             btnNuevo = new Button();
             btnEditar = new Button();
@@ -46,12 +46,12 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(401, 15);
+            lblTitulo.Location = new Point(423, 60);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(347, 45);
+            lblTitulo.Size = new Size(407, 51);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "GESTION DE CLENTES";
             // 
@@ -61,7 +61,7 @@
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
             btnNuevo.ForeColor = Color.White;
-            btnNuevo.Location = new Point(111, 489);
+            btnNuevo.Location = new Point(423, 517);
             btnNuevo.Margin = new Padding(4, 5, 4, 5);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(107, 38);
@@ -76,7 +76,7 @@
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(255, 489);
+            btnEditar.Location = new Point(567, 517);
             btnEditar.Margin = new Padding(4, 5, 4, 5);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(107, 38);
@@ -90,7 +90,7 @@
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(401, 489);
+            btnEliminar.Location = new Point(713, 517);
             btnEliminar.Margin = new Padding(4, 5, 4, 5);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(107, 38);
@@ -104,7 +104,7 @@
             btnBuscar.FlatAppearance.BorderSize = 0;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(800, 168);
+            btnBuscar.Location = new Point(956, 168);
             btnBuscar.Margin = new Padding(4, 5, 4, 5);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(103, 34);
@@ -117,33 +117,33 @@
             // 
             dgvClientes.BackgroundColor = Color.FromArgb(45, 45, 48);
             dgvClientes.BorderStyle = BorderStyle.None;
-            dgvClientes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(0, 122, 204);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Dui, Telefono, Correo, Direccion });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(45, 45, 48);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(62, 62, 66);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(62, 62, 66);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvClientes.EnableHeadersVisualStyles = false;
-            dgvClientes.Location = new Point(111, 247);
+            dgvClientes.Location = new Point(158, 244);
             dgvClientes.Margin = new Padding(4, 5, 4, 5);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowHeadersWidth = 62;
-            dgvClientes.Size = new Size(901, 210);
+            dgvClientes.Size = new Size(940, 232);
             dgvClientes.TabIndex = 5;
+            dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
             // Id
             // 
@@ -191,7 +191,7 @@
             // 
             lblBuscarC.AutoSize = true;
             lblBuscarC.ForeColor = Color.White;
-            lblBuscarC.Location = new Point(111, 171);
+            lblBuscarC.Location = new Point(158, 168);
             lblBuscarC.Margin = new Padding(4, 0, 4, 0);
             lblBuscarC.Name = "lblBuscarC";
             lblBuscarC.Size = new Size(130, 25);
@@ -200,10 +200,10 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(269, 168);
+            txtBuscar.Location = new Point(316, 165);
             txtBuscar.Margin = new Padding(4, 5, 4, 5);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(510, 31);
+            txtBuscar.Size = new Size(621, 31);
             txtBuscar.TabIndex = 7;
             // 
             // FrmClientes
@@ -211,7 +211,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1146, 616);
+            ClientSize = new Size(1184, 593);
             Controls.Add(txtBuscar);
             Controls.Add(lblBuscarC);
             Controls.Add(dgvClientes);

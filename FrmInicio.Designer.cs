@@ -36,10 +36,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(186, -100);
+            pictureBox1.Location = new Point(144, -111);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(749, 567);
+            pictureBox1.Size = new Size(842, 675);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -49,12 +49,12 @@
             // 
             btnAccesoNuevoRegistro.Anchor = AnchorStyles.None;
             btnAccesoNuevoRegistro.BackColor = Color.FromArgb(0, 122, 204);
-            btnAccesoNuevoRegistro.Location = new Point(186, 393);
+            btnAccesoNuevoRegistro.Location = new Point(167, 414);
             btnAccesoNuevoRegistro.Margin = new Padding(4, 3, 4, 3);
             btnAccesoNuevoRegistro.Name = "btnAccesoNuevoRegistro";
             btnAccesoNuevoRegistro.Size = new Size(368, 41);
             btnAccesoNuevoRegistro.TabIndex = 1;
-            btnAccesoNuevoRegistro.Text = "+ Registrar Cliente ";
+            btnAccesoNuevoRegistro.Text = "Nuevo Cliente";
             btnAccesoNuevoRegistro.UseVisualStyleBackColor = false;
             btnAccesoNuevoRegistro.Click += btnAccesoNuevoRegistro_Click;
             // 
@@ -62,12 +62,12 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.FromArgb(45, 45, 48);
-            button1.Location = new Point(186, 473);
+            button1.Location = new Point(167, 494);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(368, 42);
             button1.TabIndex = 2;
-            button1.Text = "Crear Nueva Orden de Trabajo";
+            button1.Text = "Crear Orden de Trabajo";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -75,12 +75,12 @@
             // 
             button2.Anchor = AnchorStyles.None;
             button2.BackColor = Color.FromArgb(45, 45, 48);
-            button2.Location = new Point(593, 473);
+            button2.Location = new Point(574, 494);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(368, 43);
             button2.TabIndex = 3;
-            button2.Text = "Ir a Cobros y Facturación";
+            button2.Text = "Generar Factura";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -88,12 +88,12 @@
             // 
             button3.Anchor = AnchorStyles.None;
             button3.BackColor = Color.FromArgb(0, 122, 204);
-            button3.Location = new Point(593, 393);
+            button3.Location = new Point(574, 414);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(368, 41);
             button3.TabIndex = 4;
-            button3.Text = "+ Registrar Vehículo";
+            button3.Text = "Nuevo Vehículo";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 

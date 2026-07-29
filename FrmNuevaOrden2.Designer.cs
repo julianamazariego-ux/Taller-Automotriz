@@ -46,7 +46,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(131, 413);
+            label3.Location = new Point(81, 361);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(186, 28);
@@ -58,7 +58,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(158, 311);
+            label2.Location = new Point(507, 185);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(52, 28);
@@ -70,7 +70,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(140, 215);
+            label1.Location = new Point(81, 185);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(70, 28);
@@ -80,15 +80,15 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(325, 413);
+            textBox3.Location = new Point(280, 361);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(471, 31);
+            textBox3.Size = new Size(538, 31);
             textBox3.TabIndex = 11;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(238, 308);
+            textBox2.Location = new Point(649, 182);
             textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(169, 31);
@@ -96,10 +96,10 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(238, 215);
+            textBox1.Location = new Point(179, 182);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 31);
+            textBox1.Size = new Size(257, 31);
             textBox1.TabIndex = 9;
             // 
             // label5
@@ -107,7 +107,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(493, 215);
+            label5.Location = new Point(81, 255);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(85, 28);
@@ -116,10 +116,10 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(627, 215);
+            textBox5.Location = new Point(179, 252);
             textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(169, 31);
+            textBox5.Size = new Size(257, 31);
             textBox5.TabIndex = 18;
             // 
             // label6
@@ -127,7 +127,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10F);
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(493, 295);
+            label6.Location = new Point(507, 255);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(116, 28);
@@ -136,7 +136,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(627, 295);
+            textBox6.Location = new Point(649, 252);
             textBox6.Margin = new Padding(4);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(169, 31);
@@ -146,12 +146,12 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
-            lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(268, 87);
+            lblTitulo.Location = new Point(268, 58);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(355, 45);
+            lblTitulo.Size = new Size(393, 48);
             lblTitulo.TabIndex = 21;
             lblTitulo.Text = "DATOS DEL VEHÍCULO";
             // 
@@ -159,10 +159,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(68, 13);
+            pictureBox1.Location = new Point(174, 58);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(780, 702);
+            pictureBox1.Size = new Size(572, 538);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
@@ -175,7 +175,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(140, 518);
+            btnGuardar.Location = new Point(268, 518);
             btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(158, 38);
@@ -192,7 +192,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(335, 518);
+            btnCancelar.Location = new Point(493, 518);
             btnCancelar.Margin = new Padding(4, 5, 4, 5);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(181, 38);
@@ -206,7 +206,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
-            ClientSize = new Size(895, 697);
+            ClientSize = new Size(915, 627);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblTitulo);
@@ -225,6 +225,7 @@
             Name = "FrmNuevaOrden2";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nueva Orden";
+            Load += FrmNuevaOrden2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

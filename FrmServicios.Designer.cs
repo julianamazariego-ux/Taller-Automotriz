@@ -60,6 +60,7 @@
             btnGenerar = new Button();
             btnCalcular = new Button();
             pictureBox1 = new PictureBox();
+            lblTitulo = new Label();
             grpInformacion.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -79,7 +80,7 @@
             grpInformacion.Controls.Add(lblPlaca);
             grpInformacion.Controls.Add(lblCliente);
             grpInformacion.ForeColor = Color.White;
-            grpInformacion.Location = new Point(110, 59);
+            grpInformacion.Location = new Point(136, 123);
             grpInformacion.Name = "grpInformacion";
             grpInformacion.Size = new Size(330, 443);
             grpInformacion.TabIndex = 0;
@@ -105,21 +106,21 @@
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(15, 273);
+            txtModelo.Location = new Point(60, 261);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(212, 33);
             txtModelo.TabIndex = 5;
             // 
             // txtPlaca
             // 
-            txtPlaca.Location = new Point(15, 200);
+            txtPlaca.Location = new Point(60, 188);
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(212, 33);
             txtPlaca.TabIndex = 4;
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(15, 133);
+            txtCliente.Location = new Point(60, 121);
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(212, 33);
             txtCliente.TabIndex = 3;
@@ -127,7 +128,7 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Location = new Point(15, 242);
+            lblModelo.Location = new Point(60, 230);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(165, 28);
             lblModelo.TabIndex = 2;
@@ -136,7 +137,7 @@
             // lblPlaca
             // 
             lblPlaca.AutoSize = true;
-            lblPlaca.Location = new Point(15, 169);
+            lblPlaca.Location = new Point(60, 157);
             lblPlaca.Name = "lblPlaca";
             lblPlaca.Size = new Size(154, 28);
             lblPlaca.TabIndex = 1;
@@ -145,7 +146,7 @@
             // lblCliente
             // 
             lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(15, 102);
+            lblCliente.Location = new Point(60, 90);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(86, 28);
             lblCliente.TabIndex = 0;
@@ -159,7 +160,7 @@
             groupBox2.Controls.Add(chkFrenos);
             groupBox2.Controls.Add(chkAceite);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(446, 59);
+            groupBox2.Location = new Point(472, 123);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(730, 248);
             groupBox2.TabIndex = 1;
@@ -215,7 +216,7 @@
             groupBox3.Controls.Add(lblIVA);
             groupBox3.Controls.Add(lblSubtotal);
             groupBox3.ForeColor = Color.Transparent;
-            groupBox3.Location = new Point(897, 321);
+            groupBox3.Location = new Point(923, 382);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(279, 184);
             groupBox3.TabIndex = 8;
@@ -285,7 +286,7 @@
             groupBox1.Controls.Add(lblMano);
             groupBox1.Controls.Add(txtManoObra);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(446, 318);
+            groupBox1.Location = new Point(472, 382);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(433, 184);
             groupBox1.TabIndex = 6;
@@ -361,7 +362,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(828, 536);
+            btnLimpiar.Location = new Point(854, 600);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(103, 37);
             btnLimpiar.TabIndex = 3;
@@ -370,7 +371,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(653, 535);
+            btnImprimir.Location = new Point(679, 599);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(114, 37);
             btnImprimir.TabIndex = 4;
@@ -379,7 +380,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(472, 535);
+            btnGenerar.Location = new Point(498, 599);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(114, 38);
             btnGenerar.TabIndex = 5;
@@ -389,7 +390,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(304, 535);
+            btnCalcular.Location = new Point(330, 599);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(107, 38);
             btnCalcular.TabIndex = 6;
@@ -401,11 +402,25 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Location = new Point(434, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(92, 84);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
+            lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = SystemColors.ButtonHighlight;
+            lblTitulo.Location = new Point(557, 32);
+            lblTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(331, 45);
+            lblTitulo.TabIndex = 10;
+            lblTitulo.Text = "ORDEN DE SERVICIO";
+            lblTitulo.Click += lblTitulo_Click;
             // 
             // FrmServicios
             // 
@@ -413,7 +428,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1303, 663);
+            ClientSize = new Size(1347, 682);
+            Controls.Add(lblTitulo);
             Controls.Add(pictureBox1);
             Controls.Add(btnLimpiar);
             Controls.Add(btnImprimir);
@@ -441,6 +457,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -480,5 +497,6 @@
         private Button btnCalcular;
         private Label label1;
         private PictureBox pictureBox1;
+        private Label lblTitulo;
     }
 }
