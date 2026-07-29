@@ -18,7 +18,7 @@ namespace Taller_Automotriz
         public FrmRepuestos()
         {
             InitializeComponent();
-            // eventos de botones
+           
             btnAgregar.Click += BtnAgregar_Click;
             btnEditar.Click += BtnEditar_Click;
             btnEliminar.Click += BtnEliminar_Click;
@@ -27,47 +27,46 @@ namespace Taller_Automotriz
 
         private void EstilizarFormulario()
         {
-            // --- Estilo del Formulario ---
-            // Usamos un fondo oscuro más suave (gris carbón)
+            
             this.BackColor = Color.FromArgb(40, 40, 40);
             this.Font = new Font("Roboto Light", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = Color.Gainsboro; // Texto claro pero no blanco puro
+            this.ForeColor = Color.Gainsboro;
 
-            // --- Estilo del Label ---
+           
             labelBuscar.ForeColor = Color.Silver;
             labelBuscar.Font = new Font("Roboto Medium", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
-            // --- Estilo del TextBox de búsqueda ---
-            txtBuscar.BackColor = Color.FromArgb(30, 30, 30); // Fondo oscuro
-            txtBuscar.ForeColor = Color.Gainsboro; // Texto claro
-            txtBuscar.BorderStyle = BorderStyle.FixedSingle; // Un borde más sutil
+           
+            txtBuscar.BackColor = Color.FromArgb(30, 30, 30); 
+            txtBuscar.ForeColor = Color.Gainsboro;
+            txtBuscar.BorderStyle = BorderStyle.FixedSingle; 
         }
 
         private void EstilizarDataGridView()
         {
-            // --- Configuración Fundamental del DataGridView ---
-            dgvRepuestos.AllowUserToAddRows = false; // Importante para evitar la fila vacía al final
-            dgvRepuestos.RowHeadersVisible = false;  // Oculta el marcador de selección de fila a la izquierda
-            dgvRepuestos.GridColor = Color.FromArgb(50, 50, 50); // Color de las líneas del grid
-            dgvRepuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Las columnas ocupan todo el ancho
-            dgvRepuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Se selecciona toda la fila
+           
+            dgvRepuestos.AllowUserToAddRows = false; 
+            dgvRepuestos.RowHeadersVisible = false;  
+            dgvRepuestos.GridColor = Color.FromArgb(50, 50, 50); 
+            dgvRepuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; 
+            dgvRepuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
 
-            // --- Estilo del Encabezado (Headers) ---
+            
             DataGridViewCellStyle headerStyle = dgvRepuestos.ColumnHeadersDefaultCellStyle;
-            headerStyle.BackColor = Color.FromArgb(30, 30, 30); // Fondo oscuro
-            headerStyle.ForeColor = Color.Gainsboro; // Texto claro
+            headerStyle.BackColor = Color.FromArgb(30, 30, 30); 
+            headerStyle.ForeColor = Color.Gainsboro; 
             headerStyle.Font = new Font("Roboto Medium", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            headerStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Centrar el texto
+            headerStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
 
-            // --- Estilo de las Filas ---
+            
             DataGridViewCellStyle rowStyle = dgvRepuestos.DefaultCellStyle;
-            rowStyle.BackColor = Color.FromArgb(35, 35, 35); // Fondo oscuro
-            rowStyle.ForeColor = Color.Gainsboro; // Texto claro
-            rowStyle.SelectionBackColor = Color.FromArgb(60, 60, 60); // Fondo al seleccionar
-            rowStyle.SelectionForeColor = Color.White; // Texto al seleccionar
-            dgvRepuestos.RowTemplate.Height = 30; // Filas más altas para menos hacinamiento
+            rowStyle.BackColor = Color.FromArgb(35, 35, 35); 
+            rowStyle.ForeColor = Color.Gainsboro;
+            rowStyle.SelectionBackColor = Color.FromArgb(60, 60, 60); 
+            rowStyle.SelectionForeColor = Color.White; 
+            dgvRepuestos.RowTemplate.Height = 30; 
 
-            // --- Estilo de las Filas Alternas para legibilidad ---
+           
             dgvRepuestos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40);
         }
 

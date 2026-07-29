@@ -2,14 +2,10 @@
 {
     partial class FrmNuevoCliente
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+       
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -28,6 +24,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoCliente));
             lblTitulo = new Label();
             lblNombreC = new Label();
             lblDui = new Label();
@@ -42,7 +39,9 @@
             btnGuardar = new Button();
             btnCancelar = new Button();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -193,6 +192,17 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(107, 43);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(134, 75);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            // 
             // FrmNuevoCliente
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -200,6 +210,7 @@
             BackColor = Color.FromArgb(45, 45, 48);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(924, 668);
+            Controls.Add(pictureBox2);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(txtDireccion);
@@ -222,6 +233,7 @@
             Text = "Registrar Nuevo Cliente";
             Load += FrmNuevoCliente_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,5 +254,6 @@
         private Button btnGuardar;
         private Button btnCancelar;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

@@ -27,10 +27,10 @@ namespace Taller_Automotriz
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Aquí después iría tu código para guardar en la base de datos
+           
             MessageBox.Show("¡Vehículo guardado correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Esto cierra la ventana después de mostrar el mensaje
+            
             this.Close();
         }
 

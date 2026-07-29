@@ -34,26 +34,20 @@ namespace Taller_Automotriz
             btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)numPrecio).BeginInit();
             SuspendLayout();
-            // 
-            // txtNombre
-            // 
+            
             txtNombre.Location = new Point(20, 20);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Nombre del repuesto";
             txtNombre.Size = new Size(300, 31);
             txtNombre.TabIndex = 0;
-            // 
-            // numPrecio
-            // 
+            
             numPrecio.DecimalPlaces = 2;
             numPrecio.Location = new Point(20, 65);
             numPrecio.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numPrecio.Name = "numPrecio";
             numPrecio.Size = new Size(150, 31);
             numPrecio.TabIndex = 1;
-            // 
-            // btnOk
-            // 
+           
             btnOk.DialogResult = DialogResult.OK;
             btnOk.Location = new Point(40, 110);
             btnOk.Name = "btnOk";
@@ -61,18 +55,14 @@ namespace Taller_Automotriz
             btnOk.TabIndex = 2;
             btnOk.Text = "Aceptar";
             btnOk.Click += BtnOk_Click;
-            // 
-            // btnCancel
-            // 
+            
             btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Location = new Point(170, 110);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(100, 30);
             btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancelar";
-            // 
-            // FrmRepuestoEdit
-            // 
+          
             AcceptButton = btnOk;
             CancelButton = btnCancel;
             ClientSize = new Size(350, 160);

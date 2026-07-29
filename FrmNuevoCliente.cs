@@ -27,10 +27,10 @@ namespace Taller_Automotriz
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Mostramos un mensaje de éxito al usuario
+            
             MessageBox.Show("El cliente ha sido registrado correctamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Cerramos la ventana
+            
             this.Close();
         }
 

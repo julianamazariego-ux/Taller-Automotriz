@@ -27,9 +27,7 @@ namespace Taller_Automotriz
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // (Aquí iría el código para guardar en la base de datos en el futuro)
-
-            // Simplemente cerramos esta ventana
+           
             this.Close();
         }
     }

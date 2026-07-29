@@ -2,14 +2,10 @@
 {
     partial class FrmServicios
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -28,6 +24,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServicios));
             grpInformacion = new GroupBox();
             lblFecha = new Label();
             dtpFecha = new DateTimePicker();
@@ -62,10 +59,12 @@
             btnImprimir = new Button();
             btnGenerar = new Button();
             btnCalcular = new Button();
+            pictureBox1 = new PictureBox();
             grpInformacion.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // grpInformacion
@@ -398,6 +397,16 @@
             btnCalcular.UseVisualStyleBackColor = true;
             btnCalcular.Click += btnCalcular_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(92, 84);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
             // FrmServicios
             // 
             AutoScaleDimensions = new SizeF(13F, 28F);
@@ -405,6 +414,7 @@
             BackColor = Color.FromArgb(30, 30, 30);
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1303, 663);
+            Controls.Add(pictureBox1);
             Controls.Add(btnLimpiar);
             Controls.Add(btnImprimir);
             Controls.Add(btnGenerar);
@@ -429,6 +439,7 @@
             groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -468,5 +479,6 @@
         private Button btnGenerar;
         private Button btnCalcular;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }

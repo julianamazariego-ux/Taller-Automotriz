@@ -30,21 +30,18 @@ namespace Taller_Automotriz
             AbrirFormularioHijo(new FrmVehiculos());
         }
 
-        // =====================================================================
-        // MÉTODO MÁGICO: Cierra la ventana anterior antes de abrir la nueva.
-        // Esto evita que las ventanas se vayan acumulando y desplazando hacia abajo.
-        // =====================================================================
+
         private void AbrirFormularioHijo(Form formularioHijo)
         {
-            // Cierra cualquier formulario que ya esté abierto adentro del contenedor
+
             foreach (Form child in this.MdiChildren)
             {
                 child.Close();
             }
 
-            // Configura el nuevo formulario
+
             formularioHijo.MdiParent = this;
-            formularioHijo.Dock = DockStyle.Fill; // Llena todo el espacio perfectamente
+            formularioHijo.Dock = DockStyle.Fill;
             formularioHijo.Show();
         }
 
@@ -55,20 +52,20 @@ namespace Taller_Automotriz
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Muestra un cuadro de diálogo con botones "Sí" y "No"
+
             DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro que desea salir del sistema?", // El mensaje principal
-                "Confirmar Salida",                          // El título de la ventanita
-                MessageBoxButtons.YesNo,                     // Qué botones mostrar
-                MessageBoxIcon.Question                      // El ícono de interrogación
+                "¿Está seguro que desea salir del sistema?",
+                "Confirmar Salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
             );
 
-            // Si el usuario hace clic en "Sí"
+
             if (respuesta == DialogResult.Yes)
             {
-                Application.Exit(); // Cierra todo el programa por completo
+                Application.Exit();
             }
-            // Si hace clic en "No", el "if" se ignora y el programa sigue funcionando normalmente
+
         }
 
         private void nuevaOrdenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,9 +90,19 @@ namespace Taller_Automotriz
         private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmServicios formulario = new FrmServicios();
-            formulario.MdiParent = this; // Lo vinculas al padre
-            formulario.WindowState = FormWindowState.Maximized; // ¡Esto lo obligará a estirarse!
+            formulario.MdiParent = this;
+            formulario.WindowState = FormWindowState.Maximized;
             formulario.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void repuestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

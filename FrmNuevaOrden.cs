@@ -24,7 +24,7 @@ namespace Taller_Automotriz
         
            
         {
-            // Solo abrimos la segunda ventana por encima de esta
+           
             FrmNuevaOrden2 ventana2 = new FrmNuevaOrden2();
             ventana2.ShowDialog();
         }

@@ -2,9 +2,7 @@
 {
     partial class FrmRepuestos
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+       
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.ListView listViewRepuestos;
         private System.Windows.Forms.ColumnHeader columnHeaderNombre;
@@ -14,9 +12,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label labelTitle;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {

@@ -33,11 +33,10 @@ namespace Taller_Automotriz
 
         private void btnAccesoNuevoRegistro_Click(object sender, EventArgs e)
         {
-            // 1. Instanciamos el formulario que hizo Juliana
+            
             FrmNuevoCliente modalNuevoCliente = new FrmNuevoCliente();
 
-            // 2. Lo abrimos en modo MODAL (ShowDialog en lugar de Show)
-            // Esto congela la pantalla de atrás hasta que se cierre esta ventanita
+           
             modalNuevoCliente.ShowDialog();
         }
 
@@ -47,10 +46,10 @@ namespace Taller_Automotriz
         
             
         {
-            // 1. Preparamos el formulario de facturación
+            
             FrmFacturacion modalFactura = new FrmFacturacion();
 
-            // 2. Lo abrimos como ventana flotante (Modal) usando ShowDialog()
+           
             modalFactura.ShowDialog();
         }
         
@@ -59,10 +58,10 @@ namespace Taller_Automotriz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // 1. Instanciamos el formulario de Vehículo
+            
             FrmNuevoVehiculo modalNuevoVehiculo = new FrmNuevoVehiculo();
 
-            // 2. Lo abrimos en modo MODAL
+            
             modalNuevoVehiculo.ShowDialog();
         }
     }
