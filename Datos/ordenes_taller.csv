@@ -1,0 +1,6 @@
+﻿ID_Orden,Cliente,Vehiculo,Servicio_Requerido,Fecha_Ingreso,Estado
+ORD-101,Ana López,Nissan Sentra 2014,Diagnóstico de motor,2026-07-28,Abierta
+ORD-102,Carlos Ruiz,Ford Ranger 2019,Alineación y balanceo,2026-07-28,Abierta
+ORD-103,Marta Peña,Hyundai Elantra 2017,Cambio de pastillas de freno,2026-07-27,Abierta
+ORD-104,Jorge Martínez,Toyota Hilux 2021,Cambio de aceite y filtros,2026-07-28,Abierta
+ORD-105,Luis Gómez,Honda Civic 2016,Revisión del sistema eléctrico,2026-07-26,Abierta

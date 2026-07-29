@@ -35,7 +35,6 @@
             ordenesDeTrabajoToolStripMenuItem = new ToolStripMenuItem();
             nuevaOrdenToolStripMenuItem = new ToolStripMenuItem();
             ordenesAbiertasToolStripMenuItem = new ToolStripMenuItem();
-            historialDeOrdenesToolStripMenuItem = new ToolStripMenuItem();
             serviciosToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             repuestosToolStripMenuItem = new ToolStripMenuItem();
@@ -51,9 +50,9 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, clientesToolStripMenuItem, vehiculosToolStripMenuItem, mecanicosToolStripMenuItem, ordenesDeTrabajoToolStripMenuItem, serviciosToolStripMenuItem, toolStripMenuItem1, repuestosToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(9, 3, 0, 3);
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
             menuStrip1.RenderMode = ToolStripRenderMode.System;
-            menuStrip1.Size = new Size(1276, 35);
+            menuStrip1.Size = new Size(1021, 32);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -62,7 +61,7 @@
             // 
             inicioToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            inicioToolStripMenuItem.Size = new Size(70, 29);
+            inicioToolStripMenuItem.Size = new Size(59, 28);
             inicioToolStripMenuItem.Text = "Inicio";
             inicioToolStripMenuItem.Click += inicioToolStripMenuItem_Click;
             // 
@@ -72,14 +71,14 @@
             clientesToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             clientesToolStripMenuItem.Image = (Image)resources.GetObject("clientesToolStripMenuItem.Image");
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(113, 29);
+            clientesToolStripMenuItem.Size = new Size(99, 28);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // administrarClientesToolStripMenuItem
             // 
             administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
-            administrarClientesToolStripMenuItem.Size = new Size(272, 34);
+            administrarClientesToolStripMenuItem.Size = new Size(225, 26);
             administrarClientesToolStripMenuItem.Text = "Administrar Clientes";
             administrarClientesToolStripMenuItem.Click += administrarClientesToolStripMenuItem_Click_1;
             // 
@@ -89,13 +88,13 @@
             vehiculosToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             vehiculosToolStripMenuItem.Image = (Image)resources.GetObject("vehiculosToolStripMenuItem.Image");
             vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
-            vehiculosToolStripMenuItem.Size = new Size(126, 29);
+            vehiculosToolStripMenuItem.Size = new Size(109, 28);
             vehiculosToolStripMenuItem.Text = "Vehiculos";
             // 
             // administrarVehiculosToolStripMenuItem
             // 
             administrarVehiculosToolStripMenuItem.Name = "administrarVehiculosToolStripMenuItem";
-            administrarVehiculosToolStripMenuItem.Size = new Size(284, 34);
+            administrarVehiculosToolStripMenuItem.Size = new Size(234, 26);
             administrarVehiculosToolStripMenuItem.Text = "Administrar vehiculos";
             administrarVehiculosToolStripMenuItem.Click += administrarVehiculosToolStripMenuItem_Click;
             // 
@@ -104,51 +103,46 @@
             mecanicosToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             mecanicosToolStripMenuItem.Image = (Image)resources.GetObject("mecanicosToolStripMenuItem.Image");
             mecanicosToolStripMenuItem.Name = "mecanicosToolStripMenuItem";
-            mecanicosToolStripMenuItem.Size = new Size(135, 29);
+            mecanicosToolStripMenuItem.Size = new Size(117, 28);
             mecanicosToolStripMenuItem.Text = "Mecanicos";
             mecanicosToolStripMenuItem.Click += mecanicosToolStripMenuItem_Click;
             // 
             // ordenesDeTrabajoToolStripMenuItem
             // 
-            ordenesDeTrabajoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaOrdenToolStripMenuItem, ordenesAbiertasToolStripMenuItem, historialDeOrdenesToolStripMenuItem });
+            ordenesDeTrabajoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaOrdenToolStripMenuItem, ordenesAbiertasToolStripMenuItem });
             ordenesDeTrabajoToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             ordenesDeTrabajoToolStripMenuItem.Image = (Image)resources.GetObject("ordenesDeTrabajoToolStripMenuItem.Image");
             ordenesDeTrabajoToolStripMenuItem.Name = "ordenesDeTrabajoToolStripMenuItem";
-            ordenesDeTrabajoToolStripMenuItem.Size = new Size(205, 29);
+            ordenesDeTrabajoToolStripMenuItem.Size = new Size(175, 28);
             ordenesDeTrabajoToolStripMenuItem.Text = "Ordenes de trabajo";
             // 
             // nuevaOrdenToolStripMenuItem
             // 
             nuevaOrdenToolStripMenuItem.Name = "nuevaOrdenToolStripMenuItem";
-            nuevaOrdenToolStripMenuItem.Size = new Size(273, 34);
+            nuevaOrdenToolStripMenuItem.Size = new Size(224, 26);
             nuevaOrdenToolStripMenuItem.Text = "Nueva orden";
             nuevaOrdenToolStripMenuItem.Click += nuevaOrdenToolStripMenuItem_Click;
             // 
             // ordenesAbiertasToolStripMenuItem
             // 
             ordenesAbiertasToolStripMenuItem.Name = "ordenesAbiertasToolStripMenuItem";
-            ordenesAbiertasToolStripMenuItem.Size = new Size(273, 34);
+            ordenesAbiertasToolStripMenuItem.Size = new Size(224, 26);
             ordenesAbiertasToolStripMenuItem.Text = "Ordenes abiertas";
-            // 
-            // historialDeOrdenesToolStripMenuItem
-            // 
-            historialDeOrdenesToolStripMenuItem.Name = "historialDeOrdenesToolStripMenuItem";
-            historialDeOrdenesToolStripMenuItem.Size = new Size(273, 34);
-            historialDeOrdenesToolStripMenuItem.Text = "Historial de ordenes";
+            ordenesAbiertasToolStripMenuItem.Click += ordenesAbiertasToolStripMenuItem_Click;
             // 
             // serviciosToolStripMenuItem
             // 
             serviciosToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             serviciosToolStripMenuItem.Image = (Image)resources.GetObject("serviciosToolStripMenuItem.Image");
             serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            serviciosToolStripMenuItem.Size = new Size(121, 29);
+            serviciosToolStripMenuItem.Size = new Size(105, 28);
             serviciosToolStripMenuItem.Text = "Servicios";
             serviciosToolStripMenuItem.Click += serviciosToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(16, 29);
+            toolStripMenuItem1.Size = new Size(14, 28);
             // 
             // repuestosToolStripMenuItem
             // 
@@ -156,14 +150,14 @@
             repuestosToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             repuestosToolStripMenuItem.Image = (Image)resources.GetObject("repuestosToolStripMenuItem.Image");
             repuestosToolStripMenuItem.Name = "repuestosToolStripMenuItem";
-            repuestosToolStripMenuItem.Size = new Size(134, 29);
+            repuestosToolStripMenuItem.Size = new Size(115, 28);
             repuestosToolStripMenuItem.Text = "Repuestos";
             repuestosToolStripMenuItem.Click += repuestosToolStripMenuItem_Click;
             // 
             // verRepuestosToolStripMenuItem
             // 
             verRepuestosToolStripMenuItem.Name = "verRepuestosToolStripMenuItem";
-            verRepuestosToolStripMenuItem.Size = new Size(302, 34);
+            verRepuestosToolStripMenuItem.Size = new Size(247, 26);
             verRepuestosToolStripMenuItem.Text = "Ver repuestos y precios.";
             verRepuestosToolStripMenuItem.Click += verRepuestosToolStripMenuItem_Click;
             // 
@@ -172,19 +166,19 @@
             salirToolStripMenuItem.ForeColor = SystemColors.ButtonFace;
             salirToolStripMenuItem.Image = (Image)resources.GetObject("salirToolStripMenuItem.Image");
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(85, 29);
+            salirToolStripMenuItem.Size = new Size(76, 28);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1276, 687);
+            ClientSize = new Size(1021, 550);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmPrincipal";
             Text = "Sistema de Órdenes de Trabajo - Taller Automotriz";
             Load += FrmPrincipal_Load;
@@ -209,7 +203,6 @@
         private ToolStripMenuItem administrarVehiculosToolStripMenuItem;
         private ToolStripMenuItem nuevaOrdenToolStripMenuItem;
         private ToolStripMenuItem ordenesAbiertasToolStripMenuItem;
-        private ToolStripMenuItem historialDeOrdenesToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem verRepuestosToolStripMenuItem;
     }
