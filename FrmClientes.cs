@@ -25,7 +25,7 @@ namespace Taller_Automotriz
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            dgvClientes.Rows.Add(15);
+            dgvClientes.Rows.Add(25);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

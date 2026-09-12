@@ -46,6 +46,7 @@
             // 
             // lblTitulo
             // 
+            lblTitulo.Anchor = AnchorStyles.Top;
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.Location = new Point(437, 32);
@@ -68,6 +69,7 @@
             // 
             // txtBuscar
             // 
+            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscar.BorderStyle = BorderStyle.FixedSingle;
             txtBuscar.Location = new Point(237, 159);
             txtBuscar.Margin = new Padding(4, 5, 4, 5);
@@ -77,7 +79,7 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Anchor = AnchorStyles.Top;
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnBuscar.FlatAppearance.BorderSize = 0;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Location = new Point(925, 155);
@@ -92,8 +94,8 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -118,62 +120,56 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1054, 185);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Id
             // 
             Id.HeaderText = "ID";
             Id.MinimumWidth = 8;
             Id.Name = "Id";
-            Id.Width = 150;
             // 
             // placa
             // 
             placa.HeaderText = "Placa";
             placa.MinimumWidth = 8;
             placa.Name = "placa";
-            placa.Width = 150;
             // 
             // marca
             // 
             marca.HeaderText = "Marca";
             marca.MinimumWidth = 8;
             marca.Name = "marca";
-            marca.Width = 150;
             // 
             // modelo
             // 
             modelo.HeaderText = "Modelo";
             modelo.MinimumWidth = 8;
             modelo.Name = "modelo";
-            modelo.Width = 150;
             // 
             // año
             // 
             año.HeaderText = "Año";
             año.MinimumWidth = 8;
             año.Name = "año";
-            año.Width = 150;
             // 
             // Color
             // 
             Color.HeaderText = "Color";
             Color.MinimumWidth = 8;
             Color.Name = "Color";
-            Color.Width = 150;
             // 
             // Cliente
             // 
             Cliente.HeaderText = "Cliente Propiedario";
             Cliente.MinimumWidth = 8;
             Cliente.Name = "Cliente";
-            Cliente.Width = 150;
             // 
             // btnNuevo
             // 
-            btnNuevo.Anchor = AnchorStyles.Top;
+            btnNuevo.Anchor = AnchorStyles.Bottom;
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Location = new Point(92, 531);
+            btnNuevo.Location = new Point(368, 554);
             btnNuevo.Margin = new Padding(4, 5, 4, 5);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(160, 38);
@@ -184,10 +180,10 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Anchor = AnchorStyles.Top;
+            btnEliminar.Anchor = AnchorStyles.Bottom;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Location = new Point(453, 531);
+            btnEliminar.Location = new Point(729, 554);
             btnEliminar.Margin = new Padding(4, 5, 4, 5);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(107, 38);
@@ -197,10 +193,10 @@
             // 
             // btnEditar
             // 
-            btnEditar.Anchor = AnchorStyles.Top;
+            btnEditar.Anchor = AnchorStyles.Bottom;
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Location = new Point(299, 531);
+            btnEditar.Location = new Point(575, 554);
             btnEditar.Margin = new Padding(4, 5, 4, 5);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(107, 38);

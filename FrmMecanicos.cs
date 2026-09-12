@@ -32,7 +32,8 @@ namespace Taller_Automotriz
 
         private void FrmMecanicos_Load(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(15);
+            dataGridView1.Rows.Add(25
+                );
         }
     }
 }

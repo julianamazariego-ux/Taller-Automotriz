@@ -121,6 +121,7 @@
             // dgvClientes
             // 
             dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.BackgroundColor = Color.FromArgb(45, 45, 48);
             dgvClientes.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -156,42 +157,36 @@
             Id.HeaderText = "ID";
             Id.MinimumWidth = 8;
             Id.Name = "Id";
-            Id.Width = 150;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre completo";
             Nombre.MinimumWidth = 8;
             Nombre.Name = "Nombre";
-            Nombre.Width = 150;
             // 
             // Dui
             // 
             Dui.HeaderText = "DUI";
             Dui.MinimumWidth = 8;
             Dui.Name = "Dui";
-            Dui.Width = 150;
             // 
             // Telefono
             // 
             Telefono.HeaderText = "Telefono";
             Telefono.MinimumWidth = 8;
             Telefono.Name = "Telefono";
-            Telefono.Width = 150;
             // 
             // Correo
             // 
             Correo.HeaderText = "Correo electronico";
             Correo.MinimumWidth = 8;
             Correo.Name = "Correo";
-            Correo.Width = 150;
             // 
             // Direccion
             // 
             Direccion.HeaderText = "Direccion";
             Direccion.MinimumWidth = 8;
             Direccion.Name = "Direccion";
-            Direccion.Width = 150;
             // 
             // lblBuscarC
             // 

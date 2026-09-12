@@ -14,22 +14,22 @@ namespace Taller_Automotriz
         {
             InitializeComponent();
 
-            
+
             this.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             this.FormBorderStyle = FormBorderStyle.None;
 
-           
+
             foreach (Control control in this.Controls)
             {
                 if (control is Label)
                 {
-                    
+
                     control.ForeColor = System.Drawing.Color.White;
                     control.BackColor = System.Drawing.Color.Transparent;
                 }
                 else if (control is Button)
                 {
-                   
+
                     Button btn = (Button)control;
                     btn.ForeColor = System.Drawing.Color.White;
                     btn.FlatStyle = FlatStyle.Flat;
@@ -38,33 +38,31 @@ namespace Taller_Automotriz
                 }
             }
 
-            
-            dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(45, 45, 48);
+
+            dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.RowHeadersVisible = false;
 
-            
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 122, 204);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
 
-            
-            dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(45, 45, 48);
-            dataGridView1.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dataGridView1.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dataGridView1.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(62, 62, 66);
         }
 
         private void lblTitulo_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
-           
-            dataGridView1.Rows.Add(15);
+
+            dataGridView1.Rows.Add(25);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -74,6 +72,11 @@ namespace Taller_Automotriz
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

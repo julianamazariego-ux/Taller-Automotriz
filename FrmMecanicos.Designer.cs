@@ -75,6 +75,7 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 45, 48);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -88,7 +89,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(100, 230);
+            dataGridView1.Location = new Point(96, 257);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
@@ -101,35 +102,30 @@
             Column1.HeaderText = "ID";
             Column1.MinimumWidth = 8;
             Column1.Name = "Column1";
-            Column1.Width = 150;
             // 
             // Column2
             // 
             Column2.HeaderText = "Nombre completo";
             Column2.MinimumWidth = 8;
             Column2.Name = "Column2";
-            Column2.Width = 250;
             // 
             // Column3
             // 
             Column3.HeaderText = "Especialidad";
             Column3.MinimumWidth = 8;
             Column3.Name = "Column3";
-            Column3.Width = 225;
             // 
             // Column4
             // 
             Column4.HeaderText = "Telefono";
             Column4.MinimumWidth = 8;
             Column4.Name = "Column4";
-            Column4.Width = 200;
             // 
             // Column5
             // 
             Column5.HeaderText = "Estado";
             Column5.MinimumWidth = 8;
             Column5.Name = "Column5";
-            Column5.Width = 200;
             // 
             // button1
             // 
@@ -138,7 +134,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(821, 546);
+            button1.Location = new Point(821, 557);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 4;
@@ -152,7 +148,7 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = Color.White;
-            button2.Location = new Point(676, 546);
+            button2.Location = new Point(676, 557);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 5;
@@ -166,7 +162,7 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(153, 546);
+            button3.Location = new Point(153, 557);
             button3.Name = "button3";
             button3.Size = new Size(178, 34);
             button3.TabIndex = 6;
