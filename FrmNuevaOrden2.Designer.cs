@@ -27,17 +27,17 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtAño = new TextBox();
+            txtMarca = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            txtModelo = new TextBox();
             label6 = new Label();
-            textBox6 = new TextBox();
+            txtKilometraje = new TextBox();
             lblTitulo = new Label();
             pictureBox1 = new PictureBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            cmbEstado = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -46,10 +46,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(81, 361);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(65, 289);
             label3.Name = "label3";
-            label3.Size = new Size(186, 28);
+            label3.Size = new Size(163, 23);
             label3.TabIndex = 15;
             label3.Text = "Estado del Vehiculo:";
             // 
@@ -58,10 +57,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(507, 185);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(406, 148);
             label2.Name = "label2";
-            label2.Size = new Size(52, 28);
+            label2.Size = new Size(45, 23);
             label2.TabIndex = 14;
             label2.Text = "Año:";
             // 
@@ -70,77 +68,62 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(81, 185);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(65, 148);
             label1.Name = "label1";
-            label1.Size = new Size(70, 28);
+            label1.Size = new Size(61, 23);
             label1.TabIndex = 13;
             label1.Text = "Marca:";
             label1.Click += label1_Click;
             // 
-            // textBox3
+            // txtAño
             // 
-            textBox3.Location = new Point(280, 361);
-            textBox3.Margin = new Padding(4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(538, 31);
-            textBox3.TabIndex = 11;
+            txtAño.Location = new Point(519, 146);
+            txtAño.Name = "txtAño";
+            txtAño.Size = new Size(136, 27);
+            txtAño.TabIndex = 10;
             // 
-            // textBox2
+            // txtMarca
             // 
-            textBox2.Location = new Point(649, 182);
-            textBox2.Margin = new Padding(4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(169, 31);
-            textBox2.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(179, 182);
-            textBox1.Margin = new Padding(4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(257, 31);
-            textBox1.TabIndex = 9;
+            txtMarca.Location = new Point(143, 146);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(206, 27);
+            txtMarca.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(81, 255);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(65, 204);
             label5.Name = "label5";
-            label5.Size = new Size(85, 28);
+            label5.Size = new Size(72, 23);
             label5.TabIndex = 17;
             label5.Text = "Modelo:";
             // 
-            // textBox5
+            // txtModelo
             // 
-            textBox5.Location = new Point(179, 252);
-            textBox5.Margin = new Padding(4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(257, 31);
-            textBox5.TabIndex = 18;
+            txtModelo.Location = new Point(143, 202);
+            txtModelo.Name = "txtModelo";
+            txtModelo.Size = new Size(206, 27);
+            txtModelo.TabIndex = 18;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10F);
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(507, 255);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(406, 204);
             label6.Name = "label6";
-            label6.Size = new Size(116, 28);
+            label6.Size = new Size(100, 23);
             label6.TabIndex = 19;
             label6.Text = "Kilometraje:";
             // 
-            // textBox6
+            // txtKilometraje
             // 
-            textBox6.Location = new Point(649, 252);
-            textBox6.Margin = new Padding(4);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(169, 31);
-            textBox6.TabIndex = 20;
+            txtKilometraje.Location = new Point(519, 202);
+            txtKilometraje.Name = "txtKilometraje";
+            txtKilometraje.Size = new Size(136, 27);
+            txtKilometraje.TabIndex = 20;
             // 
             // lblTitulo
             // 
@@ -148,10 +131,9 @@
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(268, 58);
-            lblTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblTitulo.Location = new Point(214, 46);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(393, 48);
+            lblTitulo.Size = new Size(332, 41);
             lblTitulo.TabIndex = 21;
             lblTitulo.Text = "DATOS DEL VEHÍCULO";
             // 
@@ -159,10 +141,9 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(174, 58);
-            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Location = new Point(139, 46);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(572, 538);
+            pictureBox1.Size = new Size(458, 430);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
@@ -175,10 +156,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(268, 518);
-            btnGuardar.Margin = new Padding(4, 5, 4, 5);
+            btnGuardar.Location = new Point(214, 414);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(158, 38);
+            btnGuardar.Size = new Size(126, 30);
             btnGuardar.TabIndex = 23;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -192,36 +173,43 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(493, 518);
-            btnCancelar.Margin = new Padding(4, 5, 4, 5);
+            btnCancelar.Location = new Point(394, 414);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(181, 38);
+            btnCancelar.Size = new Size(145, 30);
             btnCancelar.TabIndex = 24;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(261, 289);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(151, 28);
+            cmbEstado.TabIndex = 25;
+            // 
             // FrmNuevaOrden2
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
-            ClientSize = new Size(915, 627);
+            ClientSize = new Size(732, 502);
+            Controls.Add(cmbEstado);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblTitulo);
-            Controls.Add(textBox6);
+            Controls.Add(txtKilometraje);
             Controls.Add(label6);
-            Controls.Add(textBox5);
+            Controls.Add(txtModelo);
             Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtAño);
+            Controls.Add(txtMarca);
             Controls.Add(pictureBox1);
-            Margin = new Padding(4);
             Name = "FrmNuevaOrden2";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nueva Orden";
@@ -235,16 +223,16 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtAño;
+        private TextBox txtMarca;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox txtModelo;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox txtKilometraje;
         private Label lblTitulo;
         private PictureBox pictureBox1;
         private Button btnGuardar;
         private Button btnCancelar;
+        private ComboBox cmbEstado;
     }
 }
