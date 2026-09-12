@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServicios));
             grpInformacion = new GroupBox();
             lblFecha = new Label();
@@ -40,14 +41,10 @@
             chkFrenos = new CheckBox();
             chkAceite = new CheckBox();
             groupBox3 = new GroupBox();
-            txtTotalP = new TextBox();
-            txtIVA = new TextBox();
-            txtSubtotal = new TextBox();
             lblTotal = new Label();
             lblIVA = new Label();
             lblSubtotal = new Label();
             groupBox1 = new GroupBox();
-            label1 = new Label();
             txtHoras = new TextBox();
             txtRepuestos = new TextBox();
             lblManoD = new Label();
@@ -62,12 +59,14 @@
             pictureBox1 = new PictureBox();
             lblTitulo = new Label();
             panel1 = new Panel();
+            errorProvider1 = new ErrorProvider(components);
             grpInformacion.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // grpInformacion
@@ -94,7 +93,7 @@
             lblFecha.AutoSize = true;
             lblFecha.Location = new Point(50, 312);
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(185, 28);
+            lblFecha.Size = new Size(118, 17);
             lblFecha.TabIndex = 7;
             lblFecha.Text = "Fecha de Entrada:";
             // 
@@ -102,7 +101,7 @@
             // 
             dtpFecha.Location = new Point(50, 343);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(304, 33);
+            dtpFecha.Size = new Size(304, 25);
             dtpFecha.TabIndex = 6;
             dtpFecha.ValueChanged += dtpFecha_ValueChanged;
             // 
@@ -110,21 +109,21 @@
             // 
             txtModelo.Location = new Point(50, 232);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(212, 33);
+            txtModelo.Size = new Size(212, 25);
             txtModelo.TabIndex = 5;
             // 
             // txtPlaca
             // 
             txtPlaca.Location = new Point(50, 159);
             txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(212, 33);
+            txtPlaca.Size = new Size(212, 25);
             txtPlaca.TabIndex = 4;
             // 
             // txtCliente
             // 
             txtCliente.Location = new Point(50, 92);
             txtCliente.Name = "txtCliente";
-            txtCliente.Size = new Size(212, 33);
+            txtCliente.Size = new Size(212, 25);
             txtCliente.TabIndex = 3;
             // 
             // lblModelo
@@ -132,7 +131,7 @@
             lblModelo.AutoSize = true;
             lblModelo.Location = new Point(50, 201);
             lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(165, 28);
+            lblModelo.Size = new Size(105, 17);
             lblModelo.TabIndex = 2;
             lblModelo.Text = "Modelo/Marca:";
             // 
@@ -141,7 +140,7 @@
             lblPlaca.AutoSize = true;
             lblPlaca.Location = new Point(50, 128);
             lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(154, 28);
+            lblPlaca.Size = new Size(99, 17);
             lblPlaca.TabIndex = 1;
             lblPlaca.Text = "Placa/Patente:";
             // 
@@ -150,7 +149,7 @@
             lblCliente.AutoSize = true;
             lblCliente.Location = new Point(50, 61);
             lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(86, 28);
+            lblCliente.Size = new Size(55, 17);
             lblCliente.TabIndex = 0;
             lblCliente.Text = "Cliente:";
             // 
@@ -175,7 +174,7 @@
             chkEscaner.AutoSize = true;
             chkEscaner.Location = new Point(13, 163);
             chkEscaner.Name = "chkEscaner";
-            chkEscaner.Size = new Size(420, 32);
+            chkEscaner.Size = new Size(270, 21);
             chkEscaner.TabIndex = 3;
             chkEscaner.Text = "Diagnóstico Escáner ($25.00)-Full Scan";
             chkEscaner.UseVisualStyleBackColor = true;
@@ -185,7 +184,7 @@
             chkAlineacion.AutoSize = true;
             chkAlineacion.Location = new Point(13, 120);
             chkAlineacion.Name = "chkAlineacion";
-            chkAlineacion.Size = new Size(342, 32);
+            chkAlineacion.Size = new Size(222, 21);
             chkAlineacion.TabIndex = 2;
             chkAlineacion.Text = "Alineación y Balanceo ($35.00)";
             chkAlineacion.UseVisualStyleBackColor = true;
@@ -195,7 +194,7 @@
             chkFrenos.AutoSize = true;
             chkFrenos.Location = new Point(13, 74);
             chkFrenos.Name = "chkFrenos";
-            chkFrenos.Size = new Size(605, 32);
+            chkFrenos.Size = new Size(388, 21);
             chkFrenos.TabIndex = 1;
             chkFrenos.Text = "Mantenimiento de Frenos ($80.00)-Delanteros y Traseros";
             chkFrenos.UseVisualStyleBackColor = true;
@@ -205,16 +204,13 @@
             chkAceite.AutoSize = true;
             chkAceite.Location = new Point(13, 32);
             chkAceite.Name = "chkAceite";
-            chkAceite.Size = new Size(568, 32);
+            chkAceite.Size = new Size(367, 21);
             chkAceite.TabIndex = 0;
             chkAceite.Text = "Cambio de Aceite y Filtro ($45.00)-Premium Synthetic";
             chkAceite.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(txtTotalP);
-            groupBox3.Controls.Add(txtIVA);
-            groupBox3.Controls.Add(txtSubtotal);
             groupBox3.Controls.Add(lblTotal);
             groupBox3.Controls.Add(lblIVA);
             groupBox3.Controls.Add(lblSubtotal);
@@ -226,34 +222,12 @@
             groupBox3.TabStop = false;
             groupBox3.Enter += groupBox3_Enter;
             // 
-            // txtTotalP
-            // 
-            txtTotalP.Location = new Point(162, 129);
-            txtTotalP.Name = "txtTotalP";
-            txtTotalP.Size = new Size(100, 33);
-            txtTotalP.TabIndex = 5;
-            txtTotalP.TextChanged += txtTotalP_TextChanged;
-            // 
-            // txtIVA
-            // 
-            txtIVA.Location = new Point(162, 71);
-            txtIVA.Name = "txtIVA";
-            txtIVA.Size = new Size(100, 33);
-            txtIVA.TabIndex = 4;
-            // 
-            // txtSubtotal
-            // 
-            txtSubtotal.Location = new Point(162, 20);
-            txtSubtotal.Name = "txtSubtotal";
-            txtSubtotal.Size = new Size(100, 33);
-            txtSubtotal.TabIndex = 3;
-            // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
             lblTotal.Location = new Point(6, 129);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(143, 28);
+            lblTotal.Size = new Size(92, 17);
             lblTotal.TabIndex = 2;
             lblTotal.Text = "Total a Pagar";
             lblTotal.Click += lblTotal_Click;
@@ -263,7 +237,7 @@
             lblIVA.AutoSize = true;
             lblIVA.Location = new Point(8, 76);
             lblIVA.Name = "lblIVA";
-            lblIVA.Size = new Size(94, 28);
+            lblIVA.Size = new Size(62, 17);
             lblIVA.TabIndex = 1;
             lblIVA.Text = "IVA 13%";
             // 
@@ -273,14 +247,13 @@
             lblSubtotal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblSubtotal.Location = new Point(6, 29);
             lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(108, 28);
+            lblSubtotal.Size = new Size(75, 18);
             lblSubtotal.TabIndex = 0;
             lblSubtotal.Text = "Subtotal";
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtHoras);
             groupBox1.Controls.Add(txtRepuestos);
             groupBox1.Controls.Add(lblManoD);
@@ -296,27 +269,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Costos Adicionales";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(329, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 28);
-            label1.TabIndex = 11;
-            label1.Text = "$0.00";
-            // 
             // txtHoras
             // 
             txtHoras.Location = new Point(316, 27);
             txtHoras.Name = "txtHoras";
-            txtHoras.Size = new Size(100, 33);
+            txtHoras.Size = new Size(100, 25);
             txtHoras.TabIndex = 10;
             // 
             // txtRepuestos
             // 
             txtRepuestos.Location = new Point(316, 74);
             txtRepuestos.Name = "txtRepuestos";
-            txtRepuestos.Size = new Size(100, 33);
+            txtRepuestos.Size = new Size(100, 25);
             txtRepuestos.TabIndex = 9;
             // 
             // lblManoD
@@ -324,7 +288,7 @@
             lblManoD.AutoSize = true;
             lblManoD.Location = new Point(13, 135);
             lblManoD.Name = "lblManoD";
-            lblManoD.Size = new Size(258, 28);
+            lblManoD.Size = new Size(165, 17);
             lblManoD.TabIndex = 8;
             lblManoD.Text = "Mano de Obra Adicional:";
             lblManoD.Click += lblManoD_Click;
@@ -334,7 +298,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(7, 80);
             label2.Name = "label2";
-            label2.Size = new Size(0, 28);
+            label2.Size = new Size(0, 17);
             label2.TabIndex = 7;
             // 
             // lblRepuestos
@@ -342,7 +306,7 @@
             lblRepuestos.AutoSize = true;
             lblRepuestos.Location = new Point(13, 80);
             lblRepuestos.Name = "lblRepuestos";
-            lblRepuestos.Size = new Size(127, 28);
+            lblRepuestos.Size = new Size(80, 17);
             lblRepuestos.TabIndex = 6;
             lblRepuestos.Text = "Repuestos: ";
             // 
@@ -351,7 +315,7 @@
             lblMano.AutoSize = true;
             lblMano.Location = new Point(6, 32);
             lblMano.Name = "lblMano";
-            lblMano.Size = new Size(218, 28);
+            lblMano.Size = new Size(139, 17);
             lblMano.TabIndex = 4;
             lblMano.Text = "Mano de Obra Horas";
             lblMano.Click += lblMano_Click;
@@ -360,13 +324,13 @@
             // 
             txtManoObra.Location = new Point(316, 127);
             txtManoObra.Name = "txtManoObra";
-            txtManoObra.Size = new Size(100, 33);
+            txtManoObra.Size = new Size(100, 25);
             txtManoObra.TabIndex = 5;
             // 
             // btnLimpiar
             // 
             btnLimpiar.Anchor = AnchorStyles.Bottom;
-            btnLimpiar.Location = new Point(683, 604);
+            btnLimpiar.Location = new Point(685, 553);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(103, 37);
             btnLimpiar.TabIndex = 3;
@@ -377,17 +341,18 @@
             // btnImprimir
             // 
             btnImprimir.Anchor = AnchorStyles.Bottom;
-            btnImprimir.Location = new Point(831, 604);
+            btnImprimir.Location = new Point(833, 553);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(114, 37);
             btnImprimir.TabIndex = 4;
             btnImprimir.Text = "Imprimir ";
             btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click_1;
             // 
             // btnGenerar
             // 
             btnGenerar.Anchor = AnchorStyles.Bottom;
-            btnGenerar.Location = new Point(469, 604);
+            btnGenerar.Location = new Point(471, 553);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(114, 38);
             btnGenerar.TabIndex = 5;
@@ -398,7 +363,7 @@
             // btnCalcular
             // 
             btnCalcular.Anchor = AnchorStyles.Bottom;
-            btnCalcular.Location = new Point(321, 604);
+            btnCalcular.Location = new Point(323, 553);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(107, 38);
             btnCalcular.TabIndex = 6;
@@ -411,7 +376,7 @@
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(405, 32);
+            pictureBox1.Location = new Point(407, 32);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(73, 74);
             pictureBox1.TabIndex = 9;
@@ -424,10 +389,10 @@
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(509, 44);
+            lblTitulo.Location = new Point(511, 44);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(331, 45);
+            lblTitulo.Size = new Size(218, 30);
             lblTitulo.TabIndex = 10;
             lblTitulo.Text = "ORDEN DE SERVICIO";
             lblTitulo.Click += lblTitulo_Click;
@@ -445,15 +410,19 @@
             panel1.Controls.Add(btnImprimir);
             panel1.Controls.Add(btnCalcular);
             panel1.Controls.Add(btnGenerar);
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(0, -3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1223, 700);
+            panel1.Size = new Size(1226, 649);
             panel1.TabIndex = 11;
             panel1.Paint += panel1_Paint;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // FrmServicios
             // 
-            AutoScaleDimensions = new SizeF(13F, 28F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             BackgroundImageLayout = ImageLayout.Zoom;
@@ -478,6 +447,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -509,16 +479,13 @@
         private Label lblManoD;
         private TextBox txtHoras;
         private TextBox txtRepuestos;
-        private TextBox txtTotalP;
-        private TextBox txtIVA;
-        private TextBox txtSubtotal;
         private Button btnLimpiar;
         private Button btnImprimir;
         private Button btnGenerar;
         private Button btnCalcular;
-        private Label label1;
         private PictureBox pictureBox1;
         private Label lblTitulo;
         private Panel panel1;
+        private ErrorProvider errorProvider1;
     }
 }
