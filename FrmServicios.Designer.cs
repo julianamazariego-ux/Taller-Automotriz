@@ -61,11 +61,13 @@
             btnCalcular = new Button();
             pictureBox1 = new PictureBox();
             lblTitulo = new Label();
+            panel1 = new Panel();
             grpInformacion.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // grpInformacion
@@ -80,9 +82,9 @@
             grpInformacion.Controls.Add(lblPlaca);
             grpInformacion.Controls.Add(lblCliente);
             grpInformacion.ForeColor = Color.White;
-            grpInformacion.Location = new Point(111, 112);
+            grpInformacion.Location = new Point(52, 159);
             grpInformacion.Name = "grpInformacion";
-            grpInformacion.Size = new Size(330, 443);
+            grpInformacion.Size = new Size(376, 395);
             grpInformacion.TabIndex = 0;
             grpInformacion.TabStop = false;
             grpInformacion.Text = "Informacion del Cliente y Vehiculo";
@@ -90,7 +92,7 @@
             // lblFecha
             // 
             lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(6, 357);
+            lblFecha.Location = new Point(50, 312);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(185, 28);
             lblFecha.TabIndex = 7;
@@ -98,7 +100,7 @@
             // 
             // dtpFecha
             // 
-            dtpFecha.Location = new Point(6, 388);
+            dtpFecha.Location = new Point(50, 343);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(304, 33);
             dtpFecha.TabIndex = 6;
@@ -106,21 +108,21 @@
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(60, 261);
+            txtModelo.Location = new Point(50, 232);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(212, 33);
             txtModelo.TabIndex = 5;
             // 
             // txtPlaca
             // 
-            txtPlaca.Location = new Point(60, 188);
+            txtPlaca.Location = new Point(50, 159);
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(212, 33);
             txtPlaca.TabIndex = 4;
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(60, 121);
+            txtCliente.Location = new Point(50, 92);
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(212, 33);
             txtCliente.TabIndex = 3;
@@ -128,7 +130,7 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Location = new Point(60, 230);
+            lblModelo.Location = new Point(50, 201);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(165, 28);
             lblModelo.TabIndex = 2;
@@ -137,7 +139,7 @@
             // lblPlaca
             // 
             lblPlaca.AutoSize = true;
-            lblPlaca.Location = new Point(60, 157);
+            lblPlaca.Location = new Point(50, 128);
             lblPlaca.Name = "lblPlaca";
             lblPlaca.Size = new Size(154, 28);
             lblPlaca.TabIndex = 1;
@@ -146,7 +148,7 @@
             // lblCliente
             // 
             lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(60, 90);
+            lblCliente.Location = new Point(50, 61);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(86, 28);
             lblCliente.TabIndex = 0;
@@ -160,12 +162,13 @@
             groupBox2.Controls.Add(chkFrenos);
             groupBox2.Controls.Add(chkAceite);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(447, 112);
+            groupBox2.Location = new Point(428, 159);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(730, 248);
+            groupBox2.Size = new Size(732, 201);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Servicios Solicitados";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // chkEscaner
             // 
@@ -216,9 +219,9 @@
             groupBox3.Controls.Add(lblIVA);
             groupBox3.Controls.Add(lblSubtotal);
             groupBox3.ForeColor = Color.Transparent;
-            groupBox3.Location = new Point(898, 371);
+            groupBox3.Location = new Point(870, 368);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(279, 184);
+            groupBox3.Size = new Size(290, 186);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Enter += groupBox3_Enter;
@@ -286,9 +289,9 @@
             groupBox1.Controls.Add(lblMano);
             groupBox1.Controls.Add(txtManoObra);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(447, 371);
+            groupBox1.Location = new Point(434, 368);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(433, 184);
+            groupBox1.Size = new Size(429, 186);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Costos Adicionales";
@@ -362,16 +365,19 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(884, 586);
+            btnLimpiar.Anchor = AnchorStyles.Bottom;
+            btnLimpiar.Location = new Point(683, 604);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(103, 37);
             btnLimpiar.TabIndex = 3;
             btnLimpiar.Text = "Limpiar ";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(709, 585);
+            btnImprimir.Anchor = AnchorStyles.Bottom;
+            btnImprimir.Location = new Point(831, 604);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(114, 37);
             btnImprimir.TabIndex = 4;
@@ -380,7 +386,8 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(528, 585);
+            btnGenerar.Anchor = AnchorStyles.Bottom;
+            btnGenerar.Location = new Point(469, 604);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(114, 38);
             btnGenerar.TabIndex = 5;
@@ -390,7 +397,8 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(360, 585);
+            btnCalcular.Anchor = AnchorStyles.Bottom;
+            btnCalcular.Location = new Point(321, 604);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(107, 38);
             btnCalcular.TabIndex = 6;
@@ -400,9 +408,10 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(441, 11);
+            pictureBox1.Location = new Point(405, 32);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(73, 74);
             pictureBox1.TabIndex = 9;
@@ -410,11 +419,12 @@
             // 
             // lblTitulo
             // 
+            lblTitulo.Anchor = AnchorStyles.Top;
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.FromArgb(45, 45, 48);
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ButtonHighlight;
-            lblTitulo.Location = new Point(543, 25);
+            lblTitulo.Location = new Point(509, 44);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(331, 45);
@@ -422,23 +432,33 @@
             lblTitulo.Text = "ORDEN DE SERVICIO";
             lblTitulo.Click += lblTitulo_Click;
             // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.Controls.Add(lblTitulo);
+            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(grpInformacion);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnLimpiar);
+            panel1.Controls.Add(groupBox2);
+            panel1.Controls.Add(groupBox3);
+            panel1.Controls.Add(btnImprimir);
+            panel1.Controls.Add(btnCalcular);
+            panel1.Controls.Add(btnGenerar);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1223, 700);
+            panel1.TabIndex = 11;
+            panel1.Paint += panel1_Paint;
+            // 
             // FrmServicios
             // 
             AutoScaleDimensions = new SizeF(13F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1347, 682);
-            Controls.Add(lblTitulo);
-            Controls.Add(pictureBox1);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnImprimir);
-            Controls.Add(btnGenerar);
-            Controls.Add(btnCalcular);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox1);
-            Controls.Add(groupBox2);
-            Controls.Add(grpInformacion);
+            ClientSize = new Size(1227, 685);
+            Controls.Add(panel1);
             Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
@@ -456,8 +476,9 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -498,5 +519,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Label lblTitulo;
+        private Panel panel1;
     }
 }

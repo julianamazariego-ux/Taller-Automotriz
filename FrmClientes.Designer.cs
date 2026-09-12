@@ -45,6 +45,7 @@
             // 
             // lblTitulo
             // 
+            lblTitulo.Anchor = AnchorStyles.Top;
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.White;
@@ -57,11 +58,12 @@
             // 
             // btnNuevo
             // 
+            btnNuevo.Anchor = AnchorStyles.Bottom;
             btnNuevo.BackColor = Color.FromArgb(0, 124, 204);
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
             btnNuevo.ForeColor = Color.White;
-            btnNuevo.Location = new Point(423, 517);
+            btnNuevo.Location = new Point(394, 517);
             btnNuevo.Margin = new Padding(4, 5, 4, 5);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(107, 38);
@@ -72,11 +74,12 @@
             // 
             // btnEditar
             // 
+            btnEditar.Anchor = AnchorStyles.Bottom;
             btnEditar.BackColor = Color.FromArgb(62, 62, 66);
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(567, 517);
+            btnEditar.Location = new Point(538, 517);
             btnEditar.Margin = new Padding(4, 5, 4, 5);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(107, 38);
@@ -86,11 +89,12 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Anchor = AnchorStyles.Bottom;
             btnEliminar.BackColor = Color.FromArgb(192, 57, 43);
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(713, 517);
+            btnEliminar.Location = new Point(684, 517);
             btnEliminar.Margin = new Padding(4, 5, 4, 5);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(107, 38);
@@ -100,11 +104,12 @@
             // 
             // btnBuscar
             // 
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnBuscar.BackColor = Color.DodgerBlue;
             btnBuscar.FlatAppearance.BorderSize = 0;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(956, 168);
+            btnBuscar.Location = new Point(916, 162);
             btnBuscar.Margin = new Padding(4, 5, 4, 5);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(103, 34);
@@ -115,6 +120,7 @@
             // 
             // dgvClientes
             // 
+            dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.BackgroundColor = Color.FromArgb(45, 45, 48);
             dgvClientes.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -141,7 +147,7 @@
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowHeadersWidth = 62;
-            dgvClientes.Size = new Size(940, 232);
+            dgvClientes.Size = new Size(890, 232);
             dgvClientes.TabIndex = 5;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick;
             // 
@@ -200,10 +206,11 @@
             // 
             // txtBuscar
             // 
+            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscar.Location = new Point(316, 165);
             txtBuscar.Margin = new Padding(4, 5, 4, 5);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(621, 31);
+            txtBuscar.Size = new Size(581, 31);
             txtBuscar.TabIndex = 7;
             // 
             // FrmClientes
@@ -211,7 +218,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1184, 593);
+            ClientSize = new Size(1207, 602);
             Controls.Add(txtBuscar);
             Controls.Add(lblBuscarC);
             Controls.Add(dgvClientes);

@@ -120,7 +120,7 @@
             Margin = new Padding(4);
             Name = "FrmOrdenes";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Form1";
+            Text = "Ordenes abiertas";
             Load += FrmOrdenes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

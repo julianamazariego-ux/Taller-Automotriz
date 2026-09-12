@@ -43,6 +43,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             label1.ForeColor = Color.White;
@@ -65,6 +66,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Location = new Point(273, 173);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(694, 31);
@@ -72,6 +74,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 45, 48);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -130,6 +133,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom;
             button1.BackColor = Color.FromArgb(192, 57, 43);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
@@ -143,6 +147,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom;
             button2.BackColor = Color.FromArgb(62, 62, 66);
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
@@ -156,6 +161,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom;
             button3.BackColor = Color.FromArgb(0, 124, 204);
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
@@ -169,12 +175,15 @@
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button4.BackColor = SystemColors.Highlight;
+            button4.ForeColor = SystemColors.ButtonFace;
             button4.Location = new Point(992, 173);
             button4.Name = "button4";
             button4.Size = new Size(112, 34);
             button4.TabIndex = 7;
             button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // FrmMecanicos
