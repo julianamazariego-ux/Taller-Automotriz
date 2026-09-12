@@ -44,20 +44,20 @@ namespace Taller_Automotriz
                 .Where(c => c.Nombre.ToLower().Contains(textoBusqueda) || c.DUI.Contains(textoBusqueda))
                 .ToList();
 
-           
+
             ActualizarGrid(clientesFiltrados);
         }
 
-        
+
         private void ActualizarGrid(List<ClienteTemporal> listaAMostrar)
         {
-            dgvClientes.Rows.Clear(); 
+            dgvClientes.Rows.Clear();
 
-            int idIncremental = 1; 
+            int idIncremental = 1;
 
             foreach (var cliente in listaAMostrar)
             {
-       
+
                 dgvClientes.Rows.Add(idIncremental, cliente.Nombre, cliente.DUI, cliente.Telefono, cliente.Correo);
                 idIncremental++;
             }
