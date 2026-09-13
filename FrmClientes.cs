@@ -38,7 +38,7 @@ namespace Taller_Automotriz
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             // Suponiendo que a tu TextBox de búsqueda le pusiste "txtBuscar"
-            string textoBusqueda = txtBuscar.Text.ToLower().Trim();
+            string textoBusqueda = txtNombreCliente.Text.ToLower().Trim();
 
             // REQUISITO: Uso de consulta LINQ para filtrar clientes por Nombre o DUI
             var clientesFiltrados = frmNuevaOrden.listaClientes

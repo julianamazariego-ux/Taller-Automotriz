@@ -28,8 +28,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             lblBuscarV = new Label();
-            txtBuscar = new TextBox();
-            btnBuscar = new Button();
+            txtBuscarPlaca = new TextBox();
             dataGridView1 = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
             placa = new DataGridViewTextBoxColumn();
@@ -41,6 +40,12 @@
             btnNuevo = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
+            label1 = new Label();
+            cmbFiltroMarca = new ComboBox();
+            label2 = new Label();
+            txtFiltroAnio = new TextBox();
+            btnLimpiarFiltros = new Button();
+            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -60,36 +65,21 @@
             // lblBuscarV
             // 
             lblBuscarV.AutoSize = true;
-            lblBuscarV.Location = new Point(92, 162);
+            lblBuscarV.Location = new Point(92, 130);
             lblBuscarV.Margin = new Padding(4, 0, 4, 0);
             lblBuscarV.Name = "lblBuscarV";
-            lblBuscarV.Size = new Size(137, 25);
+            lblBuscarV.Size = new Size(141, 25);
             lblBuscarV.TabIndex = 1;
-            lblBuscarV.Text = "Buscar vehículo:";
+            lblBuscarV.Text = "Buscar por Placa";
             // 
-            // txtBuscar
+            // txtBuscarPlaca
             // 
-            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtBuscar.BorderStyle = BorderStyle.FixedSingle;
-            txtBuscar.Location = new Point(237, 159);
-            txtBuscar.Margin = new Padding(4, 5, 4, 5);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(678, 31);
-            txtBuscar.TabIndex = 2;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnBuscar.FlatAppearance.BorderSize = 0;
-            btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.Location = new Point(920, 155);
-            btnBuscar.Margin = new Padding(4, 5, 4, 5);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(107, 38);
-            btnBuscar.TabIndex = 3;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
+            txtBuscarPlaca.BorderStyle = BorderStyle.FixedSingle;
+            txtBuscarPlaca.Location = new Point(263, 128);
+            txtBuscarPlaca.Margin = new Padding(4, 5, 4, 5);
+            txtBuscarPlaca.Name = "txtBuscarPlaca";
+            txtBuscarPlaca.Size = new Size(184, 31);
+            txtBuscarPlaca.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -114,7 +104,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(94, 276);
+            dataGridView1.Location = new Point(91, 290);
             dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -170,7 +160,7 @@
             btnNuevo.Anchor = AnchorStyles.Bottom;
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Location = new Point(87, 531);
+            btnNuevo.Location = new Point(92, 549);
             btnNuevo.Margin = new Padding(4, 5, 4, 5);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(160, 38);
@@ -184,7 +174,7 @@
             btnEliminar.Anchor = AnchorStyles.Bottom;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Location = new Point(448, 531);
+            btnEliminar.Location = new Point(453, 549);
             btnEliminar.Margin = new Padding(4, 5, 4, 5);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(107, 38);
@@ -197,7 +187,7 @@
             btnEditar.Anchor = AnchorStyles.Bottom;
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Location = new Point(294, 531);
+            btnEditar.Location = new Point(299, 549);
             btnEditar.Margin = new Padding(4, 5, 4, 5);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(107, 38);
@@ -205,16 +195,74 @@
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(501, 129);
+            label1.Name = "label1";
+            label1.Size = new Size(150, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Filtrar por marcas";
+            // 
+            // cmbFiltroMarca
+            // 
+            cmbFiltroMarca.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltroMarca.FormattingEnabled = true;
+            cmbFiltroMarca.Location = new Point(657, 127);
+            cmbFiltroMarca.Name = "cmbFiltroMarca";
+            cmbFiltroMarca.Size = new Size(244, 33);
+            cmbFiltroMarca.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(91, 190);
+            label2.Name = "label2";
+            label2.Size = new Size(127, 25);
+            label2.TabIndex = 10;
+            label2.Text = "Filtrar por Año";
+            // 
+            // txtFiltroAnio
+            // 
+            txtFiltroAnio.Location = new Point(263, 187);
+            txtFiltroAnio.Name = "txtFiltroAnio";
+            txtFiltroAnio.Size = new Size(184, 31);
+            txtFiltroAnio.TabIndex = 11;
+            // 
+            // btnLimpiarFiltros
+            // 
+            btnLimpiarFiltros.Location = new Point(501, 190);
+            btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            btnLimpiarFiltros.Size = new Size(112, 34);
+            btnLimpiarFiltros.TabIndex = 12;
+            btnLimpiarFiltros.Text = "Limpiar";
+            btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            btnLimpiarFiltros.Click += btnLimpiarFiltros_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(639, 190);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(112, 34);
+            btnBuscar.TabIndex = 13;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // FrmVehiculos
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1227, 651);
+            Controls.Add(btnBuscar);
+            Controls.Add(btnLimpiarFiltros);
+            Controls.Add(txtFiltroAnio);
+            Controls.Add(label2);
+            Controls.Add(cmbFiltroMarca);
+            Controls.Add(label1);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
             Controls.Add(btnNuevo);
             Controls.Add(dataGridView1);
-            Controls.Add(btnBuscar);
-            Controls.Add(txtBuscar);
+            Controls.Add(txtBuscarPlaca);
             Controls.Add(lblBuscarV);
             Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.None;
@@ -232,8 +280,7 @@
 
         private Label lblTitulo;
         private Label lblBuscarV;
-        private TextBox txtBuscar;
-        private Button btnBuscar;
+        private TextBox txtBuscarPlaca;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn placa;
@@ -245,5 +292,11 @@
         private Button btnNuevo;
         private Button btnEliminar;
         private Button btnEditar;
+        private Label label1;
+        private ComboBox cmbFiltroMarca;
+        private Label label2;
+        private TextBox txtFiltroAnio;
+        private Button btnLimpiarFiltros;
+        private Button btnBuscar;
     }
 }

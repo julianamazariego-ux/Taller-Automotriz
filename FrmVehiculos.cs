@@ -62,7 +62,7 @@ namespace Taller_Automotriz
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
 
-            
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -76,10 +76,17 @@ namespace Taller_Automotriz
 
         }
 
-       
+
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            txtBuscarPlaca.Clear();
+            txtFiltroAnio.Clear();
+            cmbFiltroMarca.SelectedIndex = -1; // El -1 deselecciona la marca y deja el combo en blanco
         }
     }
 }

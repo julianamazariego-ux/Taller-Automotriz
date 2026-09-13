@@ -38,6 +38,9 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            label3 = new Label();
+            cmbFiltroEspecialidad = new ComboBox();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -60,16 +63,15 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(124, 173);
             label2.Name = "label2";
-            label2.Size = new Size(143, 25);
+            label2.Size = new Size(187, 25);
             label2.TabIndex = 1;
-            label2.Text = "Buscar mecánico";
+            label2.Text = "Nombre del Mecanico";
             // 
             // textBox1
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(273, 173);
+            textBox1.Location = new Point(334, 173);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(694, 31);
+            textBox1.Size = new Size(633, 31);
             textBox1.TabIndex = 2;
             // 
             // dataGridView1
@@ -89,11 +91,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(96, 257);
+            dataGridView1.Location = new Point(96, 346);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1047, 267);
+            dataGridView1.Size = new Size(1046, 155);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -171,7 +173,6 @@
             // 
             // button4
             // 
-            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button4.BackColor = SystemColors.Highlight;
             button4.ForeColor = SystemColors.ButtonFace;
             button4.Location = new Point(992, 173);
@@ -182,12 +183,44 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(124, 240);
+            label3.Name = "label3";
+            label3.Size = new Size(109, 25);
+            label3.TabIndex = 8;
+            label3.Text = "Especialidad";
+            // 
+            // cmbFiltroEspecialidad
+            // 
+            cmbFiltroEspecialidad.FormattingEnabled = true;
+            cmbFiltroEspecialidad.Location = new Point(334, 232);
+            cmbFiltroEspecialidad.Name = "cmbFiltroEspecialidad";
+            cmbFiltroEspecialidad.Size = new Size(443, 33);
+            cmbFiltroEspecialidad.TabIndex = 9;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.IndianRed;
+            button5.ForeColor = SystemColors.ButtonHighlight;
+            button5.Location = new Point(992, 240);
+            button5.Name = "button5";
+            button5.Size = new Size(112, 34);
+            button5.TabIndex = 10;
+            button5.Text = "Limpiar";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // FrmMecanicos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(1209, 652);
+            Controls.Add(button5);
+            Controls.Add(cmbFiltroEspecialidad);
+            Controls.Add(label3);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -220,5 +253,8 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private Label label3;
+        private ComboBox cmbFiltroEspecialidad;
+        private Button button5;
     }
 }
