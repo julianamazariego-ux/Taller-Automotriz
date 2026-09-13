@@ -34,7 +34,7 @@
             txtPlaca = new TextBox();
             txtMarca = new TextBox();
             txtModelo = new TextBox();
-            txtAño = new TextBox();
+            txtAnio = new TextBox();
             txtColor = new TextBox();
             cmbCliente = new ComboBox();
             lblClienteP = new Label();
@@ -148,16 +148,16 @@
             txtModelo.Size = new Size(340, 31);
             txtModelo.TabIndex = 8;
             // 
-            // txtAño
+            // txtAnio
             // 
-            txtAño.BackColor = Color.White;
-            txtAño.BorderStyle = BorderStyle.FixedSingle;
-            txtAño.ForeColor = Color.Black;
-            txtAño.Location = new Point(373, 389);
-            txtAño.Margin = new Padding(4, 5, 4, 5);
-            txtAño.Name = "txtAño";
-            txtAño.Size = new Size(340, 31);
-            txtAño.TabIndex = 9;
+            txtAnio.BackColor = Color.White;
+            txtAnio.BorderStyle = BorderStyle.FixedSingle;
+            txtAnio.ForeColor = Color.Black;
+            txtAnio.Location = new Point(373, 389);
+            txtAnio.Margin = new Padding(4, 5, 4, 5);
+            txtAnio.Name = "txtAnio";
+            txtAnio.Size = new Size(340, 31);
+            txtAnio.TabIndex = 9;
             // 
             // txtColor
             // 
@@ -237,6 +237,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -260,7 +261,7 @@
             Controls.Add(lblClienteP);
             Controls.Add(cmbCliente);
             Controls.Add(txtColor);
-            Controls.Add(txtAño);
+            Controls.Add(txtAnio);
             Controls.Add(txtModelo);
             Controls.Add(txtMarca);
             Controls.Add(txtPlaca);
@@ -296,7 +297,7 @@
         private TextBox txtPlaca;
         private TextBox txtMarca;
         private TextBox txtModelo;
-        private TextBox txtAño;
+        private TextBox txtAnio;
         private TextBox txtColor;
         private ComboBox cmbCliente;
         private Label lblClienteP;

@@ -9,7 +9,11 @@ using System.Windows.Forms;
 namespace Taller_Automotriz
 {
     public partial class FrmVehiculos : Form
+
+
     {
+        List<string[]> listaVehiculos = new List<string[]>();
+
         public FrmVehiculos()
         {
             InitializeComponent();
@@ -67,8 +71,20 @@ namespace Taller_Automotriz
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+
+
+            
             FrmNuevoVehiculo modalVehiculo = new FrmNuevoVehiculo();
-            modalVehiculo.ShowDialog();
+
+          
+            if (modalVehiculo.ShowDialog() == DialogResult.OK)
+            {
+              
+                listaVehiculos.Add(modalVehiculo.DatosCapturados);
+
+             
+                dataGridView1.Rows.Add(modalVehiculo.DatosCapturados);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
