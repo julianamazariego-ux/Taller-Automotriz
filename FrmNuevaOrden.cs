@@ -8,26 +8,28 @@ using System.Windows.Forms;
 
 namespace Taller_Automotriz
 {
-
     public partial class frmNuevaOrden : Form
     {
-
-        public static List<ClienteTemporal> listaClientes = new List<ClienteTemporal>();
+        // REQUISITO: Lista genérica para guardar las órdenes temporalmente
+        public static List<OrdenTrabajoTemporal> listaOrdenes = new List<OrdenTrabajoTemporal>();
 
         // REQUISITO: ErrorProvider para mostrar los íconos de error
         private ErrorProvider errorProvider = new ErrorProvider();
-
 
         public frmNuevaOrden()
         {
             InitializeComponent();
         }
 
-
+        private void frmNuevaOrden_Load(object sender, EventArgs e)
+        {
+            // Llenar el ComboBox con los valores de la enumeración al cargar la ventana
+            cmbTipoServicio.DataSource = Enum.GetValues(typeof(TipoServicio));
+            cmbTipoServicio.SelectedIndex = -1; // Dejarlo vacío por defecto
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -35,57 +37,64 @@ namespace Taller_Automotriz
             // Limpiar errores previos antes de volver a evaluar
             errorProvider.Clear();
             bool esValido = true;
+            decimal costoValidado = 0;
 
-            // 1. Validación del Nombre
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                errorProvider.SetError(txtNombre, "El nombre es obligatorio.");
-                esValido = false;
-            }
-
-            // 2. Validación del Teléfono (MaskedTextBox)
-            if (!mtxTelefono.MaskFull)
-            {
-                errorProvider.SetError(mtxTelefono, "Debe ingresar el número de teléfono completo.");
-                esValido = false;
-            }
-
-            // 3. Validación del Correo Electrónico
-            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
-            {
-                errorProvider.SetError(txtCorreo, "El correo electrónico es obligatorio.");
-                esValido = false;
-            }
-
-            // 4. Validación del Documento de Identidad (MaskedTextBox)
+            // 1. Validación del DUI (MaskedTextBox)
             if (!mtxDUI.MaskFull)
             {
-                errorProvider.SetError(mtxDUI, "Debe ingresar el documento de identidad completo.");
+                errorProvider.SetError(mtxDUI, "Ingrese el DUI completo del cliente.");
                 esValido = false;
             }
 
-            // Si todos los datos están llenos correctamente, procedemos a guardar y avanzar
+            // 2. Validación de la Placa
+            if (string.IsNullOrWhiteSpace(txtPlaca.Text))
+            {
+                errorProvider.SetError(txtPlaca, "La placa del vehículo es obligatoria.");
+                esValido = false;
+            }
+
+            // 3. Validación del ComboBox de Servicio
+            if (cmbTipoServicio.SelectedIndex == -1)
+            {
+                errorProvider.SetError(cmbTipoServicio, "Seleccione un tipo de servicio.");
+                esValido = false;
+            }
+
+            // 4. REQUISITO: Validación numérica con TryParse para el Costo Estimado
+            if (!decimal.TryParse(txtCostoEstimado.Text, out costoValidado) || costoValidado < 0)
+            {
+                errorProvider.SetError(txtCostoEstimado, "Ingrese un costo estimado válido (solo números, ej: 45.50).");
+                esValido = false;
+            }
+
+            // 5. Validación de la Descripción
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                errorProvider.SetError(txtDescripcion, "Ingrese una descripción del problema.");
+                esValido = false;
+            }
+
+            // Si todos los datos están llenos correctamente, procedemos a guardar
             if (esValido)
             {
                 try
                 {
                     // Crear el objeto con los datos capturados
-                    ClienteTemporal nuevoCliente = new ClienteTemporal
+                    OrdenTrabajoTemporal nuevaOrden = new OrdenTrabajoTemporal
                     {
-                        Nombre = txtNombre.Text,
-                        Telefono = mtxTelefono.Text,
-                        Correo = txtCorreo.Text,
-                        DUI = mtxDUI.Text
+                        DUI = mtxDUI.Text,
+                        Placa = txtPlaca.Text.ToUpper(),
+                        Servicio = (TipoServicio)cmbTipoServicio.SelectedItem,
+                        CostoEstimado = costoValidado,
+                        Descripcion = txtDescripcion.Text
                     };
 
                     // Agregarlo a la lista temporal
-                    listaClientes.Add(nuevoCliente);
+                    listaOrdenes.Add(nuevaOrden);
 
-                    // Abrir la ventana 2 que ya tenías programada
-                    FrmNuevaOrden2 ventana2 = new FrmNuevaOrden2();
-                    ventana2.ShowDialog();
+                    MessageBox.Show("Orden de trabajo registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Limpiamos los campos por si cierran la ventana 2 y quieren registrar otro cliente
+                    // Limpiamos los campos para permitir el ingreso de una nueva orden
                     LimpiarCampos();
                 }
                 catch (Exception ex)
@@ -93,14 +102,6 @@ namespace Taller_Automotriz
                     MessageBox.Show("Ocurrió un error al guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
-        }
-        
-
-        private void frmNuevaOrden_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -110,18 +111,34 @@ namespace Taller_Automotriz
 
         private void LimpiarCampos()
         {
-            txtNombre.Clear();
-            mtxTelefono.Clear();
-            txtCorreo.Clear();
             mtxDUI.Clear();
+            txtPlaca.Clear();
+            cmbTipoServicio.SelectedIndex = -1;
+            txtCostoEstimado.Clear();
+            txtDescripcion.Clear();
+            mtxDUI.Focus();
         }
+    }
 
-        public class ClienteTemporal
-        {
-            public string Nombre { get; set; }
-            public string Telefono { get; set; }
-            public string Correo { get; set; }
-            public string DUI { get; set; }
-        }
+    // --- CLASES Y ENUMERACIONES SE MANTIENEN AL FINAL PARA EVITAR ERRORES DEL DISEÑADOR ---
+
+    // REQUISITO: Enumeración para los tipos de servicio
+    public enum TipoServicio
+    {
+        Diagnostico,
+        MantenimientoBasico,
+        ReparacionMecanica,
+        SistemaElectrico,
+        Otro
+    }
+
+    // Clase temporal para estructurar los datos de la orden
+    public class OrdenTrabajoTemporal
+    {
+        public string DUI { get; set; }
+        public string Placa { get; set; }
+        public TipoServicio Servicio { get; set; }
+        public decimal CostoEstimado { get; set; }
+        public string Descripcion { get; set; }
     }
 }
