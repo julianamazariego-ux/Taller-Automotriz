@@ -247,6 +247,7 @@
             btnBuscar.TabIndex = 13;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // FrmVehiculos
             // 

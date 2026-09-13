@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoVehiculo));
             lblTitulo = new Label();
             lblPlaca = new Label();
@@ -32,18 +33,20 @@
             lblAño = new Label();
             lblColor = new Label();
             txtPlaca = new TextBox();
-            txtMarca = new TextBox();
             txtModelo = new TextBox();
-            txtAnio = new TextBox();
-            txtColor = new TextBox();
             cmbCliente = new ComboBox();
             lblClienteP = new Label();
             btnGuardar = new Button();
             btnCancelar = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            errorProvider1 = new ErrorProvider(components);
+            cmbMarca = new ComboBox();
+            cmbColor = new ComboBox();
+            mtxAnio = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -126,17 +129,6 @@
             txtPlaca.Size = new Size(340, 31);
             txtPlaca.TabIndex = 6;
             // 
-            // txtMarca
-            // 
-            txtMarca.BackColor = Color.White;
-            txtMarca.BorderStyle = BorderStyle.FixedSingle;
-            txtMarca.ForeColor = Color.Black;
-            txtMarca.Location = new Point(373, 247);
-            txtMarca.Margin = new Padding(4, 5, 4, 5);
-            txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(340, 31);
-            txtMarca.TabIndex = 7;
-            // 
             // txtModelo
             // 
             txtModelo.BackColor = Color.White;
@@ -148,33 +140,13 @@
             txtModelo.Size = new Size(340, 31);
             txtModelo.TabIndex = 8;
             // 
-            // txtAnio
-            // 
-            txtAnio.BackColor = Color.White;
-            txtAnio.BorderStyle = BorderStyle.FixedSingle;
-            txtAnio.ForeColor = Color.Black;
-            txtAnio.Location = new Point(373, 389);
-            txtAnio.Margin = new Padding(4, 5, 4, 5);
-            txtAnio.Name = "txtAnio";
-            txtAnio.Size = new Size(340, 31);
-            txtAnio.TabIndex = 9;
-            // 
-            // txtColor
-            // 
-            txtColor.BackColor = Color.White;
-            txtColor.BorderStyle = BorderStyle.FixedSingle;
-            txtColor.ForeColor = Color.Black;
-            txtColor.Location = new Point(373, 460);
-            txtColor.Margin = new Padding(4, 5, 4, 5);
-            txtColor.Name = "txtColor";
-            txtColor.Size = new Size(340, 31);
-            txtColor.TabIndex = 10;
-            // 
             // cmbCliente
             // 
             cmbCliente.BackColor = Color.White;
+            cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.ForeColor = Color.Black;
             cmbCliente.FormattingEnabled = true;
+            cmbCliente.Items.AddRange(new object[] { "Juan Perez", "Carlos Augusto", "Christian Cedillos" });
             cmbCliente.Location = new Point(373, 531);
             cmbCliente.Margin = new Padding(4, 5, 4, 5);
             cmbCliente.Name = "cmbCliente";
@@ -249,21 +221,53 @@
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // cmbMarca
+            // 
+            cmbMarca.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMarca.FormattingEnabled = true;
+            cmbMarca.Items.AddRange(new object[] { "Toyota", "Nissan", "Honda", "Ford", "Kia" });
+            cmbMarca.Location = new Point(373, 246);
+            cmbMarca.Name = "cmbMarca";
+            cmbMarca.Size = new Size(274, 33);
+            cmbMarca.TabIndex = 17;
+            // 
+            // cmbColor
+            // 
+            cmbColor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbColor.FormattingEnabled = true;
+            cmbColor.Items.AddRange(new object[] { "Blanco", "Negro", "Rojo", "Azul", "Gris", "Plata" });
+            cmbColor.Location = new Point(373, 461);
+            cmbColor.Name = "cmbColor";
+            cmbColor.Size = new Size(265, 33);
+            cmbColor.TabIndex = 18;
+            // 
+            // mtxAnio
+            // 
+            mtxAnio.Location = new Point(373, 380);
+            mtxAnio.Mask = "0000";
+            mtxAnio.Name = "mtxAnio";
+            mtxAnio.Size = new Size(150, 31);
+            mtxAnio.TabIndex = 19;
+            // 
             // FrmNuevoVehiculo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 48);
             ClientSize = new Size(887, 731);
+            Controls.Add(mtxAnio);
+            Controls.Add(cmbColor);
+            Controls.Add(cmbMarca);
             Controls.Add(pictureBox2);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(lblClienteP);
             Controls.Add(cmbCliente);
-            Controls.Add(txtColor);
-            Controls.Add(txtAnio);
             Controls.Add(txtModelo);
-            Controls.Add(txtMarca);
             Controls.Add(txtPlaca);
             Controls.Add(lblColor);
             Controls.Add(lblAño);
@@ -282,6 +286,7 @@
             Load += FrmNuevoVehiculo_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,15 +300,16 @@
         private Label lblAño;
         private Label lblColor;
         private TextBox txtPlaca;
-        private TextBox txtMarca;
         private TextBox txtModelo;
-        private TextBox txtAnio;
-        private TextBox txtColor;
         private ComboBox cmbCliente;
         private Label lblClienteP;
         private Button btnGuardar;
         private Button btnCancelar;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private ErrorProvider errorProvider1;
+        private ComboBox cmbMarca;
+        private ComboBox cmbColor;
+        private MaskedTextBox mtxAnio;
     }
 }

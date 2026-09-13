@@ -12,7 +12,7 @@ namespace Taller_Automotriz
 
 
     {
-        List<string[]> listaVehiculos = new List<string[]>();
+        public static List<string[]> listaVehiculos = new List<string[]>();
 
         public FrmVehiculos()
         {
@@ -73,23 +73,18 @@ namespace Taller_Automotriz
         {
 
 
-            
+
             FrmNuevoVehiculo modalVehiculo = new FrmNuevoVehiculo();
 
-          
+
             if (modalVehiculo.ShowDialog() == DialogResult.OK)
             {
-              
+
                 listaVehiculos.Add(modalVehiculo.DatosCapturados);
 
-             
+
                 dataGridView1.Rows.Add(modalVehiculo.DatosCapturados);
             }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -102,7 +97,52 @@ namespace Taller_Automotriz
         {
             txtBuscarPlaca.Clear();
             txtFiltroAnio.Clear();
-            cmbFiltroMarca.SelectedIndex = -1; // El -1 deselecciona la marca y deja el combo en blanco
+            cmbFiltroMarca.SelectedIndex = -1;
+
+            dataGridView1.Rows.Clear();
+            foreach (var vehiculo in listaVehiculos)
+            {
+                dataGridView1.Rows.Add(vehiculo);
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            
+            var resultados = listaVehiculos.AsEnumerable();
+
+            
+            if (!string.IsNullOrWhiteSpace(txtBuscarPlaca.Text))
+            {
+                resultados = resultados.Where(v => v[1].ToUpper().Contains(txtBuscarPlaca.Text.ToUpper()));
+            }
+
+            
+            if (cmbFiltroMarca.SelectedIndex != -1)
+            {
+                resultados = resultados.Where(v => v[2] == cmbFiltroMarca.Text);
+            }
+
+           
+            if (!string.IsNullOrWhiteSpace(txtFiltroAnio.Text))
+            {
+                if (int.TryParse(txtFiltroAnio.Text, out int anioBuscado))
+                {
+                    resultados = resultados.Where(v => v[4] == anioBuscado.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un año válido en números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+         
+            dataGridView1.Rows.Clear();
+            foreach (var vehiculo in resultados)
+            {
+                dataGridView1.Rows.Add(vehiculo);
+            }
         }
     }
 }

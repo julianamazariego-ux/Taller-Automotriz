@@ -33,26 +33,86 @@ namespace Taller_Automotriz
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             
+            errorProvider1.Clear();
+            bool hayErrores = false; 
+
+            
+            if (string.IsNullOrWhiteSpace(txtPlaca.Text))
+            {
+                errorProvider1.SetError(txtPlaca, "La placa es obligatoria.");
+                hayErrores = true;
+            }
+            else if (FrmVehiculos.listaVehiculos.Any(v => v[1].ToUpper() == txtPlaca.Text.ToUpper()))
+            {
+                errorProvider1.SetError(txtPlaca, "Esta placa ya se encuentra registrada.");
+                hayErrores = true;
+            }
+
+            
+            if (string.IsNullOrWhiteSpace(cmbMarca.Text))
+            {
+                errorProvider1.SetError(cmbMarca, "Ingrese la marca.");
+                hayErrores = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtModelo.Text))
+            {
+                errorProvider1.SetError(txtModelo, "Ingrese el modelo.");
+                hayErrores = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(cmbColor.Text))
+            {
+                errorProvider1.SetError(cmbColor, "Ingrese el color.");
+                hayErrores = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(cmbCliente.Text))
+            {
+                errorProvider1.SetError(cmbCliente, "Seleccione un cliente.");
+                hayErrores = true;
+            }
+
+            
+            if (string.IsNullOrWhiteSpace(mtxAnio.Text))
+            {
+                errorProvider1.SetError(mtxAnio, "Ingrese el año.");
+                hayErrores = true;
+            }
+            else if (!int.TryParse(mtxAnio.Text, out int anioVehiculo))
+            {
+                errorProvider1.SetError(mtxAnio,"El año debe ser un número válido.");
+                hayErrores = true;
+            }
+            else if (anioVehiculo < 1950 || anioVehiculo > DateTime.Now.Year + 1)
+            {
+                errorProvider1.SetError(mtxAnio, "Ingrese un año de vehículo coherente.");
+                hayErrores = true;
+            }
+
+            
+            if (hayErrores)
+            {
+                return;
+            }
+
             DatosCapturados = new string[]
             {
-    "1", 
+    (FrmVehiculos.listaVehiculos.Count + 1).ToString(),
     txtPlaca.Text,
-    txtMarca.Text,
+    cmbMarca.Text,
     txtModelo.Text,
-    txtAnio.Text,
-    txtColor.Text,
+    mtxAnio.Text,
+    cmbColor.Text,
     cmbCliente.Text
             };
 
             
             this.DialogResult = DialogResult.OK;
-
-           
             this.Close();
-            MessageBox.Show("¡Vehículo guardado correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            this.Close();
+
         }
 
         private void lblPlaca_Click(object sender, EventArgs e)
