@@ -19,6 +19,7 @@ namespace Taller_Automotriz
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
+           
             // Al cargar la ventana, llenamos la tabla con la lista temporal que ya existe
             ActualizarGrid(frmNuevaOrden.listaClientes);
         }
@@ -65,7 +66,7 @@ namespace Taller_Automotriz
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }

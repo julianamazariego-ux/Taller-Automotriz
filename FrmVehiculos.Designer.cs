@@ -46,12 +46,13 @@
             // 
             // lblTitulo
             // 
+            lblTitulo.Anchor = AnchorStyles.Top;
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.Location = new Point(437, 32);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(326, 37);
+            lblTitulo.Size = new Size(388, 45);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "GESTIÓN DE VEHÍCULOS";
             lblTitulo.Click += lblTitulo_Click;
@@ -62,22 +63,23 @@
             lblBuscarV.Location = new Point(92, 162);
             lblBuscarV.Margin = new Padding(4, 0, 4, 0);
             lblBuscarV.Name = "lblBuscarV";
-            lblBuscarV.Size = new Size(114, 20);
+            lblBuscarV.Size = new Size(137, 25);
             lblBuscarV.TabIndex = 1;
             lblBuscarV.Text = "Buscar vehículo:";
             // 
             // txtBuscar
             // 
+            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscar.BorderStyle = BorderStyle.FixedSingle;
             txtBuscar.Location = new Point(237, 159);
             txtBuscar.Margin = new Padding(4, 5, 4, 5);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(678, 27);
+            txtBuscar.Size = new Size(678, 31);
             txtBuscar.TabIndex = 2;
             // 
             // btnBuscar
             // 
-            btnBuscar.Anchor = AnchorStyles.Top;
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnBuscar.FlatAppearance.BorderSize = 0;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Location = new Point(920, 155);
@@ -92,6 +94,7 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -118,59 +121,53 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1044, 185);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // Id
             // 
             Id.HeaderText = "ID";
             Id.MinimumWidth = 8;
             Id.Name = "Id";
-            Id.Width = 150;
             // 
             // placa
             // 
             placa.HeaderText = "Placa";
             placa.MinimumWidth = 8;
             placa.Name = "placa";
-            placa.Width = 150;
             // 
             // marca
             // 
             marca.HeaderText = "Marca";
             marca.MinimumWidth = 8;
             marca.Name = "marca";
-            marca.Width = 150;
             // 
             // modelo
             // 
             modelo.HeaderText = "Modelo";
             modelo.MinimumWidth = 8;
             modelo.Name = "modelo";
-            modelo.Width = 150;
             // 
             // año
             // 
             año.HeaderText = "Año";
             año.MinimumWidth = 8;
             año.Name = "año";
-            año.Width = 150;
             // 
             // Color
             // 
             Color.HeaderText = "Color";
             Color.MinimumWidth = 8;
             Color.Name = "Color";
-            Color.Width = 150;
             // 
             // Cliente
             // 
             Cliente.HeaderText = "Cliente Propiedario";
             Cliente.MinimumWidth = 8;
             Cliente.Name = "Cliente";
-            Cliente.Width = 150;
             // 
             // btnNuevo
             // 
-            btnNuevo.Anchor = AnchorStyles.Top;
+            btnNuevo.Anchor = AnchorStyles.Bottom;
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
             btnNuevo.Location = new Point(87, 531);
@@ -184,7 +181,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Anchor = AnchorStyles.Top;
+            btnEliminar.Anchor = AnchorStyles.Bottom;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Location = new Point(448, 531);
@@ -197,7 +194,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Anchor = AnchorStyles.Top;
+            btnEditar.Anchor = AnchorStyles.Bottom;
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Location = new Point(294, 531);

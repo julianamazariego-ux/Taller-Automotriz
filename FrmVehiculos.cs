@@ -39,7 +39,7 @@ namespace Taller_Automotriz
             }
 
 
-            dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(45, 45, 48);
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             dataGridView1.EnableHeadersVisualStyles = false;
@@ -62,7 +62,7 @@ namespace Taller_Automotriz
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
 
-            dataGridView1.Rows.Add(25);
+            
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -76,7 +76,8 @@ namespace Taller_Automotriz
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
