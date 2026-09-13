@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             btnNuevo = new Button();
             btnEditar = new Button();
@@ -126,24 +126,24 @@
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.BackgroundColor = Color.FromArgb(45, 45, 48);
             dgvClientes.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 122, 204);
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Dui, Telefono, Correo, Direccion });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(62, 62, 66);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(62, 62, 66);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvClientes.EnableHeadersVisualStyles = false;
             dgvClientes.Location = new Point(158, 330);
             dgvClientes.Margin = new Padding(4, 5, 4, 5);
@@ -230,7 +230,7 @@
             // 
             // btnLimpiarFiltros
             // 
-            btnLimpiarFiltros.BackColor = Color.IndianRed;
+            btnLimpiarFiltros.BackColor = Color.FromArgb(230, 126, 34);
             btnLimpiarFiltros.ForeColor = SystemColors.ControlLightLight;
             btnLimpiarFiltros.Location = new Point(1024, 223);
             btnLimpiarFiltros.Name = "btnLimpiarFiltros";

@@ -33,12 +33,38 @@ namespace Taller_Automotriz
                 }
                 else if (control is Button)
                 {
-
                     Button btn = (Button)control;
                     btn.ForeColor = System.Drawing.Color.White;
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderSize = 0;
-                    btn.BackColor = System.Drawing.Color.FromArgb(45, 45, 48);
+
+
+                    if (btn.Name == "btnNuevo")
+                    {
+                        btn.BackColor = System.Drawing.Color.FromArgb(0, 122, 204);
+                        btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 150, 220);
+                    }
+                    else if (btn.Name == "btnEliminar")
+                    {
+                        btn.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
+                        btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(200, 40, 50);
+                    }
+                    else if (btn.Name == "btnBuscar")
+                    {
+                        btn.BackColor = System.Drawing.Color.FromArgb(0, 70, 140);
+                        btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 90, 170);
+                    }
+                    else if (btn.Name == "btnLimpiarFiltros")
+                    {
+                        btn.BackColor = System.Drawing.Color.FromArgb(230, 126, 34);
+                        btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(250, 140, 50);
+                    }
+                    else
+                    {
+
+                        btn.BackColor = System.Drawing.Color.FromArgb(45, 45, 48);
+                        btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(60, 60, 65);
+                    }
                 }
             }
 
@@ -57,6 +83,7 @@ namespace Taller_Automotriz
             dataGridView1.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(62, 62, 66);
         }
+        
 
         private void lblTitulo_Click(object sender, EventArgs e)
         {

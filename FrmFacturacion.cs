@@ -62,7 +62,7 @@ namespace Taller_Automotriz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Simula que se guardó en la base de datos
+            
             MessageBox.Show("La factura ha sido guardada y registrada exitosamente.",
                             "Factura Guardada",
                             MessageBoxButtons.OK,
