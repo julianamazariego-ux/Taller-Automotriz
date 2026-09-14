@@ -24,24 +24,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoCliente));
             lblTitulo = new Label();
             lblNombreC = new Label();
-            lblDui = new Label();
+            lblDUI = new Label();
             lblTelefono = new Label();
-            lblCorreoE = new Label();
-            lblDireccion = new Label();
+            lblCorreo = new Label();
+            lblDirección = new Label();
             txtNombre = new TextBox();
-            txtDUI = new TextBox();
-            txtTelefono = new TextBox();
             txtCorreo = new TextBox();
-            txtDireccion = new TextBox();
+            txtDirección = new TextBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            mtxtDUI = new MaskedTextBox();
+            mtxtTelefono = new MaskedTextBox();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -67,16 +70,16 @@
             lblNombreC.TabIndex = 1;
             lblNombreC.Text = "Nombre completo:";
             // 
-            // lblDui
+            // lblDUI
             // 
-            lblDui.AutoSize = true;
-            lblDui.ForeColor = Color.White;
-            lblDui.Location = new Point(98, 242);
-            lblDui.Margin = new Padding(4, 0, 4, 0);
-            lblDui.Name = "lblDui";
-            lblDui.Size = new Size(42, 25);
-            lblDui.TabIndex = 2;
-            lblDui.Text = "DUI";
+            lblDUI.AutoSize = true;
+            lblDUI.ForeColor = Color.White;
+            lblDUI.Location = new Point(98, 242);
+            lblDUI.Margin = new Padding(4, 0, 4, 0);
+            lblDUI.Name = "lblDUI";
+            lblDUI.Size = new Size(42, 25);
+            lblDUI.TabIndex = 2;
+            lblDUI.Text = "DUI";
             // 
             // lblTelefono
             // 
@@ -89,27 +92,27 @@
             lblTelefono.TabIndex = 3;
             lblTelefono.Text = "Telefono";
             // 
-            // lblCorreoE
+            // lblCorreo
             // 
-            lblCorreoE.AutoSize = true;
-            lblCorreoE.ForeColor = Color.White;
-            lblCorreoE.Location = new Point(98, 371);
-            lblCorreoE.Margin = new Padding(4, 0, 4, 0);
-            lblCorreoE.Name = "lblCorreoE";
-            lblCorreoE.Size = new Size(157, 25);
-            lblCorreoE.TabIndex = 4;
-            lblCorreoE.Text = "Correo electronico";
+            lblCorreo.AutoSize = true;
+            lblCorreo.ForeColor = Color.White;
+            lblCorreo.Location = new Point(98, 371);
+            lblCorreo.Margin = new Padding(4, 0, 4, 0);
+            lblCorreo.Name = "lblCorreo";
+            lblCorreo.Size = new Size(157, 25);
+            lblCorreo.TabIndex = 4;
+            lblCorreo.Text = "Correo electronico";
             // 
-            // lblDireccion
+            // lblDirección
             // 
-            lblDireccion.AutoSize = true;
-            lblDireccion.ForeColor = Color.White;
-            lblDireccion.Location = new Point(98, 439);
-            lblDireccion.Margin = new Padding(4, 0, 4, 0);
-            lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(85, 25);
-            lblDireccion.TabIndex = 5;
-            lblDireccion.Text = "Direccion";
+            lblDirección.AutoSize = true;
+            lblDirección.ForeColor = Color.White;
+            lblDirección.Location = new Point(98, 439);
+            lblDirección.Margin = new Padding(4, 0, 4, 0);
+            lblDirección.Name = "lblDirección";
+            lblDirección.Size = new Size(85, 25);
+            lblDirección.TabIndex = 5;
+            lblDirección.Text = "Dirección";
             // 
             // txtNombre
             // 
@@ -119,22 +122,6 @@
             txtNombre.Size = new Size(501, 31);
             txtNombre.TabIndex = 6;
             // 
-            // txtDUI
-            // 
-            txtDUI.Location = new Point(286, 236);
-            txtDUI.Margin = new Padding(4, 5, 4, 5);
-            txtDUI.Name = "txtDUI";
-            txtDUI.Size = new Size(208, 31);
-            txtDUI.TabIndex = 7;
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Location = new Point(286, 301);
-            txtTelefono.Margin = new Padding(4, 5, 4, 5);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(208, 31);
-            txtTelefono.TabIndex = 8;
-            // 
             // txtCorreo
             // 
             txtCorreo.Location = new Point(286, 365);
@@ -143,13 +130,13 @@
             txtCorreo.Size = new Size(501, 31);
             txtCorreo.TabIndex = 9;
             // 
-            // txtDireccion
+            // txtDirección
             // 
-            txtDireccion.Location = new Point(286, 433);
-            txtDireccion.Margin = new Padding(4, 5, 4, 5);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(501, 31);
-            txtDireccion.TabIndex = 10;
+            txtDirección.Location = new Point(286, 433);
+            txtDirección.Margin = new Padding(4, 5, 4, 5);
+            txtDirección.Name = "txtDirección";
+            txtDirección.Size = new Size(501, 31);
+            txtDirección.TabIndex = 10;
             // 
             // btnGuardar
             // 
@@ -203,6 +190,26 @@
             pictureBox2.TabIndex = 14;
             pictureBox2.TabStop = false;
             // 
+            // mtxtDUI
+            // 
+            mtxtDUI.Location = new Point(286, 239);
+            mtxtDUI.Mask = "00000000-0";
+            mtxtDUI.Name = "mtxtDUI";
+            mtxtDUI.Size = new Size(150, 31);
+            mtxtDUI.TabIndex = 15;
+            // 
+            // mtxtTelefono
+            // 
+            mtxtTelefono.Location = new Point(286, 304);
+            mtxtTelefono.Mask = "0000-0000";
+            mtxtTelefono.Name = "mtxtTelefono";
+            mtxtTelefono.Size = new Size(150, 31);
+            mtxtTelefono.TabIndex = 16;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // FrmNuevoCliente
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -210,18 +217,18 @@
             BackColor = Color.FromArgb(45, 45, 48);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(924, 668);
+            Controls.Add(mtxtTelefono);
+            Controls.Add(mtxtDUI);
             Controls.Add(pictureBox2);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
-            Controls.Add(txtDireccion);
+            Controls.Add(txtDirección);
             Controls.Add(txtCorreo);
-            Controls.Add(txtTelefono);
-            Controls.Add(txtDUI);
             Controls.Add(txtNombre);
-            Controls.Add(lblDireccion);
-            Controls.Add(lblCorreoE);
+            Controls.Add(lblDirección);
+            Controls.Add(lblCorreo);
             Controls.Add(lblTelefono);
-            Controls.Add(lblDui);
+            Controls.Add(lblDUI);
             Controls.Add(lblNombreC);
             Controls.Add(lblTitulo);
             Controls.Add(pictureBox1);
@@ -234,6 +241,7 @@
             Load += FrmNuevoCliente_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,18 +250,19 @@
 
         private Label lblTitulo;
         private Label lblNombreC;
-        private Label lblDui;
+        private Label lblDUI;
         private Label lblTelefono;
-        private Label lblCorreoE;
-        private Label lblDireccion;
+        private Label lblCorreo;
+        private Label lblDirección;
         private TextBox txtNombre;
-        private TextBox txtDUI;
-        private TextBox txtTelefono;
         private TextBox txtCorreo;
-        private TextBox txtDireccion;
+        private TextBox txtDirección;
         private Button btnGuardar;
         private Button btnCancelar;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private MaskedTextBox mtxtDUI;
+        private MaskedTextBox mtxtTelefono;
+        private ErrorProvider errorProvider1;
     }
 }
