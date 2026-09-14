@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static Taller_Automotriz.FrmNuevoMecanico;
 
 namespace Taller_Automotriz
 {
@@ -38,13 +39,20 @@ namespace Taller_Automotriz
         {
             dataGridView1.Rows.Clear();
 
-            // Filtra la lista (busca coincidencias en el nombre o en la especialidad)
-            var resultados = listaMecanicos.Where(m =>
-                (string.IsNullOrWhiteSpace(txtBusqueda.Text) || m[1].ToLower().Contains(txtBusqueda.Text.ToLower())) &&
-                (string.IsNullOrWhiteSpace(cmbFiltro.Text) || m[2] == cmbFiltro.Text)
+            
+            string especialidadBuscada = cmbFiltro.SelectedIndex != -1 ? cmbFiltro.Text : "";
+
+            
+            string nombreBuscado = txtBusqueda.Text.ToLower().Trim();
+
+            
+            var mecanicosFiltrados = listaMecanicos.Where(m =>
+                (string.IsNullOrWhiteSpace(nombreBuscado) || m[1].ToLower().Contains(nombreBuscado)) &&
+                (string.IsNullOrWhiteSpace(especialidadBuscada) || m[2] == especialidadBuscada)
             ).ToList();
 
-            foreach (var mecanico in resultados)
+            
+            foreach (var mecanico in mecanicosFiltrados)
             {
                 dataGridView1.Rows.Add(mecanico);
             }
@@ -57,7 +65,9 @@ namespace Taller_Automotriz
 
         private void FrmMecanicos_Load(object sender, EventArgs e)
         {
-
+            
+            cmbFiltro.DataSource = Enum.GetValues<Especialidades>();
+            cmbFiltro.SelectedIndex = -1; 
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,7 +91,7 @@ namespace Taller_Automotriz
                 {
                     string idSeleccionado = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
-                    // Busca al mecánico por su ID y lo elimina de la lista
+                    
                     var mecanicoAEliminar = listaMecanicos.FirstOrDefault(m => m[0] == idSeleccionado);
                     if (mecanicoAEliminar != null)
                     {

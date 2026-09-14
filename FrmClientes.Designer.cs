@@ -41,7 +41,7 @@
             lblBuscarC = new Label();
             txtNombreCliente = new TextBox();
             label1 = new Label();
-            mtxtFiltroDUI = new MaskedTextBox();
+            mtxDUI = new MaskedTextBox();
             btnLimpiarFiltros = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
@@ -220,13 +220,13 @@
             label1.TabIndex = 8;
             label1.Text = "Filtrar por DUI";
             // 
-            // mtxtFiltroDUI
+            // mtxDUI
             // 
-            mtxtFiltroDUI.Location = new Point(346, 220);
-            mtxtFiltroDUI.Mask = "00000000-0";
-            mtxtFiltroDUI.Name = "mtxtFiltroDUI";
-            mtxtFiltroDUI.Size = new Size(196, 31);
-            mtxtFiltroDUI.TabIndex = 9;
+            mtxDUI.Location = new Point(346, 220);
+            mtxDUI.Mask = "00000000-0";
+            mtxDUI.Name = "mtxDUI";
+            mtxDUI.Size = new Size(196, 31);
+            mtxDUI.TabIndex = 9;
             // 
             // btnLimpiarFiltros
             // 
@@ -238,6 +238,7 @@
             btnLimpiarFiltros.TabIndex = 10;
             btnLimpiarFiltros.Text = "Limpiar";
             btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            btnLimpiarFiltros.Click += btnLimpiarFiltros_Click;
             // 
             // FrmClientes
             // 
@@ -246,7 +247,7 @@
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(1253, 677);
             Controls.Add(btnLimpiarFiltros);
-            Controls.Add(mtxtFiltroDUI);
+            Controls.Add(mtxDUI);
             Controls.Add(label1);
             Controls.Add(txtNombreCliente);
             Controls.Add(lblBuscarC);
@@ -284,7 +285,7 @@
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Direccion;
         private Label label1;
-        private MaskedTextBox mtxtFiltroDUI;
+        private MaskedTextBox mtxDUI;
         private Button btnLimpiarFiltros;
     }
 }
