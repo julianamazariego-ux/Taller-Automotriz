@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq; // REQUISITO: Indispensable para usar consultas LINQ
+using System.Linq; 
 using System.Text;
 using System.Windows.Forms;
-using static Taller_Automotriz.frmNuevaOrden;
 
 namespace Taller_Automotriz
 {
@@ -15,13 +14,14 @@ namespace Taller_Automotriz
         public FrmClientes()
         {
             InitializeComponent();
+           
+            ConfigurarGrid();
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-           
-            // Al cargar la ventana, llenamos la tabla con la lista temporal que ya existe
-            ActualizarGrid(frmNuevaOrden.listaClientes);
+            
+            ActualizarGrid(FrmNuevoCliente.ListaClientes);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -31,26 +31,25 @@ namespace Taller_Automotriz
                 formulario.ShowDialog(this);
             }
 
-            // Refrescamos la tabla por si el usuario agregó un cliente nuevo en esa ventana
-            ActualizarGrid(frmNuevaOrden.listaClientes);
+            
+            ActualizarGrid(FrmNuevoCliente.ListaClientes);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Suponiendo que a tu TextBox de búsqueda le pusiste "txtBuscar"
+            
             string textoBusqueda = txtNombreCliente.Text.ToLower().Trim();
 
-            // REQUISITO: Uso de consulta LINQ para filtrar clientes por Nombre o DUI
-            var clientesFiltrados = frmNuevaOrden.listaClientes
+            
+            var clientesFiltrados = FrmNuevoCliente.ListaClientes
                 .Where(c => c.Nombre.ToLower().Contains(textoBusqueda) || c.DUI.Contains(textoBusqueda))
                 .ToList();
-
 
             ActualizarGrid(clientesFiltrados);
         }
 
-
-        private void ActualizarGrid(List<ClienteTemporal> listaAMostrar)
+        
+        private void ActualizarGrid(List<Cliente> listaAMostrar)
         {
             dgvClientes.Rows.Clear();
 
@@ -58,15 +57,48 @@ namespace Taller_Automotriz
 
             foreach (var cliente in listaAMostrar)
             {
-
                 dgvClientes.Rows.Add(idIncremental, cliente.Nombre, cliente.DUI, cliente.Telefono, cliente.Correo);
                 idIncremental++;
             }
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void ConfigurarGrid()
         {
             
+            dgvClientes.BorderStyle = BorderStyle.None;
+            dgvClientes.BackgroundColor = Color.FromArgb(30, 30, 30); 
+            dgvClientes.GridColor = Color.DimGray;
+            dgvClientes.RowHeadersVisible = false;
+
+           
+            dgvClientes.EnableHeadersVisualStyles = false;
+            dgvClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 102, 204);
+            dgvClientes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvClientes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvClientes.ColumnHeadersHeight = 35;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            
+            dgvClientes.DefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48);
+            dgvClientes.DefaultCellStyle.ForeColor = Color.White;
+            dgvClientes.DefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+
+          
+            dgvClientes.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 102, 204);
+            dgvClientes.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvClientes.RowTemplate.Height = 30;
+
+            
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.AllowUserToAddRows = false;
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
