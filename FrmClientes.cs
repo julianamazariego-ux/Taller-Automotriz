@@ -38,10 +38,19 @@ namespace Taller_Automotriz
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+            errorProvider1.Clear();
 
             string nombreBuscado = txtNombreCliente.Text.ToLower().Trim();
 
-            string duiBuscado = mtxDUI.Text.Replace("-", "").Trim();
+            string duiBuscado = mtxtDUI.Text.Replace("-", "").Trim();
+
+            if (string.IsNullOrWhiteSpace(nombreBuscado) && string.IsNullOrWhiteSpace(duiBuscado))
+            {
+                errorProvider1.SetError(txtNombreCliente, "Ingrese un nombre o DUI para buscar.");
+                errorProvider1.SetError(mtxtDUI, "Ingrese un nombre o DUI para buscar.");
+                MessageBox.Show("Debe ingresar un criterio de busqueda (Nombre o DUI).", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var clientesFiltrados = FrmNuevoCliente.ListaClientes
                 .Where(c =>
@@ -50,9 +59,13 @@ namespace Taller_Automotriz
                     (string.IsNullOrWhiteSpace(duiBuscado) || c.DUI.Replace("-", "") == duiBuscado)
                 ).ToList();
 
-
-
             ActualizarGrid(clientesFiltrados);
+
+            if (clientesFiltrados.Count == 0)
+            {
+                MessageBox.Show("No se encontraron clientes con los criterios ingresados.", "Sin resultados", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
         }
 
 
@@ -110,15 +123,42 @@ namespace Taller_Automotriz
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
-            
-            txtNombreCliente.Clear();
-            mtxDUI.Clear();
+            errorProvider1.Clear();
 
-            
+            txtNombreCliente.Clear();
+            mtxtDUI.Clear();
+
+
             ActualizarGrid(FrmNuevoCliente.ListaClientes);
 
-         
+
             txtNombreCliente.Focus();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                string duiSeleccionado = dgvClientes.SelectedRows[0].Cells["DUI"].Value?.ToString();
+
+                var ClienteAEliminar = FrmNuevoCliente.ListaClientes.FirstOrDefault(c => c.DUI == duiSeleccionado);
+
+                if (ClienteAEliminar != null)
+                {
+                    var respuesta = MessageBox.Show($"¿Está seguro de eliminar al cliente {ClienteAEliminar.Nombre}?", "Confirmar eliminación", 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        FrmNuevoCliente.ListaClientes.Remove(ClienteAEliminar);
+                        ActualizarGrid(FrmNuevoCliente.ListaClientes);
+                        MessageBox.Show("Cliente eliminado exitosamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un cliente de la tabla para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
