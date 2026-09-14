@@ -25,10 +25,7 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        
         private void InitializeComponent()
         {
             listViewRepuestos = new ListView();
@@ -39,9 +36,7 @@
             btnEliminar = new Button();
             labelTitle = new Label();
             SuspendLayout();
-            // 
-            // listViewRepuestos
-            // 
+            
             listViewRepuestos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listViewRepuestos.BackColor = Color.FromArgb(30, 30, 30);
             listViewRepuestos.Columns.AddRange(new ColumnHeader[] { columnHeaderNombre, columnHeaderPrecio });
@@ -53,20 +48,13 @@
             listViewRepuestos.TabIndex = 0;
             listViewRepuestos.UseCompatibleStateImageBehavior = false;
             listViewRepuestos.View = View.Details;
-            listViewRepuestos.SelectedIndexChanged += listViewRepuestos_SelectedIndexChanged;
-            // 
-            // columnHeaderNombre
-            // 
+            
             columnHeaderNombre.Text = "Nombre";
             columnHeaderNombre.Width = 520;
-            // 
-            // columnHeaderPrecio
-            // 
+            
             columnHeaderPrecio.Text = "Precio";
             columnHeaderPrecio.Width = 200;
-            // 
-            // btnAgregar
-            // 
+            
             btnAgregar.Anchor = AnchorStyles.Bottom;
             btnAgregar.BackColor = Color.FromArgb(0, 122, 204);
             btnAgregar.FlatStyle = FlatStyle.Flat;
@@ -77,9 +65,7 @@
             btnAgregar.TabIndex = 1;
             btnAgregar.Text = "+ Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
+            
             btnEditar.Anchor = AnchorStyles.Bottom;
             btnEditar.BackColor = Color.FromArgb(60, 60, 60);
             btnEditar.FlatStyle = FlatStyle.Flat;
@@ -90,9 +76,7 @@
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
+            
             btnEliminar.Anchor = AnchorStyles.Bottom;
             btnEliminar.BackColor = Color.FromArgb(200, 50, 50);
             btnEliminar.FlatStyle = FlatStyle.Flat;
@@ -103,9 +87,7 @@
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // labelTitle
-            // 
+            
             labelTitle.AutoSize = true;
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(20, 22);
@@ -113,9 +95,7 @@
             labelTitle.Size = new Size(155, 25);
             labelTitle.TabIndex = 4;
             labelTitle.Text = "Lista de repuestos";
-            // 
-            // FrmRepuestos
-            // 
+            
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
