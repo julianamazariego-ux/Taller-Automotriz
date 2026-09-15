@@ -58,11 +58,16 @@ namespace Taller_Automotriz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
             FrmNuevoVehiculo modalNuevoVehiculo = new FrmNuevoVehiculo();
 
-            
-            modalNuevoVehiculo.ShowDialog();
+            if (modalNuevoVehiculo.ShowDialog() == DialogResult.OK)
+            {
+                
+                FrmVehiculos.listaVehiculos.Add(modalNuevoVehiculo.DatosCapturados);
+
+               
+                MessageBox.Show("Vehículo registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

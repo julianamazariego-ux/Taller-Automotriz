@@ -8,6 +8,21 @@ using System.Windows.Forms;
 
 namespace Taller_Automotriz
 {
+
+    public enum MarcasVehiculos
+    {
+        Toyota,
+        Nissan,
+        Honda,
+        Ford,
+        Chevrolet,
+        Kia,
+        Hyundai,
+        Mazda,
+        BMW,
+        Otro
+    }
+
     public partial class FrmVehiculos : Form
 
 
@@ -92,8 +107,21 @@ namespace Taller_Automotriz
 
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
+            
+            dataGridView1.Rows.Clear();
+
+            
+            foreach (var vehiculo in listaVehiculos)
+            {
+                dataGridView1.Rows.Add(vehiculo);
+            }
+
+           
+            cmbFiltroMarca.DataSource = Enum.GetValues<MarcasVehiculos>();
+            cmbFiltroMarca.SelectedIndex = -1;
 
 
+           
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -131,6 +159,8 @@ namespace Taller_Automotriz
             {
                 dataGridView1.Rows.Add(vehiculo);
             }
+
+
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)

@@ -198,6 +198,7 @@
             // 
             // cmbFiltro
             // 
+            cmbFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFiltro.FormattingEnabled = true;
             cmbFiltro.Items.AddRange(new object[] { "General", "Motor", "Eléctrico", "Suspensión" });
             cmbFiltro.Location = new Point(334, 232);

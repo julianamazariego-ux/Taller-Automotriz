@@ -122,6 +122,7 @@
             // 
             txtPlaca.BackColor = Color.White;
             txtPlaca.BorderStyle = BorderStyle.FixedSingle;
+            txtPlaca.CharacterCasing = CharacterCasing.Upper;
             txtPlaca.ForeColor = Color.Black;
             txtPlaca.Location = new Point(373, 179);
             txtPlaca.Margin = new Padding(4, 5, 4, 5);
@@ -146,7 +147,6 @@
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.ForeColor = Color.Black;
             cmbCliente.FormattingEnabled = true;
-            cmbCliente.Items.AddRange(new object[] { "Juan Perez", "Carlos Augusto", "Christian Cedillos" });
             cmbCliente.Location = new Point(373, 531);
             cmbCliente.Margin = new Padding(4, 5, 4, 5);
             cmbCliente.Name = "cmbCliente";
@@ -202,10 +202,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = Properties.Resources.cab7fde32b9417310bd7e89b6ce5400c_removebg_preview;
-            pictureBox1.Location = new Point(4, -46);
+            pictureBox1.Location = new Point(35, -70);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(960, 795);
+            pictureBox1.Size = new Size(917, 832);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
@@ -229,7 +229,6 @@
             // 
             cmbMarca.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMarca.FormattingEnabled = true;
-            cmbMarca.Items.AddRange(new object[] { "Toyota", "Nissan", "Honda", "Ford", "Kia" });
             cmbMarca.Location = new Point(373, 246);
             cmbMarca.Name = "cmbMarca";
             cmbMarca.Size = new Size(274, 33);

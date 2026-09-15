@@ -19,7 +19,21 @@ namespace Taller_Automotriz
 
         private void FrmNuevoVehiculo_Load(object sender, EventArgs e)
         {
+            
+            cmbMarca.DataSource = Enum.GetValues<MarcasVehiculos>();
 
+           
+            if (FrmNuevoCliente.ListaClientes.Count > 0)
+            {
+
+                cmbCliente.DataSource = FrmNuevoCliente.ListaClientes.Select(c => c.Nombre).ToList();
+                cmbCliente.SelectedIndex = -1; 
+            }
+            else
+            {
+
+                cmbCliente.DataSource = new List<string> { "Primero registre un cliente..." };
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
