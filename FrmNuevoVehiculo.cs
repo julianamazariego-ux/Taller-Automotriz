@@ -104,11 +104,46 @@ namespace Taller_Automotriz
                 hayErrores = true;
             }
 
+
             
+            if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
+            {
+                errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
+                hayErrores = true;
+            }
+
+            if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
+            {
+                
+                errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
+
+
+                MessageBox.Show("Debe registrar al menos un cliente en el sistema antes de poder guardar un vehículo.", "Validación de Propietario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                hayErrores = true;
+            }
+
+
             if (hayErrores)
             {
-                return;
+                this.DialogResult = DialogResult.None; 
+                if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
+                {
+                    errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
+                    hayErrores = true;
+                }
+
+
+                if (hayErrores)
+                {
+                    this.DialogResult = DialogResult.None; 
+                    return; 
+                }
+
+              
             }
+
+         
 
             DatosCapturados = new string[]
             {

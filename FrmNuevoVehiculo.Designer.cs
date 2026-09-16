@@ -126,6 +126,7 @@
             txtPlaca.ForeColor = Color.Black;
             txtPlaca.Location = new Point(373, 179);
             txtPlaca.Margin = new Padding(4, 5, 4, 5);
+            txtPlaca.MaxLength = 10;
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(340, 31);
             txtPlaca.TabIndex = 6;
