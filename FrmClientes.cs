@@ -63,7 +63,7 @@ namespace Taller_Automotriz
 
             if (clientesFiltrados.Count == 0)
             {
-                MessageBox.Show("No se encontraron clientes con los criterios ingresados.", "Sin resultados", MessageBoxButtons.OK, 
+                MessageBox.Show("No se encontraron clientes con los criterios ingresados.", "Sin resultados", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
         }
@@ -77,7 +77,7 @@ namespace Taller_Automotriz
 
             foreach (var cliente in listaAMostrar)
             {
-                dgvClientes.Rows.Add(idIncremental, cliente.Nombre, cliente.DUI, cliente.Telefono, cliente.Correo);
+                dgvClientes.Rows.Add(idIncremental, cliente.Nombre, cliente.DUI, cliente.Telefono, cliente.Correo, cliente.Dirección);
                 idIncremental++;
             }
         }
@@ -139,13 +139,13 @@ namespace Taller_Automotriz
         {
             if (dgvClientes.SelectedRows.Count > 0)
             {
-                string duiSeleccionado = dgvClientes.SelectedRows[0].Cells["DUI"].Value?.ToString();
+                string duiSeleccionado = dgvClientes.SelectedRows[0].Cells["DUI"].Value?.ToString() ?? string.Empty;
 
                 var ClienteAEliminar = FrmNuevoCliente.ListaClientes.FirstOrDefault(c => c.DUI == duiSeleccionado);
 
                 if (ClienteAEliminar != null)
                 {
-                    var respuesta = MessageBox.Show($"¿Está seguro de eliminar al cliente {ClienteAEliminar.Nombre}?", "Confirmar eliminación", 
+                    var respuesta = MessageBox.Show($"¿Está seguro de eliminar al cliente {ClienteAEliminar.Nombre}?", "Confirmar eliminación",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.Yes)
                     {
@@ -158,6 +158,37 @@ namespace Taller_Automotriz
             else
             {
                 MessageBox.Show("Por favor, seleccione un cliente de la tabla para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                string duiSeleccionado = dgvClientes.SelectedRows[0].Cells["DUI"].Value?.ToString() ?? string.Empty;
+                var clienteAEditar = FrmNuevoCliente.ListaClientes.FirstOrDefault(c => c.DUI == duiSeleccionado);
+
+                if (clienteAEditar != null)
+                {
+                    using (FrmNuevoCliente formulario = new FrmNuevoCliente(clienteAEditar))
+                    {
+                        formulario.ShowDialog(this);
+                    }
+                    ActualizarGrid(FrmNuevoCliente.ListaClientes);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un cliente de la tabla para editar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtNombreCliente_keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                mtxtDUI.Focus();
             }
         }
     }

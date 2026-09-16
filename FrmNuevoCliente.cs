@@ -17,6 +17,23 @@ namespace Taller_Automotriz
             InitializeComponent();
         }
 
+        private void FrmNuevoCliente_KeyDown(object? sender, KeyEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Cliente? clienteExistente;
+
+        public FrmNuevoCliente(Cliente cliente) : this()
+        {
+            this.clienteExistente = cliente;
+
+            txtNombre.Text = cliente.Nombre;
+            mtxtDUI.Text = cliente.DUI;
+            mtxtTelefono.Text = cliente.Telefono;
+            txtCorreo.Text = cliente.Correo;
+            txtDirección.Text = cliente.Dirección;
+        }
         private static readonly Regex RegexCorreo = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);
 
         private void FrmNuevoCliente_Load(object sender, EventArgs e)
@@ -51,28 +68,35 @@ namespace Taller_Automotriz
         {
             try
             {
-                bool exixteDUI = ListaClientes.Any(c => c.DUI == mtxtDUI.Text);
-
-                if (exixteDUI)
+                if (clienteExistente == null && ListaClientes.Any(c => c.DUI == mtxtDUI.Text))
                 {
-                    MessageBox.Show("Ya existe un cliente registrado cn este DUI.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ya existe un cliente regisstrado con este DUI.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                Cliente nuevoCliente = new Cliente
+                if (clienteExistente != null)
                 {
-                    Nombre = txtNombre.Text.Trim(),
-                    DUI = mtxtDUI.Text,
-                    Telefono = mtxtTelefono.Text,
-                    Correo = txtCorreo.Text.Trim(),
-                    Dirección = txtDirección.Text.Trim()
-                };
+                    clienteExistente.Nombre = txtNombre.Text.Trim();
+                    clienteExistente.DUI = mtxtDUI.Text;
+                    clienteExistente.Telefono = mtxtTelefono.Text;
+                    clienteExistente.Correo = txtCorreo.Text.Trim();
+                    clienteExistente.Dirección = txtDirección.Text.Trim();
 
-                ListaClientes.Add(nuevoCliente);
-
-                MessageBox.Show("Cliente registrado exitosamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                LimpiarCampos();
+                    MessageBox.Show("Cliente actualizado exitosamemte.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Cliente nuevoCliente = new Cliente
+                    {
+                        Nombre = txtNombre.Text.Trim(),
+                        DUI = mtxtDUI.Text,
+                        Telefono = mtxtTelefono.Text,
+                        Correo = txtCorreo.Text.Trim(),
+                        Dirección = txtDirección.Text.Trim()
+                    };
+                    ListaClientes.Add(nuevoCliente);
+                    MessageBox.Show("Cliente registrado exitosamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                }
             }
             catch (Exception ex)
             {
@@ -101,6 +125,15 @@ namespace Taller_Automotriz
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Campos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
     }
 

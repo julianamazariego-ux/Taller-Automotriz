@@ -92,6 +92,7 @@
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnEliminar
             // 
@@ -212,6 +213,7 @@
             txtNombreCliente.Name = "txtNombreCliente";
             txtNombreCliente.Size = new Size(641, 31);
             txtNombreCliente.TabIndex = 7;
+            txtNombreCliente.KeyDown += txtNombreCliente_keyDown;
             // 
             // label1
             // 
@@ -226,6 +228,8 @@
             // 
             // mtxtDUI
             // 
+            mtxtDUI.HideSelection = false;
+            mtxtDUI.InsertKeyMode = InsertKeyMode.Overwrite;
             mtxtDUI.Location = new Point(346, 220);
             mtxtDUI.Mask = "00000000-0";
             mtxtDUI.Name = "mtxtDUI";

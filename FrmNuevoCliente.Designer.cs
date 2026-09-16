@@ -120,7 +120,8 @@
             txtNombre.Margin = new Padding(4, 5, 4, 5);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(501, 31);
-            txtNombre.TabIndex = 6;
+            txtNombre.TabIndex = 0;
+            txtNombre.KeyDown += Campos_KeyDown;
             // 
             // txtCorreo
             // 
@@ -128,7 +129,8 @@
             txtCorreo.Margin = new Padding(4, 5, 4, 5);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(501, 31);
-            txtCorreo.TabIndex = 9;
+            txtCorreo.TabIndex = 3;
+            txtCorreo.KeyDown += Campos_KeyDown;
             // 
             // txtDirección
             // 
@@ -136,7 +138,8 @@
             txtDirección.Margin = new Padding(4, 5, 4, 5);
             txtDirección.Name = "txtDirección";
             txtDirección.Size = new Size(501, 31);
-            txtDirección.TabIndex = 10;
+            txtDirección.TabIndex = 4;
+            txtDirección.KeyDown += Campos_KeyDown;
             // 
             // btnGuardar
             // 
@@ -196,7 +199,8 @@
             mtxtDUI.Mask = "00000000-0";
             mtxtDUI.Name = "mtxtDUI";
             mtxtDUI.Size = new Size(150, 31);
-            mtxtDUI.TabIndex = 15;
+            mtxtDUI.TabIndex = 1;
+            mtxtDUI.KeyDown += Campos_KeyDown;
             // 
             // mtxtTelefono
             // 
@@ -204,7 +208,8 @@
             mtxtTelefono.Mask = "0000-0000";
             mtxtTelefono.Name = "mtxtTelefono";
             mtxtTelefono.Size = new Size(150, 31);
-            mtxtTelefono.TabIndex = 16;
+            mtxtTelefono.TabIndex = 2;
+            mtxtTelefono.KeyDown += Campos_KeyDown;
             // 
             // errorProvider1
             // 
@@ -234,6 +239,7 @@
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            KeyPreview = true;
             Margin = new Padding(4, 5, 4, 5);
             Name = "FrmNuevoCliente";
             StartPosition = FormStartPosition.CenterParent;
