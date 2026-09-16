@@ -191,5 +191,14 @@ namespace Taller_Automotriz
                 mtxtDUI.Focus();
             }
         }
+
+        private void txtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -73,6 +73,7 @@
             txtBusqueda.Name = "txtBusqueda";
             txtBusqueda.Size = new Size(633, 31);
             txtBusqueda.TabIndex = 2;
+            txtBusqueda.KeyPress += txtBusqueda_KeyPress;
             // 
             // dataGridView1
             // 

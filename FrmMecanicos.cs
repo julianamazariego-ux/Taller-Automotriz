@@ -39,19 +39,19 @@ namespace Taller_Automotriz
         {
             dataGridView1.Rows.Clear();
 
-            
+
             string especialidadBuscada = cmbFiltro.SelectedIndex != -1 ? cmbFiltro.Text : "";
 
-            
+
             string nombreBuscado = txtBusqueda.Text.ToLower().Trim();
 
-            
+
             var mecanicosFiltrados = listaMecanicos.Where(m =>
                 (string.IsNullOrWhiteSpace(nombreBuscado) || m[1].ToLower().Contains(nombreBuscado)) &&
                 (string.IsNullOrWhiteSpace(especialidadBuscada) || m[2] == especialidadBuscada)
             ).ToList();
 
-            
+
             foreach (var mecanico in mecanicosFiltrados)
             {
                 dataGridView1.Rows.Add(mecanico);
@@ -65,9 +65,9 @@ namespace Taller_Automotriz
 
         private void FrmMecanicos_Load(object sender, EventArgs e)
         {
-            
+
             cmbFiltro.DataSource = Enum.GetValues<Especialidades>();
-            cmbFiltro.SelectedIndex = -1; 
+            cmbFiltro.SelectedIndex = -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace Taller_Automotriz
                 {
                     string idSeleccionado = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
-                    
+
                     var mecanicoAEliminar = listaMecanicos.FirstOrDefault(m => m[0] == idSeleccionado);
                     if (mecanicoAEliminar != null)
                     {
@@ -135,6 +135,15 @@ namespace Taller_Automotriz
             else
             {
                 MessageBox.Show("Selecciona toda la fila del mecánico desde la flechita izquierda.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
