@@ -178,6 +178,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(108, 38);
             btnGuardar.TabIndex = 13;
+            btnGuardar.TabStop = false;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -195,6 +196,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(108, 38);
             btnCancelar.TabIndex = 14;
+            btnCancelar.TabStop = false;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
