@@ -46,7 +46,7 @@ namespace Taller_Automotriz
         private void FrmNuevoMecanico_Load(object sender, EventArgs e)
         {
             cmbEspecialidad.DataSource = Enum.GetValues<Especialidades>();
-            cmbEspecialidad.SelectedIndex = -1; 
+            cmbEspecialidad.SelectedIndex = -1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -108,6 +108,25 @@ namespace Taller_Automotriz
         private void cmbEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void FrmNuevoMecanico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; 
+                SendKeys.Send("{TAB}"); 
+            }
         }
     }
 }

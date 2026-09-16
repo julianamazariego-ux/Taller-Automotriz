@@ -122,6 +122,7 @@
             txtNombre.Size = new Size(501, 31);
             txtNombre.TabIndex = 0;
             txtNombre.KeyDown += Campos_KeyDown;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtCorreo
             // 

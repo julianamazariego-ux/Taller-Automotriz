@@ -129,7 +129,7 @@
             txtPlaca.MaxLength = 10;
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(340, 31);
-            txtPlaca.TabIndex = 6;
+            txtPlaca.TabIndex = 1;
             // 
             // txtModelo
             // 
@@ -140,7 +140,7 @@
             txtModelo.Margin = new Padding(4, 5, 4, 5);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(340, 31);
-            txtModelo.TabIndex = 8;
+            txtModelo.TabIndex = 3;
             // 
             // cmbCliente
             // 
@@ -152,7 +152,7 @@
             cmbCliente.Margin = new Padding(4, 5, 4, 5);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(339, 33);
-            cmbCliente.TabIndex = 11;
+            cmbCliente.TabIndex = 6;
             // 
             // lblClienteP
             // 
@@ -233,7 +233,7 @@
             cmbMarca.Location = new Point(373, 246);
             cmbMarca.Name = "cmbMarca";
             cmbMarca.Size = new Size(274, 33);
-            cmbMarca.TabIndex = 17;
+            cmbMarca.TabIndex = 2;
             // 
             // cmbColor
             // 
@@ -243,7 +243,7 @@
             cmbColor.Location = new Point(373, 461);
             cmbColor.Name = "cmbColor";
             cmbColor.Size = new Size(265, 33);
-            cmbColor.TabIndex = 18;
+            cmbColor.TabIndex = 5;
             // 
             // mtxAnio
             // 
@@ -251,7 +251,7 @@
             mtxAnio.Mask = "0000";
             mtxAnio.Name = "mtxAnio";
             mtxAnio.Size = new Size(150, 31);
-            mtxAnio.TabIndex = 19;
+            mtxAnio.TabIndex = 4;
             // 
             // FrmNuevoVehiculo
             // 
@@ -277,6 +277,7 @@
             Controls.Add(lblTitulo);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            KeyPreview = true;
             Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -284,6 +285,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Registrar Nuevo Vehículo";
             Load += FrmNuevoVehiculo_Load;
+            KeyPress += FrmNuevoVehiculo_KeyPress;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();

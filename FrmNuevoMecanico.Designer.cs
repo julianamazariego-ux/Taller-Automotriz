@@ -109,7 +109,8 @@
             txtNombre.Location = new Point(298, 179);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(520, 31);
-            txtNombre.TabIndex = 20;
+            txtNombre.TabIndex = 0;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // cmbEspecialidad
             // 
@@ -118,7 +119,7 @@
             cmbEspecialidad.Location = new Point(298, 263);
             cmbEspecialidad.Name = "cmbEspecialidad";
             cmbEspecialidad.Size = new Size(394, 33);
-            cmbEspecialidad.TabIndex = 21;
+            cmbEspecialidad.TabIndex = 2;
             cmbEspecialidad.SelectedIndexChanged += cmbEspecialidad_SelectedIndexChanged;
             // 
             // mtxTelefono
@@ -127,7 +128,7 @@
             mtxTelefono.Mask = "0000-0000";
             mtxTelefono.Name = "mtxTelefono";
             mtxTelefono.Size = new Size(266, 31);
-            mtxTelefono.TabIndex = 22;
+            mtxTelefono.TabIndex = 3;
             // 
             // cmbEstado
             // 
@@ -137,7 +138,7 @@
             cmbEstado.Location = new Point(298, 432);
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Size = new Size(182, 33);
-            cmbEstado.TabIndex = 23;
+            cmbEstado.TabIndex = 4;
             // 
             // btnCancelar
             // 
@@ -184,10 +185,12 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             ForeColor = Color.White;
+            KeyPreview = true;
             Name = "FrmNuevoMecanico";
             StartPosition = FormStartPosition.CenterParent;
             Text = "FrmNuevoMecanico";
             Load += FrmNuevoMecanico_Load;
+            KeyPress += FrmNuevoMecanico_KeyPress;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);

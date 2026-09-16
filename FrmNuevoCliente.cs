@@ -135,6 +135,15 @@ namespace Taller_Automotriz
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 
     public class Cliente

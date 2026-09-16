@@ -19,15 +19,15 @@ namespace Taller_Automotriz
 
         private void FrmNuevoVehiculo_Load(object sender, EventArgs e)
         {
-            
+
             cmbMarca.DataSource = Enum.GetValues<MarcasVehiculos>();
 
-           
+
             if (FrmNuevoCliente.ListaClientes.Count > 0)
             {
 
                 cmbCliente.DataSource = FrmNuevoCliente.ListaClientes.Select(c => c.Nombre).ToList();
-                cmbCliente.SelectedIndex = -1; 
+                cmbCliente.SelectedIndex = -1;
             }
             else
             {
@@ -38,19 +38,19 @@ namespace Taller_Automotriz
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            errorProvider1.Clear();
-            bool hayErrores = false; 
 
-            
+            errorProvider1.Clear();
+            bool hayErrores = false;
+
+
             if (string.IsNullOrWhiteSpace(txtPlaca.Text))
             {
                 errorProvider1.SetError(txtPlaca, "La placa es obligatoria.");
@@ -62,7 +62,7 @@ namespace Taller_Automotriz
                 hayErrores = true;
             }
 
-            
+
             if (string.IsNullOrWhiteSpace(cmbMarca.Text))
             {
                 errorProvider1.SetError(cmbMarca, "Ingrese la marca.");
@@ -87,7 +87,7 @@ namespace Taller_Automotriz
                 hayErrores = true;
             }
 
-            
+
             if (string.IsNullOrWhiteSpace(mtxAnio.Text))
             {
                 errorProvider1.SetError(mtxAnio, "Ingrese el año.");
@@ -95,7 +95,7 @@ namespace Taller_Automotriz
             }
             else if (!int.TryParse(mtxAnio.Text, out int anioVehiculo))
             {
-                errorProvider1.SetError(mtxAnio,"El año debe ser un número válido.");
+                errorProvider1.SetError(mtxAnio, "El año debe ser un número válido.");
                 hayErrores = true;
             }
             else if (anioVehiculo < 1950 || anioVehiculo > DateTime.Now.Year + 1)
@@ -105,7 +105,7 @@ namespace Taller_Automotriz
             }
 
 
-            
+
             if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
             {
                 errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
@@ -114,7 +114,7 @@ namespace Taller_Automotriz
 
             if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
             {
-                
+
                 errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
 
 
@@ -126,7 +126,7 @@ namespace Taller_Automotriz
 
             if (hayErrores)
             {
-                this.DialogResult = DialogResult.None; 
+                this.DialogResult = DialogResult.None;
                 if (FrmNuevoCliente.ListaClientes.Count == 0 || cmbCliente.Text == "Primero registre un cliente...")
                 {
                     errorProvider1.SetError(cmbCliente, "Debe registrar un cliente en el sistema antes de guardar un vehículo.");
@@ -136,14 +136,14 @@ namespace Taller_Automotriz
 
                 if (hayErrores)
                 {
-                    this.DialogResult = DialogResult.None; 
-                    return; 
+                    this.DialogResult = DialogResult.None;
+                    return;
                 }
 
-              
+
             }
 
-         
+
 
             DatosCapturados = new string[]
             {
@@ -156,7 +156,7 @@ namespace Taller_Automotriz
     cmbCliente.Text
             };
 
-            
+
             this.DialogResult = DialogResult.OK;
             this.Close();
 
@@ -172,6 +172,16 @@ namespace Taller_Automotriz
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmNuevoVehiculo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; 
+                SendKeys.Send("{TAB}"); 
+            }
         }
     }
 }
