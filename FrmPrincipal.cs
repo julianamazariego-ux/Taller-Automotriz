@@ -107,10 +107,8 @@ namespace Taller_Automotriz
 
         private void ordenesAbiertasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmNuevaOrden modalNuevaOrden = new frmNuevaOrden();
             FrmOrdenes modalOrdenes = new FrmOrdenes();
 
-            //modalNuevaOrden.ShowDialog();
             modalOrdenes.ShowDialog();  
         }
     }

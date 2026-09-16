@@ -28,21 +28,18 @@ namespace Taller_Automotriz
 
             try
             {
-                // 1. CARGAR DATOS PRE CARGADOS DEL CSV
                 if (File.Exists(rutaArchivo))
                 {
                     string[] lineas = File.ReadAllLines(rutaArchivo);
 
                     if (lineas.Length > 0)
                     {
-                        // Crear columnas
                         string[] encabezados = lineas[0].Split(',');
                         foreach (string encabezado in encabezados)
                         {
                             tabla.Columns.Add(encabezado.Trim());
                         }
 
-                        // Llenar filas del CSV
                         for (int i = 1; i < lineas.Length; i++)
                         {
                             string[] celdas = lineas[i].Split(',');
@@ -52,8 +49,6 @@ namespace Taller_Automotriz
                 }
                 else
                 {
-                    // Si por alguna razón el CSV no existe, creamos las columnas manualmente 
-                    // para que la tabla no falle al intentar agregar los datos de la lista.
                     tabla.Columns.Add("ID_Orden");
                     tabla.Columns.Add("Cliente");
                     tabla.Columns.Add("Vehiculo");
@@ -62,23 +57,21 @@ namespace Taller_Automotriz
                     tabla.Columns.Add("Estado");
                 }
 
-                // 2. AGREGAR LOS DATOS TEMPORALES DE LA LISTA
                 int idTemporal = 1;
                 foreach (var ordenNueva in frmNuevaOrden.listaOrdenes)
                 {
-                    // Adaptamos las propiedades del objeto a las columnas del CSV
                     tabla.Rows.Add(
-                        "TEMP-" + idTemporal.ToString("D3"), // ID_Orden inventado para las nuevas
-                        ordenNueva.DUI,                      // En la columna Cliente mostramos el DUI
-                        ordenNueva.Placa,                    // En la columna Vehiculo mostramos la Placa
-                        ordenNueva.Servicio.ToString(),      // Convertimos el Enum a texto
-                        DateTime.Now.ToString("yyyy-MM-dd"), // Fecha actual
-                        "Abierta"                            // Estado por defecto
+                        "TEMP-" + idTemporal.ToString("D3"), 
+                        ordenNueva.DUI,                      
+                        ordenNueva.Placa,                    
+                        ordenNueva.Servicio.ToString(),      
+                        DateTime.Now.ToString("yyyy-MM-dd"), 
+                        "Abierta"                            
                     );
                     idTemporal++;
                 }
 
-                // 3. ASIGNAR LA TABLA COMBINADA AL DATAGRIDVIEW
+                
                 grid.DataSource = tabla;
                 ConfigurarGridOrdenes(grid);
             }
