@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
     public partial class FrmNuevoCliente : Form
     {

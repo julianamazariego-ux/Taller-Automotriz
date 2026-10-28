@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
-using Taller_Automotriz;
-namespace Taller_Automotriz
+using TallerAutomotriz;
+namespace TallerAutomotriz
 {
     public partial class FrmPrincipal : Form
     {

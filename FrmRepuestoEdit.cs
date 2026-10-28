@@ -1,19 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
-    public enum CategoriaRepuesto
-    {
-        Filtros,
-        Bujias,
-        Pastillas,
-        Mangueras,
-        Sensores,
-        Electrico,
-        Varias
-    }
 
     public partial class FrmRepuestoEdit : Form
     {

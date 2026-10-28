@@ -9,9 +9,33 @@ namespace TallerAutomotriz.Repositorios;
 
 public class RepositorioVehiculos : RepositorioBase<Vehiculo>
 {
-    public RepositorioVehiculos(string? carpetaDatos = null)
+    private readonly RepositorioClientes _repositorioClientes;
+
+    public RepositorioVehiculos(RepositorioClientes repositorioClientes, string? carpetaDatos = null)
         : base(Path.Combine(carpetaDatos ?? AlmacenamientoDatos.CarpetaDatos, "vehiculos.json"))
     {
+        ArgumentNullException.ThrowIfNull(repositorioClientes);
+        _repositorioClientes = repositorioClientes;
+    }
+
+    public override void Leer()
+    {
+        base.Leer();
+        ResolverRelaciones();
+    }
+
+    public int ResolverRelaciones()
+    {
+        int sinCliente = 0;
+        foreach (var vehiculo in Entidades)
+        {
+            var cliente = _repositorioClientes.ObtenerPorId(vehiculo.ClienteId);
+            if (cliente is null)
+                sinCliente++;
+            else
+                vehiculo.AsignarCliente(cliente);
+        }
+        return sinCliente;
     }
 
     public override void Agregar(Vehiculo entidad)
@@ -32,8 +56,7 @@ public class RepositorioVehiculos : RepositorioBase<Vehiculo>
 
     public Vehiculo? BuscarPorPlaca(string placa)
     {
-        return Entidades.FirstOrDefault(v =>
-            v.Placa.Equals(placa.Trim(), StringComparison.OrdinalIgnoreCase));
+        return Obtener(v => v.Placa.Equals(placa.Trim(), StringComparison.OrdinalIgnoreCase));
     }
 
     public BindingList<Vehiculo> ObtenerPorCliente(Guid clienteId)

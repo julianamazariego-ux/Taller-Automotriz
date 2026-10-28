@@ -12,6 +12,7 @@ public interface IRepositorio<T> where T : class
     void Actualizar(T entidad);
     void Eliminar(T entidad);
     BindingList<T> ObtenerTodos();
+    T? Obtener(Func<T, bool> criterio);
     void Guardar();
     void Leer();
 }

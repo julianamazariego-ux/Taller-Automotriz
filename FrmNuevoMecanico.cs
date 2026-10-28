@@ -5,8 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
 
 
@@ -16,14 +17,6 @@ namespace Taller_Automotriz
 
         public string IdAEditar = "";
 
-        public enum Especialidades
-        {
-            General,
-            Electromecanica,
-            Frenos,
-            Transmision,
-            Enderezado
-        }
 
         public void CargarMecanico(string[] mecanico)
         {
@@ -45,7 +38,7 @@ namespace Taller_Automotriz
 
         private void FrmNuevoMecanico_Load(object sender, EventArgs e)
         {
-            cmbEspecialidad.DataSource = Enum.GetValues<Especialidades>();
+            cmbEspecialidad.DataSource = Enum.GetValues<EspecialidadMecanico>();
             cmbEspecialidad.SelectedIndex = -1;
         }
 

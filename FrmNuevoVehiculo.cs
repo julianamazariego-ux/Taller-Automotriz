@@ -5,8 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
     public partial class FrmNuevoVehiculo : Form
     {
@@ -20,7 +21,7 @@ namespace Taller_Automotriz
         private void FrmNuevoVehiculo_Load(object sender, EventArgs e)
         {
 
-            cmbMarca.DataSource = Enum.GetValues<MarcasVehiculos>();
+            cmbMarca.DataSource = Enum.GetValues<MarcaVehiculo>();
 
 
             if (FrmNuevoCliente.ListaClientes.Count > 0)

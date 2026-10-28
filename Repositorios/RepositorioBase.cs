@@ -46,9 +46,15 @@ public abstract class RepositorioBase<T> : IRepositorio<T> where T : class
 
     public BindingList<T> ObtenerTodos() => Entidades;
 
+    public T? Obtener(Func<T, bool> criterio)
+    {
+        ArgumentNullException.ThrowIfNull(criterio);
+        return Entidades.FirstOrDefault(criterio);
+    }
+
     public void Guardar() => GuardarLista(Entidades.ToList());
 
-    public void Leer()
+    public virtual void Leer()
     {
         try
         {

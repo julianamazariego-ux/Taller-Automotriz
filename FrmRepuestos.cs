@@ -4,8 +4,9 @@ using System.Drawing;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
     public partial class FrmRepuestos : Form
     {

@@ -23,6 +23,17 @@ public class RepositorioMecanicos : RepositorioBase<Mecanico>
         base.Agregar(entidad);
     }
 
+    public Mecanico? ObtenerPorId(Guid id) => Obtener(m => m.Id == id);
+
+    public override void Actualizar(Mecanico entidad)
+    {
+        ValidarMecanico(entidad);
+        if (ExisteDui(entidad.Dui, entidad))
+            throw new InvalidOperationException("El DUI ingresado pertenece a otro mecánico.");
+
+        base.Actualizar(entidad);
+    }
+
     public bool ExisteDui(string dui, Mecanico? mecanicoExcluir = null)
     {
         return Entidades.Any(m =>

@@ -5,15 +5,10 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
-    public enum EstadoOrden
-    {
-        Pendiente,
-        EnProceso,
-        Completado
-    }
 
     public struct RegistroServicio
     {

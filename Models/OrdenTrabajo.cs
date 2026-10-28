@@ -77,13 +77,25 @@ public class OrdenTrabajo : INotifyPropertyChanged
         ArgumentNullException.ThrowIfNull(mecanico);
 
         NumeroOrden = numeroOrden;
+        AsignarVehiculo(vehiculo);
+        AsignarMecanico(mecanico);
+        Diagnostico = diagnostico;
+    }
+
+    
+    public void AsignarVehiculo(Vehiculo vehiculo)
+    {
+        ArgumentNullException.ThrowIfNull(vehiculo);
         Vehiculo = vehiculo;
         VehiculoPlaca = vehiculo.Placa;
+    }
+
+    
+    public void AsignarMecanico(Mecanico mecanico)
+    {
+        ArgumentNullException.ThrowIfNull(mecanico);
         Mecanico = mecanico;
         MecanicoId = mecanico.Id;
-        Diagnostico = diagnostico;
-        FechaIngreso = DateTime.Now;
-        Estado = EstadoOrden.Pendiente;
     }
 
     public void AgregarServicio(string descripcion, decimal costoManoObra)

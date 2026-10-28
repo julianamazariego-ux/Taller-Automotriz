@@ -5,9 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using static Taller_Automotriz.FrmNuevoMecanico;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
     public partial class FrmMecanicos : Form
     {
@@ -66,7 +66,7 @@ namespace Taller_Automotriz
         private void FrmMecanicos_Load(object sender, EventArgs e)
         {
 
-            cmbFiltro.DataSource = Enum.GetValues<Especialidades>();
+            cmbFiltro.DataSource = Enum.GetValues<EspecialidadMecanico>();
             cmbFiltro.SelectedIndex = -1;
         }
 

@@ -32,6 +32,7 @@ public class RepositorioClientes : RepositorioBase<Cliente>
         base.Actualizar(entidad);
     }
 
+    public Cliente? ObtenerPorId(Guid id) => Obtener(c => c.Id == id);
     public bool ExisteDui(string dui, Cliente? clienteExcluir = null)
     {
         return Entidades.Any(c =>

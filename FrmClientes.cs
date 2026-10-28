@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
     public partial class FrmClientes : Form
     {

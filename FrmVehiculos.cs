@@ -5,23 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
 
-namespace Taller_Automotriz
+namespace TallerAutomotriz
 {
-
-    public enum MarcasVehiculos
-    {
-        Toyota,
-        Nissan,
-        Honda,
-        Ford,
-        Chevrolet,
-        Kia,
-        Hyundai,
-        Mazda,
-        BMW,
-        Otro
-    }
 
     public partial class FrmVehiculos : Form
 
@@ -116,8 +103,8 @@ namespace Taller_Automotriz
                 dataGridView1.Rows.Add(vehiculo);
             }
 
-           
-            cmbFiltroMarca.DataSource = Enum.GetValues<MarcasVehiculos>();
+
+            cmbFiltroMarca.DataSource = Enum.GetValues<MarcaVehiculo>();
             cmbFiltroMarca.SelectedIndex = -1;
 
 

@@ -11,5 +11,6 @@ public enum MarcaVehiculo
     Ford,
     Chevrolet,
     Mitsubishi,
+    BMW,
     Otra
 }

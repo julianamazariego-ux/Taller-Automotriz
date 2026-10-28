@@ -1,4 +1,4 @@
-﻿namespace Taller_Automotriz
+﻿namespace TallerAutomotriz
 {
     partial class FrmVehiculos
     {
