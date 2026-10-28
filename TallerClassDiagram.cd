@@ -1,116 +1,161 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TallerAutomotriz.Models.Cliente" Collapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.75" />
+  <Class Name="TallerAutomotriz.Models.Cliente">
+    <Position X="8" Y="1.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIIAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Models\Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TallerAutomotriz.Models.Servicio" Collapsed="true">
-    <Position X="8.75" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\DetalleOrden.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TallerAutomotriz.Models.RepuestoItem" Collapsed="true">
-    <Position X="8.75" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAYAAEAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\DetalleOrden.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TallerAutomotriz.Models.Mecanico" Collapsed="true">
-    <Position X="8" Y="4" Width="1.5" />
+  <Class Name="TallerAutomotriz.Models.Mecanico">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="TallerAutomotriz.Models.Persona" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="2.812" />
+        <Point X="5.125" Y="2.812" />
+        <Point X="5.125" Y="3.062" />
+        <Point X="3.5" Y="3.062" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="_especialidad" Type="TallerAutomotriz.Models.EspecialidadMecanico" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="4.463" />
+        <Point X="3" Y="5.25" />
+        <Point X="10.917" Y="5.25" Type="JumpStart" />
+        <Point X="11.083" Y="5.25" Type="JumpEnd" />
+        <Point X="11.323" Y="5.25" Type="JumpStart" />
+        <Point X="11.49" Y="5.25" Type="JumpEnd" />
+        <Point X="12.5" Y="5.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAEAAAAABAAAAAAABAAEAAAAAAAAAAAAAAAAABAAAQA=</HashCode>
       <FileName>Models\Mecanico.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_especialidad" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="TallerAutomotriz.Models.OrdenTrabajo" Collapsed="true">
-    <Position X="6.25" Y="6" Width="1.5" />
+  <Class Name="TallerAutomotriz.Models.OrdenTrabajo">
+    <Position X="5.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIgABICiADAAIABgICAAAAAAgAQAQCQAAAAABQAAAAg=</HashCode>
       <FileName>Models\OrdenTrabajo.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_estado" />
+      <Property Name="Vehiculo" />
+      <Property Name="Mecanico" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Repuestos" />
+      <Property Name="Servicios" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TallerAutomotriz.Models.Persona" Collapsed="true">
-    <Position X="6.25" Y="1.25" Width="1.5" />
+  <Class Name="TallerAutomotriz.Models.Persona">
+    <Position X="5.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIACAAAAAAAAAAAEICAAgQAAgAgAAAAAAAAAAkIAAAA=</HashCode>
       <FileName>Models\Persona.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TallerAutomotriz.Models.Vehiculo" Collapsed="true">
-    <Position X="8.75" Y="6.5" Width="1.5" />
+  <Class Name="TallerAutomotriz.Models.Vehiculo">
+    <Position X="10.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIIABAAAAAKRAAEIBCAAAAAgEAAAAAAAAgAwAAAAAA=</HashCode>
       <FileName>Models\Vehiculo.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_marca" />
+      <Property Name="Cliente" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TallerAutomotriz.Repositorios.RepositorioBase&lt;T&gt;" Collapsed="true">
-    <Position X="18.5" Y="2" Width="1.5" />
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioBase&lt;T&gt;">
+    <Position X="18.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AoAAAAAQAAQAAAgAAAgAAAAAAAAAAAAIICAABAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TallerAutomotriz.Repositorios.RepositorioClientes" Collapsed="true">
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioClientes">
     <Position X="15.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAgAAAAAAAAAAAAAAAAJAAAAEAAAACA=</HashCode>
       <FileName>Repositorios\RepositorioClientes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TallerAutomotriz.Repositorios.RepositorioOrdenes" Collapsed="true">
-    <Position X="21.25" Y="4" Width="1.5" />
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioOrdenes">
+    <Position X="22" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAAQAAAAAAAAAAggAAAQAAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioOrdenes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TallerAutomotriz.Repositorios.RepositorioVehiculos" Collapsed="true">
-    <Position X="18.5" Y="5.25" Width="1.5" />
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioVehiculos">
+    <Position X="20" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAgAQAAAAAAQAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioVehiculos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TallerAutomotriz.Repositorios.AlmacenamientoDatos" Collapsed="true">
-    <Position X="21" Y="7" Width="1.5" />
+  <Class Name="TallerAutomotriz.Repositorios.AlmacenamientoDatos">
+    <Position X="19" Y="9.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\AlmacenamientoDatos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="TallerAutomotriz.Repositorios.IRepositorio&lt;T&gt;" Collapsed="true">
-    <Position X="16.25" Y="7" Width="1.5" />
+  <Class Name="TallerAutomotriz.Models.RepuestoItem">
+    <Position X="8" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYAAEAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RepuestoItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerAutomotriz.Models.Servicio">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Servicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioMecanicos">
+    <Position X="17.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAACCA=</HashCode>
+      <FileName>Repositorios\RepositorioMecanicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="TallerAutomotriz.Repositorios.IRepositorio&lt;T&gt;">
+    <Position X="21.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAQAAAgAAAAAAAAAAAAAAAAIIAAABAAAAAA=</HashCode>
       <FileName>Repositorios\IRepositorio.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="TallerAutomotriz.Models.MarcaVehiculo" Collapsed="true">
-    <Position X="9.25" Y="2.75" Width="1.5" />
+  <Enum Name="TallerAutomotriz.Models.MarcaVehiculo">
+    <Position X="12.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAFIAAAAAQAQAAAAAAAAAAAABAAAgEAAAI=</HashCode>
       <FileName>Models\MarcaVehiculo.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="TallerAutomotriz.Models.EstadoOrden" Collapsed="true">
-    <Position X="11" Y="2.75" Width="1.5" />
+  <Enum Name="TallerAutomotriz.Models.EstadoOrden">
+    <Position X="8" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAACAAAACAAAAAAAAAAAAAAAAQAAQA=</HashCode>
       <FileName>Models\EstadoOrden.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="TallerAutomotriz.Models.EspecialidadMecanico" Collapsed="true">
-    <Position X="12.75" Y="2.75" Width="1.5" />
+  <Enum Name="TallerAutomotriz.Models.EspecialidadMecanico">
+    <Position X="12.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAEAIAAAAAAAAAAAIAAABAAACA=</HashCode>
       <FileName>Models\EspecialidadMecanico.cs</FileName>
