@@ -23,8 +23,8 @@
         <Point X="3" Y="5.25" />
         <Point X="10.51" Y="5.25" Type="JumpStart" />
         <Point X="10.677" Y="5.25" Type="JumpEnd" />
-        <Point X="10.917" Y="5.25" Type="JumpStart" />
-        <Point X="11.083" Y="5.25" Type="JumpEnd" />
+        <Point X="11.12" Y="5.25" Type="JumpStart" />
+        <Point X="11.286" Y="5.25" Type="JumpEnd" />
         <Point X="12.5" Y="5.25" />
       </Path>
     </AssociationLine>
@@ -74,7 +74,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioBase&lt;T&gt;">
-    <Position X="18.5" Y="0.75" Width="1.5" />
+    <Position X="20.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AoAAAAAQAAQAAEgAAAgAAAAAAAAAAAAIICAABAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioBase.cs</FileName>
@@ -82,28 +82,28 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioClientes">
-    <Position X="15.5" Y="4" Width="1.5" />
+    <Position X="16.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAiAAAAAAAAAAAAAAAAJAAAAEAAAACA=</HashCode>
       <FileName>Repositorios\RepositorioClientes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioOrdenes">
-    <Position X="22" Y="3.75" Width="1.5" />
+    <Position X="25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQIACAAAAQAAAAQAAAAAggAAAAIAAAIAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioOrdenes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioVehiculos">
-    <Position X="20" Y="5.75" Width="1.5" />
+    <Position X="20.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAQIAAAAAgAQAAAAAAQAAAAEAAAIAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioVehiculos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.AlmacenamientoDatos">
-    <Position X="17.25" Y="9.5" Width="1.5" />
+    <Position X="25" Y="1.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -127,29 +127,32 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioMecanicos">
-    <Position X="17.5" Y="5.75" Width="1.5" />
+    <Position X="18.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAiAAAAAAAAAAAAAAAAJAAAAAAAACCA=</HashCode>
       <FileName>Repositorios\RepositorioMecanicos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Models.Repuesto">
-    <Position X="20.5" Y="10" Width="1.5" />
+    <Position X="13.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAiACAAIAAAAAAkIAAAgAAQgQAAgAAAABAAAAIAAEA=</HashCode>
       <FileName>Models\Repuesto.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_categoria" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioRepuestos">
-    <Position X="22.75" Y="7.5" Width="1.5" />
+    <Position X="23" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAQAAAQAAAAAAiAAABAAAAAAAAAAEAIABAAAAAAAAI=</HashCode>
       <FileName>Models\RepositorioRepuestos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="TallerAutomotriz.Repositorios.IRepositorio&lt;T&gt;">
-    <Position X="21.25" Y="1" Width="1.5" />
+    <Position X="22.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAQAAEgAAAAAAAAAAAAAAAAIIAAABAAAAAA=</HashCode>
       <FileName>Repositorios\IRepositorio.cs</FileName>
@@ -177,7 +180,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="TallerAutomotriz.Models.CategoriaRepuesto">
-    <Position X="15.25" Y="7.25" Width="1.5" />
+    <Position X="16.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAEAAAAAAAgAAAQAAAAgAEAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Models\CategoriaRepuesto.cs</FileName>
