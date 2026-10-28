@@ -69,7 +69,7 @@ namespace TallerAutomotriz
         }
 
 
-        private void ActualizarGrid(List<Cliente> listaAMostrar)
+        private void ActualizarGrid(List<ClienteTemporal> listaAMostrar)
         {
             dgvClientes.Rows.Clear();
 

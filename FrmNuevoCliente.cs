@@ -11,7 +11,7 @@ namespace TallerAutomotriz
 {
     public partial class FrmNuevoCliente : Form
     {
-        public static List<Cliente> ListaClientes = new List<Cliente>();
+        public static List<ClienteTemporal> ListaClientes = new List<ClienteTemporal>();
         public FrmNuevoCliente()
         {
             InitializeComponent();
@@ -22,9 +22,9 @@ namespace TallerAutomotriz
             throw new NotImplementedException();
         }
 
-        private Cliente? clienteExistente;
+        private ClienteTemporal? clienteExistente;
 
-        public FrmNuevoCliente(Cliente cliente) : this()
+        public FrmNuevoCliente(ClienteTemporal cliente) : this()
         {
             this.clienteExistente = cliente;
 
@@ -85,7 +85,7 @@ namespace TallerAutomotriz
                 }
                 else
                 {
-                    Cliente nuevoCliente = new Cliente
+                    ClienteTemporal nuevoCliente = new ClienteTemporal
                     {
                         Nombre = txtNombre.Text.Trim(),
                         DUI = mtxtDUI.Text,
@@ -146,7 +146,7 @@ namespace TallerAutomotriz
         }
     }
 
-    public class Cliente
+    public class ClienteTemporal
     {
         public string Nombre { get; set; } = string.Empty;
         public string DUI { get; set; } = string.Empty;

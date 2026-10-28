@@ -21,10 +21,10 @@
       <Path>
         <Point X="3" Y="4.463" />
         <Point X="3" Y="5.25" />
+        <Point X="10.51" Y="5.25" Type="JumpStart" />
+        <Point X="10.677" Y="5.25" Type="JumpEnd" />
         <Point X="10.917" Y="5.25" Type="JumpStart" />
         <Point X="11.083" Y="5.25" Type="JumpEnd" />
-        <Point X="11.323" Y="5.25" Type="JumpStart" />
-        <Point X="11.49" Y="5.25" Type="JumpEnd" />
         <Point X="12.5" Y="5.25" />
       </Path>
     </AssociationLine>
@@ -39,7 +39,7 @@
   <Class Name="TallerAutomotriz.Models.OrdenTrabajo">
     <Position X="5.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIgABICiADAAIABgICAAAAAAgAQAQCQAAAAABQAAAAg=</HashCode>
+      <HashCode>AIgABICiBDAAIABgICAAAAAAgAQAQCQAAAAABQgAAAg=</HashCode>
       <FileName>Models\OrdenTrabajo.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -48,8 +48,8 @@
       <Property Name="Mecanico" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Repuestos" />
       <Property Name="Servicios" />
+      <Property Name="Repuestos" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
@@ -76,7 +76,7 @@
   <Class Name="TallerAutomotriz.Repositorios.RepositorioBase&lt;T&gt;">
     <Position X="18.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AoAAAAAQAAQAAAgAAAgAAAAAAAAAAAAIICAABAAAAAA=</HashCode>
+      <HashCode>AoAAAAAQAAQAAEgAAAgAAAAAAAAAAAAIICAABAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -84,26 +84,26 @@
   <Class Name="TallerAutomotriz.Repositorios.RepositorioClientes">
     <Position X="15.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAgAAAAAAAAAAAAAAAAJAAAAEAAAACA=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAiAAAAAAAAAAAAAAAAJAAAAEAAAACA=</HashCode>
       <FileName>Repositorios\RepositorioClientes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioOrdenes">
     <Position X="22" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAQAAAAAAAAAAggAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAQIACAAAAQAAAAQAAAAAggAAAAIAAAIAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioOrdenes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.RepositorioVehiculos">
     <Position X="20" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAgAQAAAAAAQAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAQIAAAAAgAQAAAAAAQAAAAEAAAIAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepositorioVehiculos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TallerAutomotriz.Repositorios.AlmacenamientoDatos">
-    <Position X="19" Y="9.75" Width="1.5" />
+    <Position X="17.25" Y="9.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -129,21 +129,36 @@
   <Class Name="TallerAutomotriz.Repositorios.RepositorioMecanicos">
     <Position X="17.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAACCA=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAiAAAAAAAAAAAAAAAAJAAAAAAAACCA=</HashCode>
       <FileName>Repositorios\RepositorioMecanicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallerAutomotriz.Models.Repuesto">
+    <Position X="20.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiACAAIAAAAAAkIAAAgAAQgQAAgAAAABAAAAIAAEA=</HashCode>
+      <FileName>Models\Repuesto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TallerAutomotriz.Repositorios.RepositorioRepuestos">
+    <Position X="22.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAQAAAQAAAAAAiAAABAAAAAAAAAAEAIABAAAAAAAAI=</HashCode>
+      <FileName>Models\RepositorioRepuestos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="TallerAutomotriz.Repositorios.IRepositorio&lt;T&gt;">
     <Position X="21.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAQAAAgAAAAAAAAAAAAAAAAIIAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAQAAQAAEgAAAAAAAAAAAAAAAAIIAAABAAAAAA=</HashCode>
       <FileName>Repositorios\IRepositorio.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="TallerAutomotriz.Models.MarcaVehiculo">
     <Position X="12.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAFIAAAAAQAQAAAAAAAAAAAABAAAgEAAAI=</HashCode>
+      <HashCode>AAAAACAAAAAFIAAAAIQAQAAAAAAAAAAAABAAAgEAAAI=</HashCode>
       <FileName>Models\MarcaVehiculo.cs</FileName>
     </TypeIdentifier>
   </Enum>
@@ -159,6 +174,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAEAIAAAAAAAAAAAIAAABAAACA=</HashCode>
       <FileName>Models\EspecialidadMecanico.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TallerAutomotriz.Models.CategoriaRepuesto">
+    <Position X="15.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAEAAAAAAAgAAAQAAAAgAEAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\CategoriaRepuesto.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
