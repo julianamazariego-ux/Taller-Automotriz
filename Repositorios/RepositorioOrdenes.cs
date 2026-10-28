@@ -10,7 +10,7 @@ public class RepositorioOrdenes : RepositorioBase<OrdenTrabajo>
 {
     private readonly RepositorioVehiculos _repositorioVehiculos;
     private readonly RepositorioMecanicos _repositorioMecanicos;
-    private int _correlativo = 1;
+    
 
     public RepositorioOrdenes(RepositorioVehiculos repositorioVehiculos,
                               RepositorioMecanicos repositorioMecanicos,
@@ -62,11 +62,15 @@ public class RepositorioOrdenes : RepositorioBase<OrdenTrabajo>
 
     public string GenerarSiguienteNumero()
     {
-        if (Entidades.Count > 0)
-        {
-            _correlativo = Entidades.Count + 1;
-        }
-        return $"ORD-{_correlativo++:D5}";
+        int maximo = Entidades
+            .Select(o => o.NumeroOrden)
+            .Where(n => n.StartsWith("ORD-", StringComparison.OrdinalIgnoreCase)
+                        && int.TryParse(n.AsSpan(4), out _))
+            .Select(n => int.Parse(n.AsSpan(4)))
+            .DefaultIfEmpty(0)
+            .Max();
+
+        return $"ORD-{maximo + 1:D5}";
     }
 
     public BindingList<OrdenTrabajo> ObtenerPorEstado(EstadoOrden estado)
