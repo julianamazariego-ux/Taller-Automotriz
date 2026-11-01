@@ -6,34 +6,32 @@ using System.Drawing;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
     public partial class FrmNuevoCliente : Form
     {
-        public static List<ClienteTemporal> ListaClientes = new List<ClienteTemporal>();
+        
+        private readonly Cliente? clienteExistente;
+
         public FrmNuevoCliente()
         {
             InitializeComponent();
         }
 
-        private void FrmNuevoCliente_KeyDown(object? sender, KeyEventArgs e)
+        public FrmNuevoCliente(Cliente cliente) : this()
         {
-            throw new NotImplementedException();
-        }
-
-        private ClienteTemporal? clienteExistente;
-
-        public FrmNuevoCliente(ClienteTemporal cliente) : this()
-        {
-            this.clienteExistente = cliente;
+            clienteExistente = cliente;
 
             txtNombre.Text = cliente.Nombre;
-            mtxtDUI.Text = cliente.DUI;
+            mtxtDUI.Text = cliente.Dui;
             mtxtTelefono.Text = cliente.Telefono;
             txtCorreo.Text = cliente.Correo;
-            txtDirección.Text = cliente.Dirección;
+            txtDirección.Text = cliente.Direccion;
         }
+
         private static readonly Regex RegexCorreo = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);
 
         private void FrmNuevoCliente_Load(object sender, EventArgs e)
@@ -68,35 +66,43 @@ namespace TallerAutomotriz
         {
             try
             {
-                if (clienteExistente == null && ListaClientes.Any(c => c.DUI == mtxtDUI.Text))
+                
+                if (ContextoDatos.Clientes.ExisteDui(mtxtDUI.Text, clienteExistente))
                 {
-                    MessageBox.Show("Ya existe un cliente regisstrado con este DUI.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ya existe un cliente registrado con este DUI.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
                 if (clienteExistente != null)
                 {
                     clienteExistente.Nombre = txtNombre.Text.Trim();
-                    clienteExistente.DUI = mtxtDUI.Text;
+                    clienteExistente.Dui = mtxtDUI.Text;
                     clienteExistente.Telefono = mtxtTelefono.Text;
                     clienteExistente.Correo = txtCorreo.Text.Trim();
-                    clienteExistente.Dirección = txtDirección.Text.Trim();
+                    clienteExistente.Direccion = txtDirección.Text.Trim();
 
-                    MessageBox.Show("Cliente actualizado exitosamemte.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ContextoDatos.Clientes.Actualizar(clienteExistente);
+
+                    MessageBox.Show("Cliente actualizado exitosamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ClienteTemporal nuevoCliente = new ClienteTemporal
-                    {
-                        Nombre = txtNombre.Text.Trim(),
-                        DUI = mtxtDUI.Text,
-                        Telefono = mtxtTelefono.Text,
-                        Correo = txtCorreo.Text.Trim(),
-                        Dirección = txtDirección.Text.Trim()
-                    };
-                    ListaClientes.Add(nuevoCliente);
+                    var nuevoCliente = new Cliente(
+                        txtNombre.Text.Trim(),
+                        mtxtDUI.Text,
+                        mtxtTelefono.Text,
+                        txtDirección.Text.Trim(),
+                        txtCorreo.Text.Trim());
+
+                    ContextoDatos.Clientes.Agregar(nuevoCliente);
+
                     MessageBox.Show("Cliente registrado exitosamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -122,6 +128,7 @@ namespace TallerAutomotriz
 
             txtNombre.Focus();
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -138,20 +145,11 @@ namespace TallerAutomotriz
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
             if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-    }
-
-    public class ClienteTemporal
-    {
-        public string Nombre { get; set; } = string.Empty;
-        public string DUI { get; set; } = string.Empty;
-        public string Telefono { get; set; } = string.Empty;
-        public string Correo { get; set; } = string.Empty;
-        public string Dirección { get; set; } = string.Empty;
     }
 }

@@ -3,26 +3,66 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
     public partial class frmNuevaOrden : Form
     {
-        public static List<OrdenTrabajoTemporal> listaOrdenes = new List<OrdenTrabajoTemporal>();
-
         private ErrorProvider errorProvider = new ErrorProvider();
+
+        private readonly ComboBox cmbMecanico = new ComboBox();
 
         public frmNuevaOrden()
         {
             InitializeComponent();
+            CrearControlMecanico();
+        }
+
+        private void CrearControlMecanico()
+        {
+            var lblMecanico = new Label
+            {
+                AutoSize = true,
+                Font = label3.Font,
+                ForeColor = label3.ForeColor,
+                Location = new Point(63, 476),
+                Text = "Mecánico:"
+            };
+
+            cmbMecanico.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMecanico.FormattingEnabled = true;
+            cmbMecanico.Location = new Point(172, 472);
+            cmbMecanico.Size = new Size(400, 28);
+            cmbMecanico.TabIndex = 25;
+            cmbMecanico.Format += cmbMecanico_Format;
+
+            Controls.Add(lblMecanico);
+            Controls.Add(cmbMecanico);
+
+            lblMecanico.BringToFront();
+            cmbMecanico.BringToFront();
+        }
+
+        private void cmbMecanico_Format(object? sender, ListControlConvertEventArgs e)
+        {
+            if (e.ListItem is Mecanico mecanico)
+            {
+                e.Value = $"{mecanico.Nombre} ({mecanico.Especialidad})";
+            }
         }
 
         private void frmNuevaOrden_Load(object sender, EventArgs e)
         {
             cmbTipoServicio.DataSource = Enum.GetValues(typeof(TipoServicio));
-            cmbTipoServicio.SelectedIndex = -1; 
+            cmbTipoServicio.SelectedIndex = -1;
+
+            cmbMecanico.DataSource = ContextoDatos.Mecanicos.ObtenerDisponibles();
+            cmbMecanico.SelectedIndex = -1;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,29 +105,61 @@ namespace TallerAutomotriz
                 esValido = false;
             }
 
+            var mecanicoSeleccionado = cmbMecanico.SelectedItem as Mecanico;
+            if (mecanicoSeleccionado == null)
+            {
+                errorProvider.SetError(cmbMecanico, cmbMecanico.Items.Count == 0
+                    ? "No hay mecánicos activos. Registre o active uno en la pantalla de Mecánicos."
+                    : "Seleccione el mecánico que atenderá la orden.");
+                esValido = false;
+            }
+
+            Cliente? cliente = null;
+            Vehiculo? vehiculo = null;
+
             if (esValido)
             {
-                try
+                cliente = ContextoDatos.Clientes.Obtener(c => c.Dui == mtxDUI.Text);
+                if (cliente == null)
                 {
-                    OrdenTrabajoTemporal nuevaOrden = new OrdenTrabajoTemporal
-                    {
-                        DUI = mtxDUI.Text,
-                        Placa = txtPlaca.Text.ToUpper(),
-                        Servicio = (TipoServicio)cmbTipoServicio.SelectedItem,
-                        CostoEstimado = costoValidado,
-                        Descripcion = txtDescripcion.Text
-                    };
-
-                    listaOrdenes.Add(nuevaOrden);
-
-                    MessageBox.Show("Orden de trabajo registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    LimpiarCampos();
+                    errorProvider.SetError(mtxDUI, "No existe un cliente registrado con ese DUI.");
+                    esValido = false;
                 }
-                catch (Exception ex)
+
+                vehiculo = ContextoDatos.Vehiculos.BuscarPorPlaca(txtPlaca.Text);
+                if (vehiculo == null)
                 {
-                    MessageBox.Show("Ocurrió un error al guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider.SetError(txtPlaca, "No existe un vehículo registrado con esa placa.");
+                    esValido = false;
                 }
+                else if (cliente != null && vehiculo.ClienteId != cliente.Id)
+                {
+                    errorProvider.SetError(txtPlaca, "Ese vehículo no pertenece al cliente con ese DUI.");
+                    esValido = false;
+                }
+            }
+
+            if (!esValido || cliente == null || vehiculo == null || mecanicoSeleccionado == null)
+                return;
+
+            try
+            {
+                var orden = new OrdenTrabajo(string.Empty, vehiculo, mecanicoSeleccionado, txtDescripcion.Text);
+                orden.AgregarServicio(((TipoServicio)cmbTipoServicio.SelectedItem!).ToString(), costoValidado);
+
+                ContextoDatos.Ordenes.Agregar(orden);
+
+                MessageBox.Show($"Orden de trabajo {orden.NumeroOrden} registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCampos();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,6 +173,7 @@ namespace TallerAutomotriz
             mtxDUI.Clear();
             txtPlaca.Clear();
             cmbTipoServicio.SelectedIndex = -1;
+            cmbMecanico.SelectedIndex = -1;
             txtCostoEstimado.Clear();
             txtDescripcion.Clear();
             mtxDUI.Focus();
@@ -114,14 +187,5 @@ namespace TallerAutomotriz
         ReparacionMecanica,
         SistemaElectrico,
         Otro
-    }
-
-    public class OrdenTrabajoTemporal
-    {
-        public string DUI { get; set; }
-        public string Placa { get; set; }
-        public TipoServicio Servicio { get; set; }
-        public decimal CostoEstimado { get; set; }
-        public string Descripcion { get; set; }
     }
 }

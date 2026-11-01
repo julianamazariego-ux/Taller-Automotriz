@@ -73,6 +73,14 @@ public class RepositorioOrdenes : RepositorioBase<OrdenTrabajo>
         return $"ORD-{maximo + 1:D5}";
     }
 
+    public List<OrdenTrabajo> ObtenerAbiertas()
+    {
+        return Entidades
+            .Where(o => o.Estado == EstadoOrden.Pendiente || o.Estado == EstadoOrden.EnProceso)
+            .OrderBy(o => o.FechaIngreso)
+            .ToList();
+    }
+
     public BindingList<OrdenTrabajo> ObtenerPorEstado(EstadoOrden estado)
     {
         var filtradas = Entidades.Where(o => o.Estado == estado).ToList();

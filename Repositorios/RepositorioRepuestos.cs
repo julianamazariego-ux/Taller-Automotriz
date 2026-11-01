@@ -61,7 +61,7 @@ public class RepositorioRepuestos : RepositorioBase<Repuesto>
         return new BindingList<Repuesto>(lista);
     }
 
-   
+
     public void DescontarExistencia(Guid id, int cantidad)
     {
         var repuesto = ObtenerPorId(id)
@@ -69,6 +69,39 @@ public class RepositorioRepuestos : RepositorioBase<Repuesto>
 
         repuesto.DescontarExistencia(cantidad);
         Guardar();
+    }
+
+    public bool CargarCatalogoInicial()
+    {
+        if (Entidades.Count > 0)
+            return false;
+
+        var catalogo = new[]
+        {
+            new Repuesto("Filtro de aceite", 45.00m, CategoriaRepuesto.Filtros, 15),
+            new Repuesto("Pastillas de freno", 80.00m, CategoriaRepuesto.Pastillas, 8),
+            new Repuesto("Aceite Premium 5W-30", 35.00m, CategoriaRepuesto.Varias, 20),
+            new Repuesto("Batería 60 Amper", 120.00m, CategoriaRepuesto.Electrico, 5),
+            new Repuesto("Bujías NGK", 15.00m, CategoriaRepuesto.Bujias, 40),
+            new Repuesto("Correa de distribución", 85.00m, CategoriaRepuesto.Varias, 4),
+            new Repuesto("Mangueras radiador", 25.00m, CategoriaRepuesto.Mangueras, 12),
+            new Repuesto("Termostato", 40.00m, CategoriaRepuesto.Sensores, 6),
+            new Repuesto("Válvula solenoide", 60.00m, CategoriaRepuesto.Sensores, 7),
+            new Repuesto("Filtro combustible", 20.00m, CategoriaRepuesto.Filtros, 10),
+            new Repuesto("Sensor oxígeno", 75.00m, CategoriaRepuesto.Sensores, 3),
+            new Repuesto("Pastillas freno traseras", 65.00m, CategoriaRepuesto.Pastillas, 9),
+            new Repuesto("Discos de freno", 95.00m, CategoriaRepuesto.Pastillas, 6),
+            new Repuesto("Bomba agua", 110.00m, CategoriaRepuesto.Varias, 2),
+            new Repuesto("Alternador", 180.00m, CategoriaRepuesto.Electrico, 2)
+        };
+
+        foreach (var repuesto in catalogo)
+        {
+            Entidades.Add(repuesto);
+        }
+
+        Guardar();
+        return true;
     }
 
     protected override void ValidarDatos(List<Repuesto> datos)

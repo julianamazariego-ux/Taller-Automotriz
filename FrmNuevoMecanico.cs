@@ -6,26 +6,24 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
-
-
     public partial class FrmNuevoMecanico : Form
     {
-        public string[] DatosCapturados;
+        private Mecanico? mecanicoExistente;
 
-        public string IdAEditar = "";
+        public Mecanico? MecanicoGuardado { get; private set; }
 
-
-        public void CargarMecanico(string[] mecanico)
+        public void CargarMecanico(Mecanico mecanico)
         {
-            IdAEditar = mecanico[0];
-            txtNombre.Text = mecanico[1];
-            cmbEspecialidad.Text = mecanico[2];
-            mtxTelefono.Text = mecanico[3];
-            cmbEstado.Text = mecanico[4];
+            mecanicoExistente = mecanico;
+            txtNombre.Text = mecanico.Nombre;
+            mtxTelefono.Text = mecanico.Telefono;
+            cmbEstado.Text = mecanico.Disponible ? "Activo" : "Inactivo";
         }
+
         public FrmNuevoMecanico()
         {
             InitializeComponent();
@@ -39,7 +37,11 @@ namespace TallerAutomotriz
         private void FrmNuevoMecanico_Load(object sender, EventArgs e)
         {
             cmbEspecialidad.DataSource = Enum.GetValues<EspecialidadMecanico>();
-            cmbEspecialidad.SelectedIndex = -1;
+
+            if (mecanicoExistente != null)
+                cmbEspecialidad.SelectedItem = mecanicoExistente.Especialidad;
+            else
+                cmbEspecialidad.SelectedIndex = -1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -52,13 +54,9 @@ namespace TallerAutomotriz
                 errorProvider1.SetError(txtNombre, "El nombre es obligatorio.");
                 hayErrores = true;
             }
-            else if (FrmMecanicos.listaMecanicos.Any(m => m[1].ToUpper() == txtNombre.Text.ToUpper() && m[0] != IdAEditar))
-            {
-                errorProvider1.SetError(txtNombre, "Este mecánico ya está registrado.");
-                hayErrores = true;
-            }
+            
 
-            if (string.IsNullOrWhiteSpace(cmbEspecialidad.Text))
+            if (cmbEspecialidad.SelectedItem is not EspecialidadMecanico)
             {
                 errorProvider1.SetError(cmbEspecialidad, "Seleccione una especialidad.");
                 hayErrores = true;
@@ -76,21 +74,57 @@ namespace TallerAutomotriz
                 hayErrores = true;
             }
 
+            if (!string.IsNullOrWhiteSpace(txtNombre.Text)
+                && cmbEspecialidad.SelectedItem is EspecialidadMecanico especialidadElegida
+                && mtxTelefono.MaskFull
+                && ContextoDatos.Mecanicos.ExisteMecanico(txtNombre.Text, especialidadElegida, mtxTelefono.Text, mecanicoExistente))
+            {
+                errorProvider1.SetError(txtNombre, "Ya existe un mecánico con el mismo nombre, especialidad y teléfono.");
+                hayErrores = true;
+            }
+
             if (hayErrores) return;
 
-            string idFinal = string.IsNullOrEmpty(IdAEditar) ? (FrmMecanicos.listaMecanicos.Count + 1).ToString() : IdAEditar;
-
-            DatosCapturados = new string[]
+            try
             {
-    idFinal,
-    txtNombre.Text,
-    cmbEspecialidad.Text,
-    mtxTelefono.Text,
-    cmbEstado.Text
-            };
+                var especialidad = (EspecialidadMecanico)cmbEspecialidad.SelectedItem!;
+                bool disponible = cmbEstado.Text == "Activo";
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                if (mecanicoExistente == null)
+                {
+                    var nuevo = new Mecanico
+                    {
+                        Nombre = txtNombre.Text.Trim(),
+                        Telefono = mtxTelefono.Text,
+                        Especialidad = especialidad,
+                        Disponible = disponible
+                    };
+
+                    ContextoDatos.Mecanicos.Agregar(nuevo);
+                    MecanicoGuardado = nuevo;
+                }
+                else
+                {
+                    mecanicoExistente.Nombre = txtNombre.Text.Trim();
+                    mecanicoExistente.Telefono = mtxTelefono.Text;
+                    mecanicoExistente.Especialidad = especialidad;
+                    mecanicoExistente.Disponible = disponible;
+
+                    ContextoDatos.Mecanicos.Actualizar(mecanicoExistente);
+                    MecanicoGuardado = mecanicoExistente;
+                }
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -114,11 +148,11 @@ namespace TallerAutomotriz
 
         private void FrmNuevoMecanico_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
             if (e.KeyChar == (char)Keys.Enter)
             {
-                e.Handled = true; 
-                SendKeys.Send("{TAB}"); 
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
             }
         }
     }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
@@ -14,70 +16,106 @@ namespace TallerAutomotriz
         public FrmOrdenes()
         {
             InitializeComponent();
+
+            button2.Click += button2_Click;
         }
 
         private void FrmOrdenes_Load(object sender, EventArgs e)
         {
-            string rutaArchivo = Path.Combine(Application.StartupPath, "Datos", "ordenes_taller.csv");
-            CargarOrdenesDesdeCSV(rutaArchivo, dataGridView1);
+            MostrarOrdenes();
         }
 
-        private void CargarOrdenesDesdeCSV(string rutaArchivo, DataGridView grid)
+        private void MostrarOrdenes()
         {
-            DataTable tabla = new DataTable();
-
             try
             {
-                if (File.Exists(rutaArchivo))
-                {
-                    string[] lineas = File.ReadAllLines(rutaArchivo);
+                var tabla = new DataTable();
+                tabla.Columns.Add("ID_Orden");
+                tabla.Columns.Add("Cliente");
+                tabla.Columns.Add("Vehiculo");
+                tabla.Columns.Add("Servicio_Requerido");
+                tabla.Columns.Add("Fecha_Ingreso");
+                tabla.Columns.Add("Mecanico");
+                tabla.Columns.Add("Total");
+                tabla.Columns.Add("Estado");
 
-                    if (lineas.Length > 0)
-                    {
-                        string[] encabezados = lineas[0].Split(',');
-                        foreach (string encabezado in encabezados)
-                        {
-                            tabla.Columns.Add(encabezado.Trim());
-                        }
-
-                        for (int i = 1; i < lineas.Length; i++)
-                        {
-                            string[] celdas = lineas[i].Split(',');
-                            tabla.Rows.Add(celdas);
-                        }
-                    }
-                }
-                else
-                {
-                    tabla.Columns.Add("ID_Orden");
-                    tabla.Columns.Add("Cliente");
-                    tabla.Columns.Add("Vehiculo");
-                    tabla.Columns.Add("Servicio_Requerido");
-                    tabla.Columns.Add("Fecha_Ingreso");
-                    tabla.Columns.Add("Estado");
-                }
-
-                int idTemporal = 1;
-                foreach (var ordenNueva in frmNuevaOrden.listaOrdenes)
+                foreach (var orden in ContextoDatos.Ordenes.ObtenerAbiertas())
                 {
                     tabla.Rows.Add(
-                        "TEMP-" + idTemporal.ToString("D3"), 
-                        ordenNueva.DUI,                      
-                        ordenNueva.Placa,                    
-                        ordenNueva.Servicio.ToString(),      
-                        DateTime.Now.ToString("yyyy-MM-dd"), 
-                        "Abierta"                            
-                    );
-                    idTemporal++;
+                        orden.NumeroOrden,
+                        orden.Vehiculo?.Cliente?.Nombre ?? "(sin cliente)",
+                        orden.Vehiculo?.ToString() ?? orden.VehiculoPlaca,
+                        string.Join(", ", orden.Servicios.Select(s => s.Descripcion)),
+                        orden.FechaIngreso.ToString("yyyy-MM-dd"),
+                        orden.Mecanico?.Nombre ?? "(sin mecánico)",
+                        $"${orden.Total:F2}",
+                        orden.Estado.ToString());
                 }
 
-                
-                grid.DataSource = tabla;
-                ConfigurarGridOrdenes(grid);
+                dataGridView1.DataSource = tabla;
+                ConfigurarGridOrdenes(dataGridView1);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private OrdenTrabajo? ObtenerOrdenSeleccionada()
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return null;
+
+            string numero = dataGridView1.SelectedRows[0].Cells["ID_Orden"].Value?.ToString() ?? string.Empty;
+            return ContextoDatos.Ordenes.ObtenerPorNumero(numero);
+        }
+
+        private void button2_Click(object? sender, EventArgs e)
+        {
+            var orden = ObtenerOrdenSeleccionada();
+
+            if (orden == null)
+            {
+                MessageBox.Show("Seleccione una orden de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string accionAvanzar = orden.Estado == EstadoOrden.Pendiente
+                ? "Iniciar el trabajo"
+                : "Marcar como finalizada";
+
+            var respuesta = MessageBox.Show(
+                $"Orden {orden.NumeroOrden} - estado actual: {orden.Estado}\n\n" +
+                $"Sí: {accionAvanzar}\n" +
+                "No: Cancelar la orden\n" +
+                "Cancelar: no hacer nada",
+                "Actualizar orden",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Cancel)
+                return;
+
+            try
+            {
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (orden.Estado == EstadoOrden.Pendiente)
+                        orden.IniciarTrabajo();
+                    else
+                        orden.FinalizarOrden();
+                }
+                else
+                {
+                    orden.CancelarOrden();
+                }
+
+                ContextoDatos.Ordenes.Actualizar(orden);
+                MostrarOrdenes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo actualizar la orden: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

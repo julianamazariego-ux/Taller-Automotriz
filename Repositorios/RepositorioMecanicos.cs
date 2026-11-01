@@ -17,28 +17,54 @@ public class RepositorioMecanicos : RepositorioBase<Mecanico>
     public override void Agregar(Mecanico entidad)
     {
         ValidarMecanico(entidad);
-        if (ExisteDui(entidad.Dui))
-            throw new InvalidOperationException("Ya existe un mecánico con ese DUI.");
+        ValidarUnicidad(entidad);
 
         base.Agregar(entidad);
     }
 
-    public Mecanico? ObtenerPorId(Guid id) => Obtener(m => m.Id == id);
-
     public override void Actualizar(Mecanico entidad)
     {
         ValidarMecanico(entidad);
-        if (ExisteDui(entidad.Dui, entidad))
-            throw new InvalidOperationException("El DUI ingresado pertenece a otro mecánico.");
+        ValidarUnicidad(entidad);
 
         base.Actualizar(entidad);
     }
 
-    public bool ExisteDui(string dui, Mecanico? mecanicoExcluir = null)
+    public Mecanico? ObtenerPorId(Guid id) => Obtener(m => m.Id == id);
+
+    public bool ExisteMecanico(string nombre, EspecialidadMecanico especialidad, string telefono, Mecanico? mecanicoExcluir = null)
     {
         return Entidades.Any(m =>
             m != mecanicoExcluir &&
+            m.Especialidad == especialidad &&
+            m.Telefono.Equals(telefono.Trim(), StringComparison.OrdinalIgnoreCase) &&
+            m.Nombre.Equals(nombre.Trim(), StringComparison.OrdinalIgnoreCase));
+    }
+
+
+    public bool ExisteDui(string dui, Mecanico? mecanicoExcluir = null)
+    {
+        if (string.IsNullOrWhiteSpace(dui))
+            return false;
+
+        return Entidades.Any(m =>
+            m != mecanicoExcluir &&
             m.Dui.Equals(dui.Trim(), StringComparison.OrdinalIgnoreCase));
+    }
+
+    public List<Mecanico> Buscar(string? nombre, EspecialidadMecanico? especialidad)
+    {
+        string nombreBuscado = (nombre ?? string.Empty).Trim();
+
+        return Entidades.Where(m =>
+            (nombreBuscado.Length == 0 ||
+                m.Nombre.Contains(nombreBuscado, StringComparison.OrdinalIgnoreCase)) &&
+            (especialidad is null || m.Especialidad == especialidad)).ToList();
+    }
+
+    public List<Mecanico> ObtenerDisponibles()
+    {
+        return Entidades.Where(m => m.Disponible).ToList();
     }
 
     public BindingList<Mecanico> ObtenerDisponiblesPorEspecialidad(EspecialidadMecanico especialidad)
@@ -56,6 +82,15 @@ public class RepositorioMecanicos : RepositorioBase<Mecanico>
         {
             ValidarMecanico(mecanico);
         }
+    }
+
+    private void ValidarUnicidad(Mecanico mecanico)
+    {
+        if (ExisteMecanico(mecanico.Nombre, mecanico.Especialidad, mecanico.Telefono, mecanico))
+            throw new InvalidOperationException("Ya existe un mecánico con el mismo nombre, especialidad y teléfono.");
+
+        if (ExisteDui(mecanico.Dui, mecanico))
+            throw new InvalidOperationException("El DUI ingresado pertenece a otro mecánico.");
     }
 
     private static void ValidarMecanico(Mecanico mecanico)

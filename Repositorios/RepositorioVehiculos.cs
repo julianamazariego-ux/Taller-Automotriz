@@ -59,6 +59,18 @@ public class RepositorioVehiculos : RepositorioBase<Vehiculo>
         return Obtener(v => v.Placa.Equals(placa.Trim(), StringComparison.OrdinalIgnoreCase));
     }
 
+    
+    public List<Vehiculo> Buscar(string? placa, MarcaVehiculo? marca, int? anio)
+    {
+        string placaBuscada = (placa ?? string.Empty).Trim();
+
+        return Entidades.Where(v =>
+            (placaBuscada.Length == 0 ||
+                v.Placa.Contains(placaBuscada, StringComparison.OrdinalIgnoreCase)) &&
+            (marca is null || v.Marca == marca) &&
+            (anio is null || v.Anio == anio)).ToList();
+    }
+
     public BindingList<Vehiculo> ObtenerPorCliente(Guid clienteId)
     {
         var lista = Entidades.Where(v => v.ClienteId == clienteId).ToList();

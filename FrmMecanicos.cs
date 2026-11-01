@@ -6,28 +6,48 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
     public partial class FrmMecanicos : Form
     {
-        public static List<string[]> listaMecanicos = new List<string[]>();
         public FrmMecanicos()
         {
             InitializeComponent();
         }
 
-
-
-
         private void ActualizarTabla()
+        {
+            MostrarMecanicos(ContextoDatos.Mecanicos.ObtenerTodos());
+        }
+
+        private void MostrarMecanicos(IEnumerable<Mecanico> lista)
         {
             dataGridView1.Rows.Clear();
 
-            foreach (var mecanico in listaMecanicos)
+            int idIncremental = 1;
+
+            foreach (var mecanico in lista)
             {
-                dataGridView1.Rows.Add(mecanico);
+                int fila = dataGridView1.Rows.Add(
+                    idIncremental,
+                    mecanico.Nombre,
+                    mecanico.Especialidad.ToString(),
+                    mecanico.Telefono,
+                    mecanico.Disponible ? "Activo" : "Inactivo");
+
+                dataGridView1.Rows[fila].Tag = mecanico;
+                idIncremental++;
             }
+        }
+
+        private Mecanico? ObtenerMecanicoSeleccionado()
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return null;
+
+            return dataGridView1.SelectedRows[0].Tag as Mecanico;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,25 +57,11 @@ namespace TallerAutomotriz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
+            EspecialidadMecanico? especialidadBuscada = cmbFiltro.SelectedItem is EspecialidadMecanico elegida
+                ? elegida
+                : (EspecialidadMecanico?)null;
 
-
-            string especialidadBuscada = cmbFiltro.SelectedIndex != -1 ? cmbFiltro.Text : "";
-
-
-            string nombreBuscado = txtBusqueda.Text.ToLower().Trim();
-
-
-            var mecanicosFiltrados = listaMecanicos.Where(m =>
-                (string.IsNullOrWhiteSpace(nombreBuscado) || m[1].ToLower().Contains(nombreBuscado)) &&
-                (string.IsNullOrWhiteSpace(especialidadBuscada) || m[2] == especialidadBuscada)
-            ).ToList();
-
-
-            foreach (var mecanico in mecanicosFiltrados)
-            {
-                dataGridView1.Rows.Add(mecanico);
-            }
+            MostrarMecanicos(ContextoDatos.Mecanicos.Buscar(txtBusqueda.Text, especialidadBuscada));
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -65,44 +71,53 @@ namespace TallerAutomotriz
 
         private void FrmMecanicos_Load(object sender, EventArgs e)
         {
-
             cmbFiltro.DataSource = Enum.GetValues<EspecialidadMecanico>();
             cmbFiltro.SelectedIndex = -1;
+
+            ActualizarTabla();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmNuevoMecanico ventanaNuevo = new FrmNuevoMecanico();
-
-            if (ventanaNuevo.ShowDialog() == DialogResult.OK)
+            using (FrmNuevoMecanico ventanaNuevo = new FrmNuevoMecanico())
             {
-                listaMecanicos.Add(ventanaNuevo.DatosCapturados);
-                ActualizarTabla();
+                if (ventanaNuevo.ShowDialog() == DialogResult.OK)
+                {
+                    ActualizarTabla();
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DialogResult respuesta = MessageBox.Show("¿Seguro que deseas eliminar a este mecánico?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var mecanicoAEliminar = ObtenerMecanicoSeleccionado();
 
-                if (respuesta == DialogResult.Yes)
-                {
-                    string idSeleccionado = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-
-
-                    var mecanicoAEliminar = listaMecanicos.FirstOrDefault(m => m[0] == idSeleccionado);
-                    if (mecanicoAEliminar != null)
-                    {
-                        listaMecanicos.Remove(mecanicoAEliminar);
-                        ActualizarTabla();
-                    }
-                }
-            }
-            else
+            if (mecanicoAEliminar == null)
             {
                 MessageBox.Show("Selecciona un mecánico de la tabla (haciendo clic en la flechita de la izquierda) para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ContextoDatos.Ordenes.ObtenerTodos().Any(o => o.MecanicoId == mecanicoAEliminar.Id))
+            {
+                MessageBox.Show("No se puede eliminar al mecánico porque tiene órdenes de trabajo asignadas.\nPuede marcarlo como Inactivo.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult respuesta = MessageBox.Show("¿Seguro que deseas eliminar a este mecánico?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    ContextoDatos.Mecanicos.Eliminar(mecanicoAEliminar);
+                    ActualizarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No se pudo eliminar al mecánico: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -115,32 +130,28 @@ namespace TallerAutomotriz
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                string idSeleccionado = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                int indice = listaMecanicos.FindIndex(m => m[0] == idSeleccionado);
+            var mecanicoAEditar = ObtenerMecanicoSeleccionado();
 
-                if (indice >= 0)
-                {
-                    FrmNuevoMecanico ventanaEdit = new FrmNuevoMecanico();
-                    ventanaEdit.CargarMecanico(listaMecanicos[indice]);
-
-                    if (ventanaEdit.ShowDialog() == DialogResult.OK)
-                    {
-                        listaMecanicos[indice] = ventanaEdit.DatosCapturados;
-                        ActualizarTabla();
-                    }
-                }
-            }
-            else
+            if (mecanicoAEditar == null)
             {
                 MessageBox.Show("Selecciona toda la fila del mecánico desde la flechita izquierda.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (FrmNuevoMecanico ventanaEdit = new FrmNuevoMecanico())
+            {
+                ventanaEdit.CargarMecanico(mecanicoAEditar);
+
+                if (ventanaEdit.ShowDialog() == DialogResult.OK)
+                {
+                    ActualizarTabla();
+                }
             }
         }
 
         private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;

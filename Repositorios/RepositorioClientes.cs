@@ -53,6 +53,18 @@ public class RepositorioClientes : RepositorioBase<Cliente>
         return new BindingList<Cliente>(resultado);
     }
 
+    public List<Cliente> Buscar(string? nombre, string? dui)
+    {
+        string nombreBuscado = (nombre ?? string.Empty).Trim();
+        string duiBuscado = (dui ?? string.Empty).Replace("-", "").Trim();
+
+        return Entidades.Where(c =>
+            (nombreBuscado.Length == 0 ||
+                c.Nombre.Contains(nombreBuscado, StringComparison.OrdinalIgnoreCase)) &&
+            (duiBuscado.Length == 0 ||
+                c.Dui.Replace("-", "") == duiBuscado)).ToList();
+    }
+
     protected override void ValidarDatos(List<Cliente> datos)
     {
         foreach (var cliente in datos)

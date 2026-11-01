@@ -62,10 +62,7 @@ namespace TallerAutomotriz
 
             if (modalNuevoVehiculo.ShowDialog() == DialogResult.OK)
             {
-                
-                FrmVehiculos.listaVehiculos.Add(modalNuevoVehiculo.DatosCapturados);
 
-               
                 MessageBox.Show("Vehículo registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

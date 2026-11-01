@@ -2,17 +2,22 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
-
     public partial class FrmRepuestoEdit : Form
     {
-        public Repuesto RepuestoCreado { get; private set; }
+        private readonly Repuesto? repuestoExistente;
+
+        public Repuesto? RepuestoGuardado { get; private set; }
 
         public FrmRepuestoEdit()
         {
             InitializeComponent();
+
+            numPrecio.Maximum = 1000000;
+            numCantidad.Maximum = 1000000;
 
             cmbCategoria.DataSource = Enum.GetValues(typeof(CategoriaRepuesto));
             txtNombre.Validating += txtNombre_Validating;
@@ -25,13 +30,15 @@ namespace TallerAutomotriz
 
         public FrmRepuestoEdit(Repuesto repuestoAEditar) : this()
         {
+            repuestoExistente = repuestoAEditar;
+
             txtNombre.Text = repuestoAEditar.Nombre;
             numPrecio.Value = repuestoAEditar.Precio;
             cmbCategoria.SelectedItem = repuestoAEditar.Categoria;
             numCantidad.Value = repuestoAEditar.CantidadDisponible;
         }
 
-        private void txtNombre_Validating(object sender, CancelEventArgs e)
+        private void txtNombre_Validating(object? sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
@@ -44,7 +51,7 @@ namespace TallerAutomotriz
             }
         }
 
-        private void numPrecio_Validating(object sender, CancelEventArgs e)
+        private void numPrecio_Validating(object? sender, CancelEventArgs e)
         {
             if (numPrecio.Value <= 0)
             {
@@ -57,25 +64,55 @@ namespace TallerAutomotriz
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object? sender, EventArgs e)
         {
-            if (this.ValidateChildren())
+            if (!this.ValidateChildren())
             {
-                RepuestoCreado = new Repuesto();
-                RepuestoCreado.Nombre = txtNombre.Text;
-                RepuestoCreado.Precio = numPrecio.Value;
-                RepuestoCreado.Categoria = (CategoriaRepuesto)cmbCategoria.SelectedItem;
-                RepuestoCreado.CantidadDisponible = (int)numCantidad.Value;
+                MessageBox.Show("Por favor, corrija los errores marcados en rojo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                var categoria = (CategoriaRepuesto)cmbCategoria.SelectedItem!;
+
+                if (repuestoExistente == null)
+                {
+                    var nuevo = new Repuesto(txtNombre.Text, numPrecio.Value, categoria, (int)numCantidad.Value);
+
+                    ContextoDatos.Repuestos.Agregar(nuevo);
+                    RepuestoGuardado = nuevo;
+                }
+                else
+                {
+                    if (ContextoDatos.Repuestos.ExisteNombre(txtNombre.Text, repuestoExistente))
+                    {
+                        MessageBox.Show("El nombre ingresado pertenece a otro repuesto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    repuestoExistente.Nombre = txtNombre.Text;
+                    repuestoExistente.Precio = numPrecio.Value;
+                    repuestoExistente.Categoria = categoria;
+                    repuestoExistente.CantidadDisponible = (int)numCantidad.Value;
+
+                    ContextoDatos.Repuestos.Actualizar(repuestoExistente);
+                    RepuestoGuardado = repuestoExistente;
+                }
 
                 this.DialogResult = DialogResult.OK;
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Por favor, corrija los errores marcados en rojo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object? sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }

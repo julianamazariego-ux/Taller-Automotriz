@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
@@ -14,7 +15,6 @@ namespace TallerAutomotriz
 
 
     {
-        public static List<string[]> listaVehiculos = new List<string[]>();
 
         public FrmVehiculos()
         {
@@ -94,41 +94,42 @@ namespace TallerAutomotriz
 
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
-            
-            dataGridView1.Rows.Clear();
-
-            
-            foreach (var vehiculo in listaVehiculos)
-            {
-                dataGridView1.Rows.Add(vehiculo);
-            }
-
+            ActualizarGrid(ContextoDatos.Vehiculos.ObtenerTodos());
 
             cmbFiltroMarca.DataSource = Enum.GetValues<MarcaVehiculo>();
             cmbFiltroMarca.SelectedIndex = -1;
-
-
-           
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
-
-
-            FrmNuevoVehiculo modalVehiculo = new FrmNuevoVehiculo();
-
-
-            if (modalVehiculo.ShowDialog() == DialogResult.OK)
+            using (FrmNuevoVehiculo modalVehiculo = new FrmNuevoVehiculo())
             {
-
-                listaVehiculos.Add(modalVehiculo.DatosCapturados);
-
-
-                dataGridView1.Rows.Add(modalVehiculo.DatosCapturados);
+                if (modalVehiculo.ShowDialog() == DialogResult.OK)
+                {
+                    ActualizarGrid(ContextoDatos.Vehiculos.ObtenerTodos());
+                }
             }
         }
 
+        private void ActualizarGrid(IEnumerable<Vehiculo> listaAMostrar)
+        {
+            dataGridView1.Rows.Clear();
+
+            int idIncremental = 1;
+
+            foreach (var vehiculo in listaAMostrar)
+            {
+                dataGridView1.Rows.Add(
+                    idIncremental,
+                    vehiculo.Placa,
+                    vehiculo.Marca.ToString(),
+                    vehiculo.Modelo,
+                    vehiculo.Anio,
+                    vehiculo.Color,
+                    vehiculo.Cliente?.Nombre ?? "(sin cliente)");
+                idIncremental++;
+            }
+        }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -141,52 +142,27 @@ namespace TallerAutomotriz
             txtFiltroAnio.Clear();
             cmbFiltroMarca.SelectedIndex = -1;
 
-            dataGridView1.Rows.Clear();
-            foreach (var vehiculo in listaVehiculos)
-            {
-                dataGridView1.Rows.Add(vehiculo);
-            }
-
-
+            ActualizarGrid(ContextoDatos.Vehiculos.ObtenerTodos());
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            
-            var resultados = listaVehiculos.AsEnumerable();
-
-            
-            if (!string.IsNullOrWhiteSpace(txtBuscarPlaca.Text))
-            {
-                resultados = resultados.Where(v => v[1].ToUpper().Contains(txtBuscarPlaca.Text.ToUpper()));
-            }
-
-            
-            if (cmbFiltroMarca.SelectedIndex != -1)
-            {
-                resultados = resultados.Where(v => v[2] == cmbFiltroMarca.Text);
-            }
-
-           
+            int? anioBuscado = null;
             if (!string.IsNullOrWhiteSpace(txtFiltroAnio.Text))
             {
-                if (int.TryParse(txtFiltroAnio.Text, out int anioBuscado))
-                {
-                    resultados = resultados.Where(v => v[4] == anioBuscado.ToString());
-                }
-                else
+                if (!int.TryParse(txtFiltroAnio.Text, out int anioIngresado))
                 {
                     MessageBox.Show("Ingrese un año válido en números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                anioBuscado = anioIngresado;
             }
 
-         
-            dataGridView1.Rows.Clear();
-            foreach (var vehiculo in resultados)
-            {
-                dataGridView1.Rows.Add(vehiculo);
-            }
+            MarcaVehiculo? marcaFiltro = cmbFiltroMarca.SelectedItem is MarcaVehiculo marcaElegida
+                ? marcaElegida
+                : (MarcaVehiculo?)null;
+
+            ActualizarGrid(ContextoDatos.Vehiculos.Buscar(txtBuscarPlaca.Text, marcaFiltro, anioBuscado));
         }
     }
 }
