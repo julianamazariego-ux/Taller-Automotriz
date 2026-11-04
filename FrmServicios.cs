@@ -6,27 +6,23 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using TallerAutomotriz.Models;
+using TallerAutomotriz.Repositorios;
 
 namespace TallerAutomotriz
 {
-
-    public struct RegistroServicio
-    {
-        public string Cliente { get; set; }
-        public string Placa { get; set; }
-        public string Modelo { get; set; }
-        public DateTime Fecha { get; set; }
-        public double Total { get; set; }
-        public EstadoOrden Estado { get; set; }
-    }
-
     public partial class FrmServicios : Form
     {
-        private readonly List<RegistroServicio> listaOrdenes = new List<RegistroServicio>();
+        private const decimal PrecioAceite = 45.00m;
+        private const decimal PrecioFrenos = 80.00m;
+        private const decimal PrecioAlineacion = 35.00m;
+        private const decimal PrecioEscaner = 25.00m;
+        private const decimal TarifaHora = 30.00m;
 
         public FrmServicios()
         {
             InitializeComponent();
+
+            txtPlaca.Leave += txtPlaca_Leave;
         }
 
         private void FrmServicios_Load(object sender, EventArgs e)
@@ -34,69 +30,77 @@ namespace TallerAutomotriz
             txtCliente.MaxLength = 50;
             txtPlaca.MaxLength = 8;
             txtModelo.MaxLength = 30;
+
+            txtCliente.ReadOnly = true;
+            txtModelo.ReadOnly = true;
         }
 
-        private bool ValidarCampos()
+        private void txtPlaca_Leave(object? sender, EventArgs e)
+        {
+            var vehiculo = string.IsNullOrWhiteSpace(txtPlaca.Text)
+                ? null
+                : ContextoDatos.Vehiculos.BuscarPorPlaca(txtPlaca.Text);
+
+            if (vehiculo == null)
+            {
+                txtCliente.Clear();
+                txtModelo.Clear();
+                return;
+            }
+
+            txtCliente.Text = vehiculo.Cliente?.Nombre ?? string.Empty;
+            txtModelo.Text = $"{vehiculo.Marca} {vehiculo.Modelo} {vehiculo.Anio}";
+            errorProvider1.SetError(txtPlaca, "");
+        }
+
+        private Vehiculo? ValidarVehiculo()
         {
             errorProvider1.Clear();
-            bool esValido = true;
-
-            string cliente = txtCliente.Text.Trim();
-            if (string.IsNullOrWhiteSpace(cliente))
-            {
-                errorProvider1.SetIconPadding(txtCliente, -18);
-                errorProvider1.SetError(txtCliente, "Ingrese el nombre del cliente.");
-                esValido = false;
-            }
-            else if (!Regex.IsMatch(cliente, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"))
-            {
-                errorProvider1.SetIconPadding(txtCliente, -18);
-                errorProvider1.SetError(txtCliente, "El nombre del cliente solo debe contener letras.");
-                esValido = false;
-            }
-            else if (cliente.Length < 3)
-            {
-                errorProvider1.SetIconPadding(txtCliente, -18);
-                errorProvider1.SetError(txtCliente, "El nombre debe contener al menos 3 letras.");
-                esValido = false;
-            }
 
             string placa = txtPlaca.Text.Trim();
             if (string.IsNullOrWhiteSpace(placa))
             {
                 errorProvider1.SetIconPadding(txtPlaca, -18);
                 errorProvider1.SetError(txtPlaca, "Ingrese la placa o patente del vehículo.");
-                esValido = false;
+                return null;
             }
-            else if (placa.Length < 5)
+
+            if (placa.Length < 5)
             {
                 errorProvider1.SetIconPadding(txtPlaca, -18);
                 errorProvider1.SetError(txtPlaca, "La placa debe tener al menos 5 caracteres.");
-                esValido = false;
+                return null;
             }
 
-            string modelo = txtModelo.Text.Trim();
-            if (string.IsNullOrWhiteSpace(modelo))
+            var vehiculo = ContextoDatos.Vehiculos.BuscarPorPlaca(placa);
+            if (vehiculo == null)
             {
-                errorProvider1.SetIconPadding(txtModelo, -18);
-                errorProvider1.SetError(txtModelo, "Ingrese la marca y modelo del vehículo.");
-                esValido = false;
+                errorProvider1.SetIconPadding(txtPlaca, -18);
+                errorProvider1.SetError(txtPlaca, "No existe un vehículo registrado con esa placa. Regístrelo primero en Vehículos.");
+                return null;
             }
-            else if (Regex.IsMatch(modelo, @"^\d+$"))
-            {
-                errorProvider1.SetIconPadding(txtModelo, -18);
-                errorProvider1.SetError(txtModelo, "El modelo/marca no puede contener solo números.");
-                esValido = false;
-            }
+
+            txtCliente.Text = vehiculo.Cliente?.Nombre ?? string.Empty;
+            txtModelo.Text = $"{vehiculo.Marca} {vehiculo.Modelo} {vehiculo.Anio}";
+            return vehiculo;
+        }
+
+        private bool ValidarServicios()
+        {
+            bool esValido = true;
 
             bool tieneServicios = chkAceite.Checked || chkFrenos.Checked ||
                                   chkAlineacion.Checked || chkEscaner.Checked;
 
-            double.TryParse(txtRepuestos.Text, out double repuestos);
-            double.TryParse(txtManoObra.Text, out double adicional);
-            double.TryParse(txtHoras.Text, out double horas);
+            decimal.TryParse(txtRepuestos.Text, out decimal repuestos);
+            decimal.TryParse(txtManoObra.Text, out decimal adicional);
+            decimal.TryParse(txtHoras.Text, out decimal horas);
 
-            if (!tieneServicios && repuestos == 0 && adicional == 0 && horas == 0)
+            if (repuestos < 0) { errorProvider1.SetError(txtRepuestos, "No puede ser negativo."); esValido = false; }
+            if (adicional < 0) { errorProvider1.SetError(txtManoObra, "No puede ser negativo."); esValido = false; }
+            if (horas < 0) { errorProvider1.SetError(txtHoras, "No puede ser negativo."); esValido = false; }
+
+            if (esValido && !tieneServicios && repuestos == 0 && adicional == 0 && horas == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un servicio o ingresar horas/costos adicionales.",
                                 "Validación de Servicios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -106,31 +110,44 @@ namespace TallerAutomotriz
             return esValido;
         }
 
+        private List<(string Descripcion, decimal Costo)> ObtenerServiciosSeleccionados()
+        {
+            var lista = new List<(string Descripcion, decimal Costo)>();
+
+            if (chkAceite.Checked) lista.Add(("Cambio de aceite y filtro", PrecioAceite));
+            if (chkFrenos.Checked) lista.Add(("Mantenimiento de frenos", PrecioFrenos));
+            if (chkAlineacion.Checked) lista.Add(("Alineación y balanceo", PrecioAlineacion));
+            if (chkEscaner.Checked) lista.Add(("Diagnóstico con escáner", PrecioEscaner));
+
+            decimal.TryParse(txtHoras.Text, out decimal horas);
+            if (horas > 0)
+                lista.Add(($"Mano de obra ({horas} h x ${TarifaHora:F2})", horas * TarifaHora));
+
+            decimal.TryParse(txtManoObra.Text, out decimal manoObraAdicional);
+            if (manoObraAdicional > 0)
+                lista.Add(("Mano de obra adicional", manoObraAdicional));
+
+            return lista;
+        }
+
+        private decimal ObtenerMontoRepuestos()
+        {
+            decimal.TryParse(txtRepuestos.Text, out decimal repuestos);
+            return repuestos > 0 ? repuestos : 0;
+        }
+
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!ValidarCampos()) return;
+                errorProvider1.Clear();
+                if (!ValidarServicios()) return;
 
-                double subtotalServicios = 0;
+                decimal subtotal = ObtenerServiciosSeleccionados().Sum(s => s.Costo) + ObtenerMontoRepuestos();
+                decimal iva = Math.Round(subtotal * OrdenTrabajo.TasaIva, 2);
+                decimal totalPagar = subtotal + iva;
 
-                if (chkAceite.Checked) subtotalServicios += 45.00;
-                if (chkFrenos.Checked) subtotalServicios += 80.00;
-                if (chkAlineacion.Checked) subtotalServicios += 35.00;
-                if (chkEscaner.Checked) subtotalServicios += 25.00;
-
-                double.TryParse(txtHoras.Text, out double horas);
-                double tarifaHora = 30.00;
-                double costoHoras = horas * tarifaHora;
-
-                double.TryParse(txtRepuestos.Text, out double repuestos);
-                double.TryParse(txtManoObra.Text, out double manoObraAdicional);
-
-                double subtotalGeneral = subtotalServicios + costoHoras + repuestos + manoObraAdicional;
-                double iva = subtotalGeneral * 0.13;
-                double totalPagar = subtotalGeneral + iva;
-
-                lblSubtotal.Text = "$" + subtotalGeneral.ToString("F2");
+                lblSubtotal.Text = "$" + subtotal.ToString("F2");
                 lblIVA.Text = "$" + iva.ToString("F2");
                 lblTotal.Text = "$" + totalPagar.ToString("F2");
             }
@@ -145,46 +162,72 @@ namespace TallerAutomotriz
         {
             try
             {
-                if (!ValidarCampos()) return;
+                var vehiculo = ValidarVehiculo();
+                if (vehiculo == null) return;
 
-                if (lblTotal.Text == "$0.00" || string.IsNullOrEmpty(lblTotal.Text))
+                if (!ValidarServicios()) return;
+
+                var activos = ContextoDatos.Mecanicos.ObtenerDisponibles();
+                if (activos.Count == 0)
                 {
-                    btnCalcular_Click(sender, e);
+                    MessageBox.Show("No hay mecánicos activos. Registre o active uno en la pantalla de Mecánicos.",
+                                    "Sin mecánicos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                string totalTexto = lblTotal.Text.Replace("$", "");
-                double.TryParse(totalTexto, out double totalPagar);
+                using var selector = new FrmSeleccionarMecanico(activos);
+                if (selector.ShowDialog(this) != DialogResult.OK || selector.MecanicoSeleccionado == null)
+                    return;
 
-                RegistroServicio nuevaOrden = new RegistroServicio
+                var orden = new OrdenTrabajo(
+                    string.Empty,
+                    vehiculo,
+                    selector.MecanicoSeleccionado,
+                    "Orden generada desde la pantalla de Servicios.")
                 {
-                    Cliente = txtCliente.Text.Trim(),
-                    Placa = txtPlaca.Text.Trim().ToUpper(),
-                    Modelo = txtModelo.Text.Trim(),
-                    Fecha = dtpFecha.Value,
-                    Total = totalPagar,
-                    Estado = EstadoOrden.Pendiente
+                    FechaIngreso = dtpFecha.Value
                 };
 
-                listaOrdenes.Add(nuevaOrden);
+                foreach (var servicio in ObtenerServiciosSeleccionados())
+                    orden.AgregarServicio(servicio.Descripcion, servicio.Costo);
 
-                double acumuladoTotal = listaOrdenes.Sum(o => o.Total);
-                int cantidadOrdenes = listaOrdenes.Count;
-                double mayorOrden = listaOrdenes.Max(o => o.Total);
+                decimal repuestos = ObtenerMontoRepuestos();
+                if (repuestos > 0)
+                    orden.AgregarRepuesto("Repuestos varios", 1, repuestos);
+
+                ContextoDatos.Ordenes.Agregar(orden);
+
+                lblSubtotal.Text = "$" + orden.Total.ToString("F2");
+                lblIVA.Text = "$" + orden.Iva.ToString("F2");
+                lblTotal.Text = "$" + orden.TotalConIva.ToString("F2");
+
+                var todas = ContextoDatos.Ordenes.ObtenerTodos();
+                decimal acumuladoTotal = todas.Sum(o => o.TotalConIva);
+                int cantidadOrdenes = todas.Count;
+                decimal mayorOrden = todas.Max(o => o.TotalConIva);
 
                 string mensaje = $"¡Orden registrada con éxito!\n\n" +
-                                 $"Cliente: {nuevaOrden.Cliente}\n" +
-                                 $"Placa: {nuevaOrden.Placa}\n" +
-                                 $"Fecha: {nuevaOrden.Fecha.ToShortDateString()}\n" +
-                                 $"Total: ${nuevaOrden.Total:F2}\n" +
-                                 $"Estado: {nuevaOrden.Estado}\n\n" +
+                                 $"Orden: {orden.NumeroOrden}\n" +
+                                 $"Cliente: {txtCliente.Text}\n" +
+                                 $"Placa: {vehiculo.Placa}\n" +
+                                 $"Mecánico: {selector.MecanicoSeleccionado.Nombre}\n" +
+                                 $"Fecha: {orden.FechaIngreso.ToShortDateString()}\n" +
+                                 $"Subtotal: ${orden.Total:F2}\n" +
+                                 $"IVA (13%): ${orden.Iva:F2}\n" +
+                                 $"Total: ${orden.TotalConIva:F2}\n" +
+                                 $"Estado: {orden.Estado}\n\n" +
                                  $"--- [Resumen del Sistema - LINQ] ---\n" +
-                                 $"Órdenes en sesión: {cantidadOrdenes}\n" +
+                                 $"Órdenes registradas: {cantidadOrdenes}\n" +
                                  $"Monto total acumulado: ${acumuladoTotal:F2}\n" +
                                  $"Orden de mayor valor: ${mayorOrden:F2}";
 
                 MessageBox.Show(mensaje, "Orden Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LimpiarFormulario();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -219,7 +262,7 @@ namespace TallerAutomotriz
 
             dtpFecha.Value = DateTime.Now;
             errorProvider1.Clear();
-            txtCliente.Focus();
+            txtPlaca.Focus();
         }
 
         private void ImprimirDocumento_PrintPage(object sender, PrintPageEventArgs e)

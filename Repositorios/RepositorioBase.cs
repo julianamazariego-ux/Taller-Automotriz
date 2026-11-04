@@ -107,7 +107,7 @@ public abstract class RepositorioBase<T> : IRepositorio<T> where T : class
 
             if (File.Exists(RutaArchivo))
             {
-                File.Replace(archivoTemporal, RutaArchivo, null);
+                File.Replace(archivoTemporal, RutaArchivo, RutaArchivo + ".bak");
             }
             else
             {

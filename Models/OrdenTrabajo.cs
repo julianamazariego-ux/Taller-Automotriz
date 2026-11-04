@@ -66,7 +66,15 @@ public class OrdenTrabajo : INotifyPropertyChanged
 
     public decimal TotalServicios => Servicios.Sum(s => s.CostoManoObra);
     public decimal TotalRepuestos => Repuestos.Sum(r => r.Subtotal);
+
     public decimal Total => TotalServicios + TotalRepuestos;
+
+    public const decimal TasaIva = 0.13m;
+    public decimal Iva => Math.Round(Total * TasaIva, 2);
+    public decimal TotalConIva => Total + Iva;
+
+    [JsonInclude]
+    public int? Folio { get; private set; }
 
     [JsonConstructor]
     public OrdenTrabajo() { }
@@ -116,6 +124,19 @@ public class OrdenTrabajo : INotifyPropertyChanged
         Repuestos.Add(new RepuestoItem(nombreRepuesto, cantidad, precioUnitario));
         OnPropertyChanged(nameof(TotalRepuestos));
         OnPropertyChanged(nameof(Total));
+    }
+
+    
+    public void Facturar(int folio)
+    {
+        if (Estado != EstadoOrden.Finalizada)
+            throw new InvalidOperationException("Solo se puede facturar una orden finalizada.");
+        if (folio <= 0)
+            throw new ArgumentOutOfRangeException(nameof(folio), "El folio debe ser mayor a cero.");
+
+        Folio = folio;
+        Estado = EstadoOrden.Entregada;
+        FechaEntrega ??= DateTime.Now;
     }
 
     public void IniciarTrabajo()

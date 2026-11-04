@@ -9,6 +9,12 @@ namespace TallerAutomotriz
         {
             InitializeComponent();
             this.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+
+
+
+            var historialToolStripMenuItem = new ToolStripMenuItem("Historial de órdenes");
+            historialToolStripMenuItem.Click += historialOrdenesToolStripMenuItem_Click;
+            ordenesDeTrabajoToolStripMenuItem.DropDownItems.Add(historialToolStripMenuItem);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -110,6 +116,15 @@ namespace TallerAutomotriz
             FrmOrdenes modalOrdenes = new FrmOrdenes();
 
             modalOrdenes.ShowDialog();  
+        }
+
+
+        private void historialOrdenesToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            using (FrmHistorialOrdenes historial = new FrmHistorialOrdenes())
+            {
+                historial.ShowDialog(this);
+            }
         }
     }
 }
