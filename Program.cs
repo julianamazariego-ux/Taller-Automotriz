@@ -16,6 +16,7 @@ namespace TallerAutomotriz
                     "Aviso al cargar los datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+            GestorFotosVehiculo.ActivarArreglosGlobales();
             Application.Run(new FrmPrincipal());
         }
     }
