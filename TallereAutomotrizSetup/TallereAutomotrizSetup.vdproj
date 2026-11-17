@@ -290,11 +290,6 @@
             "AssemblyAsmDisplayName" = "8:Taller Automotriz, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_9B2434D566644C26812556738904EDF8"
-                    {
-                    "Name" = "8:Taller Automotriz.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\bin\\Release\\net10.0-windows\\publish\\win-x64\\Taller Automotriz.dll"
             "TargetName" = "8:"
@@ -439,7 +434,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:pcpremium24@gmail.com"
+        "Manufacturer" = "8:Grupo Taller Automotriz"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Instalacion Taller Automotriz"
