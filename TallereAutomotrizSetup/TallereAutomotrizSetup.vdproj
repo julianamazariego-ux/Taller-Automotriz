@@ -388,7 +388,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_56BB8EAB6529435CB523E6A4CBE1308C"
             {
-            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[LocalAppDataFolder][ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
