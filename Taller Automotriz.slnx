@@ -1,9 +1,6 @@
 <Solution>
   <Folder Name="/Elementos de la solución/" />
   <Project Path="Taller Automotriz.csproj" />
-  <Project Path="TallerAutomotriz2.0/TallerAutomotriz2.0.vdproj" Type="Installer">
-    <Build />
-  </Project>
   <Project Path="TallereAutomotrizSetup/TallereAutomotrizSetup.vdproj" Type="Installer">
     <Build />
   </Project>
