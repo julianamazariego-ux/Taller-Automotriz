@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_342577C9D57C43E3BBD57E51AAAAA014"
+        "MsmKey" = "8:_C1807B0BC3F34B379A245B766A95C5EE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -50,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -114,10 +122,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_342577C9D57C43E3BBD57E51AAAAA014"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C1807B0BC3F34B379A245B766A95C5EE"
             {
-            "SourcePath" = "8:..\\..\\..\\Downloads\\Cabriolet_Red_icon-icons.com_54906.ico"
-            "TargetName" = "8:TallerAutomotrizIcon.ico"
+            "SourcePath" = "8:..\\Taller.ico\\car_repair_16784.ico"
+            "TargetName" = "8:car_repair_16784.ico"
             "Tag" = "8:"
             "Folder" = "8:_19478C9E220940F08FB2EF20E30A11BB"
             "Condition" = "8:"
@@ -208,7 +216,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Taller Automotriz"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_342577C9D57C43E3BBD57E51AAAAA014"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -319,10 +327,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_342577C9D57C43E3BBD57E51AAAAA014"
+            "Target" = "8:"
             "Folder" = "8:_6B9009409928430D8F3C12A1AF548643"
             "WorkingFolder" = "8:_19478C9E220940F08FB2EF20E30A11BB"
             "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AF024A74CCA040C6A9C1797274294394"
+            {
+            "Name" = "8:Shortcut to %sPublicar elementos from Taller Automotriz (Release Any CPU)"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D3F4CECB4F34441299DCF470C584A2B2"
+            "Folder" = "8:_FCF1E659EC244C319AE67BB907F8BA60"
+            "WorkingFolder" = "8:_19478C9E220940F08FB2EF20E30A11BB"
+            "Icon" = "8:_C1807B0BC3F34B379A245B766A95C5EE"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D712ACC3E90C4250BB1E6047278F9676"
@@ -333,10 +355,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_342577C9D57C43E3BBD57E51AAAAA014"
+            "Target" = "8:"
             "Folder" = "8:_FCF1E659EC244C319AE67BB907F8BA60"
             "WorkingFolder" = "8:_19478C9E220940F08FB2EF20E30A11BB"
             "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EB29D5CD58F2423984558888358734A7"
+            {
+            "Name" = "8:Shortcut to %sPublicar elementos from Taller Automotriz (Release Any CPU)"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D3F4CECB4F34441299DCF470C584A2B2"
+            "Folder" = "8:_6B9009409928430D8F3C12A1AF548643"
+            "WorkingFolder" = "8:_19478C9E220940F08FB2EF20E30A11BB"
+            "Icon" = "8:_C1807B0BC3F34B379A245B766A95C5EE"
             "Feature" = "8:"
             }
         }
